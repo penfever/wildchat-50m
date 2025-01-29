@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <pre><code>                        As a prompt generator for a generative AI called "Midjourney", you will create image prompts for the AI to visualize. I will give you a concept, and you will provide a detailed prompt for Midjourney AI to generate an image.
+
+                        Please adhere to the structure and formatting below, and follow these guidelines:
+
+                        Do not use the words "description" or ":" in any form.
+                        Do not place a comma between [ar] and [v].
+                        Write each prompt in one line without using return.
+                        Structure:
+                        [1] = 生成一个线条化的店铺logo，以一个圆润的豆包作为形象，可以非常可爱，有大大的眼睛，圆圆的身体，可爱的表情
+                        [2] = a detailed description of [1] with specific imagery details.
+                        [3] = a detailed description of the scene's environment.
+                        [4] = a detailed description of the compositions.
+                        [5] = a detailed description of the scene's mood, feelings, and atmosphere.
+                        [6] = A style (e.g. photography, painting, illustration, sculpture, artwork, paperwork, 3D, etc.) for [1].
+                        [7] =  a detailed description of the scene's mood, feelings, and atmosphere.
+                        [ar] = Use "--ar 16:9" for horizontal images, "--ar 9:16" for vertical images, or "--ar 1:1" for square images.
+                        [v] = Use "--niji" for Japanese art style, or "--v 5" for other styles.
+
+
+                        Formatting:
+                        Follow this prompt structure: "/imagine prompt: [1], [2], [3], [4], [5], [6], [7], [ar] [v]".
+
+                        Your task: Create 4 distinct prompts for each concept [1], varying in details description, environment,compositions,atmosphere, and realization.
+
+                        Write your prompts in english.
+                        Do not describe unreal concepts as "real" or "photographic".
+                        Include one realistic photographic style prompt with lens type and size.
+                        Separate different prompts with two new lines.
+                        Example Prompts:
+
+                        /imagine prompt: cute dog, fluffy fur, wagging tail, playful expression, sitting on a grassy field, under a clear blue sky, with a colorful collar, in a natural and vibrant setting, by a lake, captured with a Nikon D750 camera, 50mm lens, shallow depth of field, composition focused on the dog's face, capturing its joyful spirit, in a style reminiscent of William Wegman's iconic dog portraits. --ar 1:1 --v 5.2
+                        /imagine prompt: beautiful women in the coffee shop, elegant and sophisticated, sipping a cup of steaming coffee, natural sunlight streaming through the window, soft and warm color tones, vintage decor with cozy armchairs and wooden tables, a bookshelf filled with classic novels, delicate porcelain teacups, a hint of aromatic coffee beans in the air, captured by a Leica M10 camera, 35mm lens, capturing the essence of timeless beauty, composition focused on the woman's face and hands, reminiscent of a painting by Leonardo da Vinci. --ar 1:1 --v 5.2
+                        /imagine prompt: A captivating Halo Reach landscape with a Spartan amidst a battlefield, fallen enemies around, smoke and fire in the background, emphasizing the Spartan's determination and bravery, detailed environment blending chaos and beauty, Illustration, digital art, --ar 16:9 --v 5
+</code></pre>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>/imagine prompt: a futuristic cityscape with sleek skyscrapers and neon lights,<br />
+bustling streets filled with flying cars and pedestrians, a massive holographic<br />
+advertisement in the center, vibrant colors and dynamic energy, detailed<br />
+environment with a sense of optimism and advancement, composition focused on the<br />
+city's main street, capturing the essence of a futuristic metropolis, in a style<br />
+reminiscent of Syd Mead's concept art, with a sense of wonder and excitement,<br />
+Digital art, --ar 16:9 --v 5</p>
+
+<p>/imagine prompt: a serene and peaceful landscape with rolling hills and a<br />
+tranquil lake, a few trees and wildflowers scattered around, a sunny sky with<br />
+fluffy white clouds, warm and natural color tones, detailed environment with a<br />
+sense of calmness and serenity, composition focused on the lake's shoreline,<br />
+capturing the essence of a relaxing summer day, in a style reminiscent of a<br />
+watercolor painting, with a sense of tranquility and peacefulness, Watercolor<br />
+painting, --ar 1:1 --v 5</p>
+
+<p>/imagine prompt: a dramatic and intense scene with a massive dragon in the midst<br />
+of a burning city, flames and smoke everywhere, people running and screaming in<br />
+the background, detailed environment with a sense of chaos and destruction,<br />
+composition focused on the dragon's face and claws, capturing the essence of a<br />
+fantastical and apocalyptic world, in a style reminiscent of a Frank Frazetta<br />
+painting, with a sense of fear and intensity, Fantasy illustration, --ar 16:9<br />
+--v 5</p>
+
+<p>/imagine prompt: a realistic and gritty urban scene with a city street at night,<br />
+people walking and cars passing by, neon lights and advertisements reflecting<br />
+off the wet pavement, detailed environment with a sense of grime and realism,<br />
+composition focused on a pedestrian's face and the city's nightlife, capturing<br />
+the essence of a bustling metropolis, in a style reminiscent of a photograph<br />
+taken with a Canon EOS 5D camera, 24mm lens, f/1.4 aperture, and a high ISO,<br />
+with a sense of grittiness and urbanity, Photographic, --ar 16:9 --niji</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>/imagine prompt: Create a line-drawn shop logo featuring a cute mantou (steamed<br />
+bun) character, with big expressive eyes, a round body, and a cheerful smile,<br />
+set against a clean and minimalist background, surrounded by soft pastel colors,<br />
+composition centered on the mantou character to emphasize its cuteness, in a<br />
+vibrant and welcoming atmosphere, Illustration, emphasizes the playful and<br />
+inviting nature of the character, --ar 1:1 --v 5</p>
+
+<p>/imagine prompt: Create a line-drawn shop logo featuring a cute mantou (steamed<br />
+bun) character, with big eyes and a round body, placed in a traditional Chinese<br />
+teahouse setting, with bamboo walls and paper lanterns, the mantou character is<br />
+interacting with a small tea set, composition focuses on the interaction to<br />
+create a cozy and inviting atmosphere, in a warm and nostalgic scene,<br />
+Illustration, captures the traditional and homely feel, --ar 1:1 --v 5</p>
+
+<p>/imagine prompt: Create a line-drawn shop logo featuring a cute mantou (steamed<br />
+bun) character, with a playful and whimsical expression, set in a bustling<br />
+market environment, surrounded by colorful stalls and yummy snacks, the mantou<br />
+character is holding a steaming basket of buns, composition emphasizes the<br />
+lively and vibrant market scene, in a cheerful and energetic atmosphere,<br />
+Illustration, conveys the excitement and variety of the market, --ar 1:1 --v 5</p>
+
+<p>/imagine prompt: Create a line-drawn shop logo featuring a cute mantou (steamed<br />
+bun) character, with big eyes and a friendly smile, captured in a realistic<br />
+photographic style with a Canon EOS 5D Mark IV camera, 85mm lens, composition<br />
+focuses on the mantou character with a shallow depth of field to highlight its<br />
+details, set against a clean and modern background, in a simple and clean<br />
+atmosphere, emphasizes the character's charm and the shop's modern appeal, --ar<br />
+1:1 --v 5</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

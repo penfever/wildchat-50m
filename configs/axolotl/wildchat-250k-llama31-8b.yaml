@@ -1,0 +1,65 @@
+base_model: Qwen/Qwen2-7B
+trust_remote_code: true
+
+strict: false
+
+chat_template: llama3
+datasets:
+  - path: penfever/allenai_WildChat-1M-Full-meta-llama_Llama-3.1-8B-Instruct
+    type: chat_template
+    split: train[:25%]
+    field_messages: conversation
+    message_field_role: role
+    message_field_content: content
+
+dataset_prepared_path: /scratch/bf996/axolotl/datasets/wildchat-250k-llama-3.1-8b-instruct
+val_set_size: 0.02
+output_dir: /scratch/bf996/axolotl/outputs/qwen-2-7b-wildchat-250k-llama-3.1-8b-instruct
+
+sequence_len: 2048
+sample_packing: true
+pad_to_sequence_len: true
+
+wandb_project: lm-evals
+wandb_entity:
+wandb_watch:
+wandb_name: qwen-2-7b-WildChat-llama-3.1-8b-instruct
+wandb_log_model:
+hub_model_id: penfever/qwen-2-7b-WildChat-250k-llama-3.1-8b-instruct
+
+
+gradient_accumulation_steps: 8
+micro_batch_size: 1
+num_epochs: 1
+optimizer: paged_adamw_8bit
+lr_scheduler: cosine
+learning_rate: 2e-5
+
+train_on_inputs: false
+group_by_length: false
+bf16: auto
+fp16:
+tf32: false
+
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+early_stopping_patience:
+resume_from_checkpoint:
+logging_steps: 1
+xformers_attention:
+flash_attention: true
+
+warmup_steps: 100
+evals_per_epoch: 0
+eval_table_size:
+saves_per_epoch: 1
+debug:
+deepspeed:
+weight_decay: 0.0
+fsdp:
+fsdp_config:
+special_tokens:
+  pad_token: <|finetune_right_pad_id|>
+  eos_token: <|eot_id|>
+  bos_token: <|begin_of_text|>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>cool callsign for a fighter pilot who is great at remembering things</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Here are a few cool callsign ideas for a fighter pilot with exceptional memory:</p>
+
+<ol>
+<li><strong>Brainwave</strong>: implies a connection to the brain and its ability to process and recall information.</li>
+<li><strong>Memo</strong>: short and catchy, references the pilot's exceptional memory.</li>
+<li><strong>Database</strong>: suggests a vast repository of knowledge, which fits well with<br />
+the pilot's ability to recall information.</li>
+<li><strong>Scribe</strong>: refers to an ancient profession of recording and preserving<br />
+information, fitting for a pilot with a great memory.</li>
+<li><strong>Vault</strong>: implies a secure, reliable storage of information, which suits a<br />
+pilot who can recall critical details.</li>
+<li><strong>Mindseye</strong>: a play on the phrase "mind's eye," which references the pilot's<br />
+ability to recall visual information and mental maps.</li>
+<li><strong>Recall</strong>: straightforward and to the point, highlights the pilot's<br />
+exceptional memory.</li>
+<li><strong>Archives</strong>: suggests a vast, organized collection of knowledge, which fits<br />
+well with the pilot's ability to recall information.</li>
+<li><strong>Cerebro</strong>: means "brain" in Spanish, a clever and catchy callsign for a<br />
+pilot with exceptional cognitive abilities.</li>
+<li><strong>Mindbender</strong>: implies a pilot who can process and recall complex<br />
+information with ease.</li>
+</ol>
+
+<p>Choose the one that you think best fits the pilot's personality and style!</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>cool words that are related to memory</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Here are some cool words related to memory that could inspire a callsign for a<br />
+fighter pilot:</p>
+
+<ol>
+<li><strong>Mnemo</strong> (from "mnemonic," referring to a device that helps memory)</li>
+<li><strong>Recall</strong> (emphasizing the pilot's ability to recall information)</li>
+<li><strong>Sage</strong> (connoting wisdom and a strong memory)</li>
+<li><strong>Memo</strong> (short for "memorandum," implying a pilot with a sharp mind)</li>
+<li><strong>Remind</strong> (playing off the idea of reminding oneself of crucial information)</li>
+<li><strong>Archive</strong> (suggesting a pilot with a vast, organized memory)</li>
+<li><strong>Remix</strong> (implying a pilot who can recall and recombine information in<br />
+creative ways)</li>
+<li><strong>Lexicon</strong> (referring to a pilot with a vast mental dictionary of<br />
+information)</li>
+<li><strong>Flash</strong> (evoking the idea of quick, memorable insights)</li>
+<li><em>* Eidolon</em>* (derived from "eidetic," meaning having a highly detailed and<br />
+vivid memory)</li>
+</ol>
+
+<p>These words could be combined or modified to create a unique and memorable<br />
+callsign for a fighter pilot with exceptional memory skills. For example:</p>
+
+<ul>
+<li><strong>Mnemo Hawk</strong> (combining "mnemo" with a sharp, vigilant bird)</li>
+<li><strong>Sage Strike</strong> (emphasizing the pilot's wisdom and combat prowess)</li>
+<li><strong>Memo Fury</strong> (playing off the idea of a pilot with a sharp mind and fierce combat skills)</li>
+</ul>
+
+<p>Choose the one that best fits your fighter pilot's personality and style!</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>How about "Ace Memo" or "Memory Hawk"? Both names highlight the pilot's<br />
+exceptional memory while maintaining a strong, tactical feel fitting for a<br />
+fighter pilot.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>cool words that are related to memory</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Certainly! Here are some cool words related to memory that could inspire a<br />
+callsign:</p>
+
+<ol>
+<li><strong>Recall</strong></li>
+<li><strong>Echo</strong></li>
+<li><strong>Retain</strong></li>
+<li><em>* Mnemonic</em>*</li>
+<li><strong>Remembrance</strong></li>
+<li><strong>Archive</strong></li>
+<li><strong>Recollection</strong></li>
+<li><strong>Preserve</strong></li>
+<li><strong>Chronicle</strong></li>
+<li><strong>Vox</strong> (Latin for "voice," can imply the voice of memory)</li>
+</ol>
+
+<p>For a fighter pilot who is great at remembering things, you could combine these<br />
+words to create a unique and memorable callsign. For example:</p>
+
+<ul>
+<li><strong>"Recall Maverick"</strong></li>
+<li><strong>"Echo Guardian"</strong></li>
+<li><strong>"Mnemonic Falcon"</strong></li>
+<li><strong>"Remembrance Ace"</strong></li>
+<li><strong>"Archive Hawk"</strong></li>
+</ul>
+
+<p>Hope these suggestions help!</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

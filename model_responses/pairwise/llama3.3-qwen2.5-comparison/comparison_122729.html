@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>Translate to English</p>
+
+<p>"들어오세요, 감기 걸릴 거예요!"</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>A Korean expression!</p>
+
+<p>The translation is: "Come in, you'll catch a cold!"</p>
+
+<p>However, the more natural and idiomatic translation in English would be: "Come<br />
+in, or you'll catch your death of cold!" or simply "Come in, you'll get chilled<br />
+to the bone!"</p>
+
+<p>The expression is an warning to someone who is standing outside or in a cold<br />
+place, urging them to come inside to avoid catching a cold.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Break it down by morpheme and translate each one to English</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Here's the breakdown:</p>
+
+<ul>
+<li>들어 (deuleo) - Come in</li>
+<li>오세요 (oseyo) - polite suffix to make the command polite</li>
+<li>감기 (gamgi) - Cold (as in the illness)</li>
+<li>걸릴 (geolil) - Will catch/get</li>
+<li>거예요 (geoyeo) - polite suffix to make the sentence polite, similar to "will" in this context</li>
+</ul>
+
+<p>So the breakdown is:</p>
+
+<ul>
+<li>들어오세요 (deuleoseyo) - Come in (polite)</li>
+<li>감기 (gamgi) - Cold</li>
+<li>걸릴 (geolil) - Will catch/get</li>
+<li>거예요 (geoyeo) - (polite suffix, indicating future tense)</li>
+</ul>
+
+<p>The translation of this sentence is more like "Come in, or you'll catch a cold!"<br />
+The speaker is warning the listener to come inside to avoid getting sick.</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>The English translation of "들어오세요, 감기 걸릴 거예요!" is:</p>
+
+<p>"Come inside, you'll catch a cold!"</p>
+
+<p>This sentence is typically used when someone is urging another person to come<br />
+indoors to avoid getting sick from the cold weather or damp conditions.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>Break it down by morpheme and translate each one to English</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Sure! Here is the morpheme-by-morpheme breakdown of the Korean sentence "들어오세요,<br />
+감기 걸릴 거예요!" along with their translations:</p>
+
+<ol>
+<li><p><strong>들어오세요</strong>:</p>
+
+<ul>
+<li><strong>들어</strong> (deo-reo): come in (in the stem form)</li>
+<li><strong>오</strong> (o): come (verb stem)</li>
+<li><strong>세요</strong> (sey-o): polite imperative suffix (please)</li>
+</ul></li>
+<li><p><strong>감기</strong> (gam-gi): cold (noun)</p></li>
+<li><p><strong>걸릴</strong> (geol-il): to catch (in the infinitive form)</p></li>
+<li><p><strong>거예요</strong> (geo-ye-yo):</p>
+
+<ul>
+<li><strong>거</strong> (geo): thing, going to (future tense marker)</li>
+<li><strong>예요</strong> (ye-yo): polite sentence-ending (it is, will be)</li>
+</ul></li>
+</ol>
+
+<p>So, the breakdown is:</p>
+
+<ul>
+<li><strong>들어오세요</strong> (deo-reo-sey-o): Come in, please.</li>
+<li><strong>감기</strong> (gam-gi): cold</li>
+<li><strong>걸릴</strong> (geol-il): will catch</li>
+<li><strong>거예요</strong> (geo-ye-yo): will</li>
+</ul>
+
+<p>Putting it all together:</p>
+
+<p>"Come in, please, you will catch a cold!"</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

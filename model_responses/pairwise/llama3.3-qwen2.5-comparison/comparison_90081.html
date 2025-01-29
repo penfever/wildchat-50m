@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>Write Andy Sorkin style GoT quotes.</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>A challenge! Here are some quotes in the style of Aaron Sorkin, but set in the<br />
+world of Game of Thrones:</p>
+
+<ol>
+<li>"You know, I've been thinking, Tyrion. The problem with the Seven Kingdoms isn't the White Walkers, it's the entrenched bureaucracy. I mean, have you seen the paperwork involved in holding a simple council meeting in King's Landing? It's like they want the realm to be overrun by the dead."</li>
+<li>"I'm not arguing, Cersei. I'm just explaining why I'm right. There's a<br />
+difference. And if you can't see that, then perhaps you're not as cunning as you<br />
+think you are. Although, I have to admit, poisoning your enemies is a pretty<br />
+good hustle."</li>
+<li>"You can't just waltz into the Great Hall and start making demands, Jon Snow.<br />
+That's not how it works. You need to build consensus, work the room, make the<br />
+other lords and ladies feel like they're getting something out of the deal. It's<br />
+not about being the hero of the Realm, it's about being the hero of the<br />
+compromise."</li>
+<li>"I'm telling you, Davos, the key to winning the Iron Throne is not the army<br />
+or the dragons. It's the narrative. Who can tell the best story about why they<br />
+should be ruling Westeros? And let's be real, the Starks have a great story.<br />
+'We're the decent, honorable ones who will bring justice and stability to the<br />
+Realm.' I mean, who wouldn't want to vote for that?"</li>
+<li>"You know, Jaime, I've been thinking. The real tragedy of our time is not the<br />
+war or the bloodshed. It's the fact that we're still using the same outdated,<br />
+feudal system of government that we've been using for centuries. I mean, can you<br />
+imagine if we had a more modern, efficient system? One that actually represented<br />
+the will of the people? It's a nice dream, isn't it?"</li>
+</ol>
+
+<p>I hope these quotes capture the spirit of Aaron Sorkin's style, with a bit of<br />
+Game of Thrones flair!</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Certainly! Here are a few "Game of Thrones" quotes with an Andy Sorkin twist,<br />
+blending the sharp, witty dialogue with the epic and complex world of Westeros:</p>
+
+<ol>
+<li><p><strong>Ned Stark to Robert Baratheon:</strong><br />
+"You ask me to be your Hand, and I will serve with loyalty and honor. But if<br />
+I have to sit through one more of your feast-induced rants, I swear, I'll be the<br />
+one to end this reign of yours."</p></li>
+<li><p><strong>Tyrion Lannister to Jon Snow:</strong><br />
+"You know, Jon, in a just world, you'd be sitting on the Iron Throne. But<br />
+this isn't a just world. This is a world where I have to remind people that a<br />
+dwarf's opinion matters. So, let's not confuse them with your noble intentions."</p></li>
+<li><p><strong>Cersei Lannister to Jaime Lannister:</strong><br />
+"You may think you can protect me with your sword, Jaime, but the real battle<br />
+is fought with words. And in this war of words, I will be the one who speaks the<br />
+truth, while you're the one who gets all the glory."</p></li>
+<li><p><strong>Daenerys Targaryen to Jorah Mormont:</strong><br />
+"Jorah, I know you've been忠诚 to me, but loyalty is measured not just by the<br />
+sword, but by the tongue. And the tongue that speaks the truth, even when it<br />
+hurts, is the one I value most."</p></li>
+<li><p><strong>Arya Stark to Gendry:</strong><br />
+"You think you know me because I'm a Stark, but you have no idea what I've<br />
+seen, what I've done. I'm not just a girl from the North; I'm a survivor. And if<br />
+you can't keep up, then maybe you're not the blacksmith I thought you were."</p></li>
+<li><p><strong>Samwell Tarly to Gilly:</strong><br />
+"Gilly, the world is a harsh place, but it's also a place of wonder. There<br />
+are books to be read, knowledge to be gained, and even in the darkest of times,<br />
+there is always the hope of a brighter tomorrow. But we must fight for it, every<br />
+day."</p></li>
+<li><p><strong>Olenna Tyrell to Varys:</strong><br />
+"Varys, you're the Spider, and I'm the Queen of Thorns. We both know how to<br />
+manipulate the strings, but in the end, it's the one who plays the most honest<br />
+game who wins. And I have no intention of losing."</p></li>
+<li><p><strong>Jon Snow to Sansa Stark:</strong><br />
+"Sansa, we've both been through hell and back. But we're still standing, and<br />
+we're still fighting. That's what it means to be a Stark. We don't just endure;<br />
+we rise. And we will, no matter what comes our way."</p></li>
+</ol>
+
+<p>These quotes capture the essence of Andy Sorkin's style—sharp, intelligent, and<br />
+often a bit sarcastic—while staying true to the characters and the world of<br />
+"Game of Thrones."</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

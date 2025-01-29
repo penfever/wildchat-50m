@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>Change 0.0502 M of Na2CO3 into moles of HCl</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>To convert moles of Na2CO3 to moles of HCl, we need to consider the balanced<br />
+chemical equation between Na2CO3 and HCl:</p>
+
+<p>Na2CO3 + 2HCl → 2NaCl + CO2 + H2O</p>
+
+<p>From the equation, we can see that 1 mole of Na2CO3 reacts with 2 moles of HCl.</p>
+
+<p>Given: 0.0502 M of Na2CO3</p>
+
+<p>First, let's convert molarity to moles (assuming 1 liter of solution):<br />
+Moles of Na2CO3 = Molarity x Volume (in liters)<br />
+= 0.0502 M x 1 L<br />
+= 0.0502 mol</p>
+
+<p>Now, using the stoichiometry of the reaction:<br />
+1 mole of Na2CO3 reacts with 2 moles of HCl<br />
+So, 0.0502 mol of Na2CO3 will react with:<br />
+= 0.0502 mol x 2<br />
+= 0.1004 mol of HCl</p>
+
+<p>Therefore, 0.0502 M of Na2CO3 is equivalent to 0.1004 mol of HCl.</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>To convert the molarity (M) of sodium carbonate (Na₂CO₃) into moles of<br />
+hydrochloric acid (HCl), you need to use the balanced chemical equation for the<br />
+reaction between sodium carbonate and hydrochloric acid. The balanced reaction<br />
+is:</p>
+
+<p>[ \text{Na}<em>2\text{CO}</em>3 + 2\text{HCl} \rightarrow 2\text{NaCl} +<br />
+\text{H}<em>2\text{O} + \text{CO}</em>2 ]</p>
+
+<p>From the balanced equation, you can see that 1 mole of Na₂CO₃ reacts with 2<br />
+moles of HCl.</p>
+
+<p>Given:<br />
+- Molarity of Na₂CO₃ (M) = 0.0502 M</p>
+
+<p>To find the moles of HCl, you need to follow these steps:</p>
+
+<ol>
+<li><p><strong>Determine the moles of Na₂CO₃:</strong><br />
+Since molarity (M) is defined as moles of solute per liter of solution, and<br />
+you have 0.0502 M Na₂CO₃, this means that in 1 liter of solution, there are<br />
+0.0502 moles of Na₂CO₃.</p></li>
+<li><p><strong>Calculate the moles of HCl:</strong><br />
+According to the stoichiometry of the reaction, 1 mole of Na₂CO₃ reacts with<br />
+2 moles of HCl. Therefore, the moles of HCl required are:</p>
+
+<p>[<br />
+\text{Moles of HCl} = 2 \times \text{Moles of Na}<em>2\text{CO}</em>3<br />
+]</p>
+
+<p>Substituting the given moles of Na₂CO₃:</p>
+
+<p>[<br />
+\text{Moles of HCl} = 2 \times 0.0502 \text{ moles}<br />
+]</p>
+
+<p>[<br />
+\text{Moles of HCl} = 0.1004 \text{ moles}<br />
+]</p></li>
+</ol>
+
+<p>So, 0.0502 M of Na₂CO₃ would require 0.1004 moles of HCl to completely react.</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

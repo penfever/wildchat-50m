@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>write a full cast list (with full list of actors/actresses with their voices) if there was an American 1 hour 45 min animated emotional adventure comedy film based upon the 2016 video game Ori and the Blind Forest (titles The Ori Movie), from Netflix (Netflix presents, Universal Pictures (a Universal Pictures presentation), and Xbox (in association with Xbox), with directors, producers, writers, executive producers, editors, music composed and conducted by: Alan Silvestri, original song: "Our Way" (with songwriters (Adam Met, Jack Met, Ryan Met, Mark Nilan Jr, Zach Swanstrom) song producers (Ryan Met, Mark Nilan Jr), song performer (AJR), appears courtesy of), music supervisors, line producer, head of story, head of previsualization, animation director, production designer, lighting consultant (A.S.C.), production managers, character designers, feature animation by: Sony Pictures Imageworks, associate producer, animation supervisor, digital producer, digital production manager, CG supervisors, supervising art director, modeling supervisor, rigging supervisor, surfacing supervisor, layout supervisor, lighting supervisor, effects supervisor, character effects supervisor, associate editor, co-producer, supervising sound editors, re-recording mixers, casting by (C.S.A.), full cast (mixed-aged actors/actresses, with Ori voiced by a male actor) (with 8+ additional voices), and main plot synopsis. (Also include an acceptable MPA rating with a modern description (starting with 'action/peril, some violence,'.)</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Here is the full cast list and crew for the animated film "The Ori Movie":</p>
+
+<p><strong>Netflix presents, Universal Pictures (a Universal Pictures presentation), and<br />
+Xbox (in association with Xbox)</strong></p>
+
+<p><strong>The Ori Movie</strong></p>
+
+<p><strong>Main Plot Synopsis:</strong> In a mystical forest, a young creature named Ori embarks<br />
+on a journey to save his home and uncover the secrets of his past. Along the<br />
+way, he befriends a blind forest spirit named Sein, and together they brave<br />
+treacherous landscapes and battle fierce enemies to restore the forest to its<br />
+former glory.</p>
+
+<p><strong>MPA Rating:</strong> PG for action/peril, some violence, and thematic elements.</p>
+
+<p><strong>Cast:</strong></p>
+
+<ul>
+<li><strong>Ori</strong> (voiced by) <strong>Timothée Chalamet</strong>: A young, adventurous creature with a strong sense of determination and courage.</li>
+<li><strong>Sein</strong> (voiced by) <strong>Cate Blanchett</strong>: A wise, blind forest spirit who guides Ori on his journey.</li>
+<li><strong>Naru</strong> (voiced by) <strong>Zendaya</strong>: A kind-hearted, gentle creature who befriends Ori and helps him on his quest.</li>
+<li><strong>Gumo</strong> (voiced by) <strong>Jason Schwartzman</strong>: A bumbling, lovable creature who often provides comic relief.</li>
+<li><strong>Kuro</strong> (voiced by) <strong>Idris Elba</strong>: A powerful, menacing creature who serves as the main antagonist.</li>
+<li><strong>The Spirit Tree</strong> (voiced by) <strong>Helen Mirren</strong>: A wise, ancient tree who holds the secrets of the forest.</li>
+<li><strong>The Willow</strong> (voiced by) <strong>Tilda Swinton</strong>: A mysterious, ethereal creature who helps Ori on his journey.</li>
+<li><strong>The Mage</strong> (voiced by) <strong>Benedict Cumberbatch</strong>: A powerful, wise wizard who helps Ori understand his past.</li>
+<li><strong>The Gorle</strong> (voiced by) <strong>Nick Offerman</strong>: A gruff, lovable creature who provides comedic relief.</li>
+<li><strong>The Ancient One</strong> (voiced by) <strong>Morgan Freeman</strong>: A wise, ancient being who holds the secrets of the forest.</li>
+</ul>
+
+<p><strong>Crew:</strong></p>
+
+<ul>
+<li><strong>Directors:</strong> Dean DeBlois, Chris Sanders</li>
+<li><strong>Producers:</strong> Aron Warner, Eric Ellenbogen</li>
+<li><strong>Writers:</strong> Evan Spiliotopoulos, Gary Rydstrom</li>
+<li><strong>Executive Producers:</strong> Bonnie Arnold, Mireille Soria</li>
+<li><strong>Editors:</strong> Harry Hitner, Habib Zargarpour</li>
+<li><strong>Music Composed and Conducted by:</strong> Alan Silvestri</li>
+<li><strong>Original Song:</strong> "Our Way" (with songwriters Adam Met, Jack Met, Ryan Met, Mark Nilan Jr, Zach Swanstrom, song producers Ryan Met, Mark Nilan Jr, song performer AJR, appears courtesy of)</li>
+<li><strong>Music Supervisors:</strong> Tom MacDougall, Tricia Halloran</li>
+<li><strong>Line Producer:</strong> Michael Steinberg</li>
+<li><strong>Head of Story:</strong> Tony Bancroft</li>
+<li><strong>Head of Previsualization:</strong> Bill Zahn</li>
+<li><strong>Animation Director:</strong> Jan Pinkava</li>
+<li><strong>Production Designer:</strong> Christophe Lautrette</li>
+<li><strong>Lighting Consultant (A.S.C.):</strong> Kevin Baker</li>
+<li><strong>Production Managers:</strong> Susan Goldberg, Jill A. Yetnikoff</li>
+<li><strong>Character Designers:</strong> Sang Jun Lee, Serguei Kouchnerov</li>
+<li><strong>Feature Animation by:</strong> Sony Pictures Imageworks</li>
+<li><strong>Associate Producer:</strong> Barrett Lewis</li>
+<li><strong>Animation Supervisor:</strong> Glen Sylvester</li>
+<li><strong>Digital Producer:</strong> Shelly Smithson</li>
+<li><strong>Digital Production Manager:</strong> Monica Francis</li>
+<li><strong>CG Supervisors:</strong> Vincent Aupetit, Mazgui Safra</li>
+<li><strong>Supervising Art Director:</strong> Pascal Garneau</li>
+<li><strong>Modeling Supervisor:</strong> Justin Schulz</li>
+<li><strong>Rigging Supervisor:</strong> Ryan Beadle</li>
+<li><strong>Surfacing Supervisor:</strong> Saurabh Dolas</li>
+<li><strong>Layout Supervisor:</strong> Derek Ultrisch</li>
+<li><strong>Lighting Supervisor:</strong> Terry Smith</li>
+<li><strong>Effects Supervisor:</strong> Pete Broudsky</li>
+<li><strong>Character Effects Supervisor:</strong> James Ross</li>
+<li><strong>Associate Editor:</strong> Janice Chong</li>
+<li><strong>Co-Producer:</strong> Gordon Hollingshead</li>
+<li><strong>Supervising Sound Editors:</strong> Randy Thom, Dennis Leonard</li>
+<li><strong>Re-Recording Mixers:</strong> Gary Rizzo, Tom Johnson</li>
+<li><strong>Casting by (C.S.A.):</strong> Jamie Sparer Roberts</li>
+</ul>
+
+<p>Note: The cast and crew listed are just examples and may not reflect the actual<br />
+cast and crew of a real film.</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p><strong>The Ori Movie</strong></p>
+
+<p><strong>Title:</strong> The Ori Movie<br />
+<strong>Runtime:</strong> 1 hour 45 minutes<br />
+<strong>MPA Rating:</strong> PG (Action/peril, some violence, and mild thematic elements)<br />
+<strong>Presentation:</strong> Netflix Presents, Universal Pictures (A Universal Pictures<br />
+Presentation), in association with Xbox</p>
+
+<p><strong>Plot Synopsis:</strong><br />
+In a world of ancient, magical forests and forgotten realms, a guardian spirit<br />
+named Ori and his adopted sister, Sein, embark on a perilous journey to uncover<br />
+the truth about their past and save their world from a looming darkness. Along<br />
+the way, they encounter mystical creatures, face daunting challenges, and learn<br />
+the true meaning of love, sacrifice, and the power of hope.</p>
+
+<p><strong>Cast:</strong><br />
+- <strong>Ori</strong> (Voice) - <strong>Tom Holland</strong><br />
+- <strong>Sein</strong> (Voice) - <strong>Zendaya</strong><br />
+- <strong>Naru</strong> (Voice) - <strong>Brie Larson</strong><br />
+- <strong>Shard</strong> (Voice) - <strong>John Krasinski</strong><br />
+- <strong>Ku</strong> (Voice) - <strong>Awkwafina</strong><br />
+- <strong>Spirit Tree</strong> (Voice) - <strong>James Earl Jones</strong><br />
+- <strong>Gumo</strong> (Voice) - <strong>Ken Jeong</strong><br />
+- <strong>Umulu</strong> (Voice) - <strong>Nick Offerman</strong><br />
+- <strong>Mazu</strong> (Voice) - <strong>Tessa Thompson</strong><br />
+- <strong>Urpo</strong> (Voice) - <strong>Seth Rogen</strong><br />
+- <strong>Kwolok</strong> (Voice) - <strong>Timothy Olyphant</strong><br />
+- <strong>Kwabok</strong> (Voice) - <strong>Cara Delevingne</strong><br />
+- <strong>Lumino</strong> (Voice) - <strong>John Cho</strong><br />
+- <strong>Belos</strong> (Voice) - <strong>Wes Studi</strong>  </p>
+
+<p><strong>Directors:</strong><br />
+- <strong>Chris Buck</strong> and <strong>Jennifer Lee</strong></p>
+
+<p><strong>Producers:</strong><br />
+- <strong>Don Hahn</strong><br />
+- <strong>Clark Spencer</strong><br />
+- <strong>Yves Bienvenu</strong></p>
+
+<p><strong>Writers:</strong><br />
+- <strong>Jennifer Lee</strong><br />
+- <strong>Chris Buck</strong><br />
+- <strong>Michael Giacchino</strong></p>
+
+<p><strong>Executive Producers:</strong><br />
+- <strong>Peter Del Vecho</strong><br />
+- <strong>Ryan Cooney</strong></p>
+
+<p><strong>Editors:</strong><br />
+- <strong>Tim Mertens</strong><br />
+- <strong>Christopher Greenbury</strong></p>
+
+<p><strong>Music Composed and Conducted by:</strong><br />
+- <strong>Alan Silvestri</strong></p>
+
+<p><strong>Original Song:</strong><br />
+- <strong>"Our Way"</strong><br />
+  - Songwriters: <strong>Adam Met, Jack Met, Ryan Met, Mark Nilan Jr, Zach Swanstrom</strong><br />
+  - Song Producers: <strong>Ryan Met, Mark Nilan Jr</strong><br />
+  - Song Performer: <strong>AJR</strong><br />
+  - Appears courtesy of</p>
+
+<p><strong>Music Supervisors:</strong><br />
+- <strong>Dave Jordan</strong><br />
+- <strong>Justin Warfield</strong></p>
+
+<p><strong>Line Producer:</strong><br />
+- <strong>David Maisel</strong></p>
+
+<p><strong>Head of Story:</strong><br />
+- <strong>Kira Lehtomäki</strong></p>
+
+<p><strong>Head of Previsualization:</strong><br />
+- <strong>Jorge R. Gutierrez</strong></p>
+
+<p><strong>Animation Director:</strong><br />
+- <strong>Nick Bruno</strong></p>
+
+<p><strong>Production Designer:</strong><br />
+- <strong>Walt Conti</strong></p>
+
+<p><strong>Lighting Consultant (A.S.C.):</strong><br />
+- <strong>Ian Vertovec</strong></p>
+
+<p><strong>Production Managers:</strong><br />
+- <strong>Michael Peña</strong><br />
+- <strong>Renee Nault</strong></p>
+
+<p><strong>Character Designers:</strong><br />
+- <strong>Glen Keane</strong><br />
+- <strong>Sandy J. Lo</strong></p>
+
+<p><strong>Feature Animation by:</strong><br />
+- <strong>Sony Pictures Imageworks</strong></p>
+
+<p><strong>Associate Producer:</strong><br />
+- <strong>Kaleidoscope</strong></p>
+
+<p><strong>Animation Supervisors:</strong><br />
+- <strong>Jean-Claude Mauzey</strong><br />
+- <strong>Aaron Ehasz</strong></p>
+
+<p><strong>Digital Producer:</strong><br />
+- <strong>Sara Bennett</strong></p>
+
+<p><strong>Digital Production Manager:</strong><br />
+- <strong>John DiMaggio</strong></p>
+
+<p><strong>CG Supervisors:</strong><br />
+- <strong>Dominic DeynDISPLAY</strong><br />
+- <strong>Scott Peterson</strong></p>
+
+<p><strong>Supervising Art Director:</strong><br />
+- <strong>Mark W. Bomback</strong></p>
+
+<p><strong>Modeling Supervisor:</strong><br />
+- <strong>Randy Ewington</strong></p>
+
+<p><strong>Rigging Supervisor:</strong><br />
+- <strong>Mark Dippé</strong></p>
+
+<p><strong>Surfacing Supervisor:</strong><br />
+- <strong>Fabio Lignini</strong></p>
+
+<p><strong>Layout Supervisor:</strong><br />
+- <strong>Peter Nuschen</strong></p>
+
+<p><strong>Lighting Supervisor:</strong><br />
+- <strong>Nz=config</strong></p>
+
+<p><strong>Effects Supervisor:</strong><br />
+- <strong>David Stephens</strong></p>
+
+<p><strong>Character Effects Supervisor:</strong><br />
+- <strong>Scott Anderson</strong></p>
+
+<p><strong>Associate Editor:</strong><br />
+- <strong>Chris Burrows</strong></p>
+
+<p><strong>Co-Producer:</strong><br />
+- <strong>Kirsten Schaffer</strong></p>
+
+<p><strong>Supervising Sound Editors:</strong><br />
+- <strong>Andy Nelson</strong><br />
+- <strong>Beau Borders</strong></p>
+
+<p><strong>Re-Recording Mixers:</strong><br />
+- <strong>Mike Prestwood Smith</strong><br />
+- <strong>Stuart Wilson</strong></p>
+
+<p><strong>Casting by (C.S.A.):</strong><br />
+- <strong>Avy Kaufman</strong></p>
+
+<p><strong>Full Cast:</strong><br />
+- <strong>Ori</strong> - Tom Holland<br />
+- <strong>Sein</strong> - Zendaya<br />
+- <strong>Naru</strong> - Brie Larson<br />
+- <strong>Shard</strong> - John Krasinski<br />
+- <strong>Ku</strong> - Awkwafina<br />
+- <strong>Spirit Tree</strong> - James Earl Jones<br />
+- <strong>Gumo</strong> - Ken Jeong<br />
+- <strong>Umulu</strong> - Nick Offerman<br />
+- <strong>Mazu</strong> - Tessa Thompson<br />
+- <strong>Urpo</strong> - Seth Rogen<br />
+- <strong>Kwolok</strong> - Timothy Olyphant<br />
+- <strong>Kwabok</strong> - Cara Delevingne<br />
+- <strong>Lumino</strong> - John Cho<br />
+- <strong>Belos</strong> - Wes Studi<br />
+- <strong>Additional Voices</strong>:<br />
+  - <strong>Emma Stone</strong> (Owl Elder)<br />
+  - <strong>Chris Pratt</strong> (Forest Guardian)<br />
+  - <strong>Laura Dern</strong> (Ancient Spirit)<br />
+  - <strong>Bill Hader</strong> (Forest Cricket)<br />
+  - <strong>T reven</strong> (Mystic Owl)<br />
+  - <strong>Tiffany Haddish</strong> (Forest Nymph)<br />
+  - <strong>John Lithgow</strong> (Elder Tree)<br />
+  - <strong>Sofia Boutella</strong> (Forest Spirit)</p>
+
+<p><strong>Summary:</strong><br />
+<strong>The Ori Movie</strong> is a heartwarming and adventurous tale that combines stunning<br />
+animation, emotional depth, and a richly crafted world. With a star-studded cast<br />
+and a score by the legendary Alan Silvestri, this film is a testament to the<br />
+power of friendship, courage, and the unbreakable bonds of family. Join Ori and<br />
+Sein on their epic journey through the enchanted forest of Ninopal and discover<br />
+the magic that lies within.</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

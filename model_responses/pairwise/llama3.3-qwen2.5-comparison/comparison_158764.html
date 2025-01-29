@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>what do you understand by street hypnosis?</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Street hypnosis, also known as informal hypnosis or conversational hypnosis,<br />
+refers to the use of hypnosis techniques in everyday, casual conversations,<br />
+often in a street or social setting, rather than in a formal therapeutic or<br />
+clinical environment.</p>
+
+<p>Street hypnosis typically involves using suggestive language, body language, and<br />
+other non-verbal cues to induce a trance-like state in a person, often without<br />
+their conscious awareness. The goal of street hypnosis can vary, but it's often<br />
+used to influence a person's thoughts, feelings, or behaviors in a subtle and<br />
+non-intrusive way.</p>
+
+<p>Some common characteristics of street hypnosis include:</p>
+
+<ol>
+<li><strong>Conversational tone</strong>: Street hypnosis is often delivered in a casual, conversational tone, making it seem like a normal conversation.</li>
+<li><strong>Embedded suggestions</strong>: Suggestions are embedded in the conversation, often<br />
+using techniques like metaphors, storytelling, or double meanings.</li>
+<li><strong>Non-verbal cues</strong>: Body language, eye contact, and other non-verbal cues<br />
+are used to reinforce the suggestions and create a sense of rapport.</li>
+<li><strong>Indirect language</strong>: Street hypnotists often use indirect language, such as<br />
+"You might feel" or "Imagine yourself," to avoid direct suggestions and increase<br />
+the likelihood of acceptance.</li>
+<li><strong>Trance induction</strong>: The goal is to induce a light trance state, often using<br />
+techniques like progressive relaxation, visualization, or confusion.</li>
+</ol>
+
+<p>Street hypnosis can be used for various purposes, including:</p>
+
+<ol>
+<li><strong>Influence and persuasion</strong>: To influence a person's decisions or behaviors.</li>
+<li><strong>Therapy</strong>: To help people overcome phobias, anxieties, or other issues in a<br />
+non-traditional setting.</li>
+<li><strong>Entertainment</strong>: As a form of street performance or stage hypnosis.</li>
+<li><strong>Personal development</strong>: To help individuals overcome self-doubt, build<br />
+confidence, or improve their self-image.</li>
+</ol>
+
+<p>It's essential to note that street hypnosis can be controversial, as it may be<br />
+used unethically or without the person's informed consent. As with any form of<br />
+hypnosis, it's crucial to prioritize respect, ethics, and the well-being of the<br />
+individual being hypnotized.</p>
+
+<p>Do you have any specific questions about street hypnosis or its applications?</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Street hypnosis refers to the practice of hypnotizing individuals in public<br />
+spaces, often for entertainment purposes. This form of hypnosis is typically<br />
+performed by skilled hypnotists who engage with willing participants, usually<br />
+after a brief conversation to build rapport and establish consent. The hypnotist<br />
+uses various techniques to induce a trance state, which can range from simple<br />
+relaxation techniques to more complex verbal and visual cues.</p>
+
+<p>Key aspects of street hypnosis include:</p>
+
+<ol>
+<li><p><strong>Public Setting</strong>: Unlike traditional hypnosis, which often takes place in a clinical or private setting, street hypnosis occurs in public places such as streets, parks, or events.</p></li>
+<li><p><strong>Entertainment Value</strong>: Street hypnosis is often performed for the amusement<br />
+of both the participant and onlookers. The hypnotist might suggest various<br />
+behaviors or actions that are amusing or intriguing.</p></li>
+<li><p><strong>Rapport Building</strong>: The hypnotist usually spends some time getting to know<br />
+the participant, establishing trust, and creating a comfortable environment<br />
+before beginning the hypnosis.</p></li>
+<li><p><strong>Consent</strong>: Participation is always voluntary, and the hypnotist must obtain<br />
+clear consent from the individual before proceeding.</p></li>
+<li><p><strong>Techniques</strong>: Various techniques such as direct suggestion, guided imagery,<br />
+and the use of anchors (triggers to elicit a specific response) are employed to<br />
+induce the hypnotic state.</p></li>
+<li><p><strong>Ethical Considerations</strong>: Ethical street hypnotists ensure that the<br />
+experience is safe, respectful, and enjoyable for the participant. They avoid<br />
+suggesting harmful or inappropriate behaviors and ensure that the participant is<br />
+fully awake and aware before leaving the hypnotic state.</p></li>
+</ol>
+
+<p>Street hypnosis can be a fascinating display of the power of suggestion and the<br />
+human mind, provided it is conducted ethically and with the full cooperation of<br />
+the participant.</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

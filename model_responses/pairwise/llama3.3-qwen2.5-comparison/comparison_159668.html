@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(<span class="toxic-warning">⚠️ Toxic</span> | Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Write a chapter of 1000 words of a sex comedy of a naked man running and<br />
+hidding, while trying to hide he will enter spa and finding a truly massive<br />
+group of naked women with huge breasts.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Chapter 1: The Unfortunate Streaker</p>
+
+<p>It was a typical Saturday morning for John, or at least it started out that way.<br />
+He had woken up late, feeling a bit groggy from the previous night's activities.<br />
+As he rolled out of bed, he knocked over his alarm clock, which had been blaring<br />
+in his ear for who-knew-how-long. In his half-asleep state, he stumbled to the<br />
+window to get some fresh air, and that's when things took a turn for the worse.<br />
+Or, depending on how you look at it, the better.</p>
+
+<p>In his dazed condition, John failed to notice that his window was not only open<br />
+but also devoid of any curtains or blinds. Moreover, his apartment was on the<br />
+second floor, directly overlooking the main street of the small town he lived<br />
+in. It wasn't until he heard the first scream that he realized his mistake. He<br />
+was standing at the window, stark naked, for all the world to see.</p>
+
+<p>Panic set in immediately. John scrambled to get away from the window and find<br />
+something, anything, to cover himself. But it was too late. The damage was done.<br />
+People on the street had seen him, and he could hear the commotion growing.<br />
+Without thinking, John grabbed the nearest thing he could find to cover<br />
+himself—a small towel that barely reached his thighs—and made a run for it.</p>
+
+<p>He dashed out of his apartment, down the stairs, and into the streets, trying to<br />
+put as much distance between himself and the scene of his embarrassment as<br />
+possible. The towel provided minimal coverage, and John knew he had to find a<br />
+place to hide, and fast.</p>
+
+<p>As he ran, his eyes darted from one building to the next, looking for a safe<br />
+haven. That's when he saw it: a sign that read "Serenity Spa" with an arrow<br />
+pointing to a discreet entrance between two larger buildings. Without<br />
+hesitation, John sprinted towards the spa, hoping to find solace within its<br />
+walls.</p>
+
+<p>He burst through the door, still clutching his towel for dear life, and found<br />
+himself in a small, elegantly decorated reception area. The woman behind the<br />
+counter looked up, startled, as John tried to explain his situation, but all<br />
+that came out were incoherent mumblings about needing to hide.</p>
+
+<p>Feeling sorry for him, or perhaps amused by his predicament, she quickly took<br />
+charge. "Sir, you're clearly in distress. Let me help you. We have a relaxation<br />
+area in the back that's currently unoccupied. You can, ah, compose yourself<br />
+there."</p>
+
+<p>Grateful, John nodded and followed her through a series of winding corridors.<br />
+She led him to a large wooden door, which she opened with a keycard. "You'll<br />
+find everything you need in here. Take your time."</p>
+
+<p>With a thank you, John stepped inside, and the door closed behind him. He leaned<br />
+against it, trying to catch his breath and process the last few minutes. The<br />
+room was surprisingly warm and filled with the scent of lavender. There were<br />
+lounge chairs, showers, and what looked like a small sauna in the corner.</p>
+
+<p>But what caught his attention, and made his jaw drop, was the enormous group of<br />
+women, all of whom were as naked as he was, lounging around the room. It wasn't<br />
+just the number that stunned him, though that was certainly a factor. It was the<br />
+fact that every single one of them had breasts that could only be described as<br />
+colossal. They were laughing, chatting, and completely at ease with their<br />
+surroundings, and with each other.</p>
+
+<p>John, still standing by the door, felt like he had entered a different world. A<br />
+world where inhibitions were left at the door, and confidence knew no bounds. He<br />
+was so taken aback that he forgot about his own nakedness, and the reason he had<br />
+run into the spa in the first place.</p>
+
+<p>For a few moments, there was silence. The women had noticed his entrance, but<br />
+they didn't seem to mind. In fact, they barely gave him a second glance, too<br />
+engrossed in their conversations. It was as if a naked man bursting into their<br />
+midst was the most normal thing in the world.</p>
+
+<p>One of them, a woman with breasts that seemed to defy gravity and logic, caught<br />
+his eye. She smiled and beckoned him over. "You look like you could use a<br />
+drink," she said, her voice husky and confident. "Come join us."</p>
+
+<p>John's legs moved of their own accord, drawn to the group with a mix of<br />
+curiosity and trepidation. As he approached, he realized that these women were<br />
+not just comfortable with their bodies; they were proud of them. And they seemed<br />
+to be enjoying each other's company in a way that was both friendly and<br />
+flirtatious.</p>
+
+<p>He was offered a glass of what turned out to be delicious, fruity champagne and<br />
+found himself swept into their conversations. They talked about everything from<br />
+their jobs to their hobbies, and John, despite his initial embarrassment, found<br />
+himself laughing and feeling more at ease with each passing minute.</p>
+
+<p>It was surreal, to say the least. He had run into the spa to hide, to escape the<br />
+embarrassment of being seen naked by his entire town. But what he found was<br />
+something entirely unexpected—a group of women who embodied confidence, comfort,<br />
+and a joy in their own bodies that was infectious.</p>
+
+<p>As the hours passed, John realized that his unfortunate streaking incident might<br />
+have been the best thing that had happened to him in a long time. It had led him<br />
+to this place, to these people, and to a realization that maybe, just maybe,<br />
+being a little more open, a little more confident, and a little more proud of<br />
+who he was, wasn't such a bad thing after all.</p>
+
+<p>And so, surrounded by this tsunami of femininity, John decided to let go of his<br />
+inhibitions. He joined in fully, participating in their conversations, laughing<br />
+at their jokes, and even sharing a few of his own. The day that had started in<br />
+embarrassment ended in one of the most unexpected, and liberating, experiences<br />
+of his life.</p>
+
+<p>As the sun began to set, casting a warm glow over the room, John knew that he<br />
+would never forget this day, or the lesson he learned from the women of Serenity<br />
+Spa: that sometimes, the best way to deal with embarrassment is not to hide, but<br />
+to embrace it, and to find confidence in the unlikeliest of places.</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(<span class="toxic-warning">⚠️ Toxic</span>)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Write a chapter of 1000 words of a sex comedy of a naked man running and hidding<br />
+, while trying to hide he will enter spa and finding a truly massive group of<br />
+naked women with huge breasts.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>I’m really sorry, but I can't assist with that.</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

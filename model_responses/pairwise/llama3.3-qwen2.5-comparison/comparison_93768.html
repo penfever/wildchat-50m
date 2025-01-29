@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>shoulder pain can be tough in a school day because you carry heavily stuffs </p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Shoulder pain can be a real challenge, especially for students who have to carry<br />
+heavy backpacks, books, and other school supplies throughout the day. The<br />
+constant weight and strain on the shoulders can lead to discomfort, fatigue, and<br />
+even long-term damage.</p>
+
+<p>Some common causes of shoulder pain in students include:</p>
+
+<ol>
+<li><strong>Overloading</strong>: Carrying heavy backpacks or bags with too many books, laptops, or other items can put excessive strain on the shoulders.</li>
+<li><strong>Poor posture</strong>: Slouching or leaning to one side while carrying a heavy<br />
+load can lead to uneven distribution of weight, causing strain on the shoulders.</li>
+<li><strong>Repetition</strong>: Repeatedly lifting, carrying, or reaching for heavy objects<br />
+can cause wear and tear on the shoulder joints and muscles.</li>
+<li><strong>Muscle imbalances</strong>: Weak or tight muscles in the shoulders, back, or arms<br />
+can contribute to poor posture and movement patterns, leading to shoulder pain.</li>
+</ol>
+
+<p>To alleviate shoulder pain, students can try the following:</p>
+
+<ol>
+<li><strong>Use a backpack with proper support</strong>: Choose a backpack with padded straps and a hip belt to distribute the weight more evenly.</li>
+<li><strong>Pack light</strong>: Only carry essential items and consider using a locker or<br />
+cubby to store books and other supplies.</li>
+<li><strong>Take breaks</strong>: Regularly take breaks to stretch, move around, and rest the<br />
+shoulders.</li>
+<li><strong>Improve posture</strong>: Maintain good posture by standing or sitting up<br />
+straight, with shoulders relaxed and down.</li>
+<li><strong>Strengthen shoulder muscles</strong>: Engage in exercises that strengthen the<br />
+shoulder muscles, such as shoulder rolls, arm circles, and shoulder blade<br />
+squeezes.</li>
+<li><strong>Consider a bag with wheels</strong>: If possible, use a bag with wheels to reduce<br />
+the need for carrying heavy loads.</li>
+</ol>
+
+<p>It's essential for students to prioritize their shoulder health and take<br />
+proactive steps to prevent and manage shoulder pain. By making a few simple<br />
+adjustments to their daily routine, students can reduce their risk of shoulder<br />
+pain and maintain a healthy, happy back!</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Shoulder pain can indeed be a significant issue, especially for students who<br />
+often have to carry heavy backpacks filled with textbooks, laptops, and other<br />
+school supplies. Here are a few tips to help manage and reduce shoulder pain:</p>
+
+<ol>
+<li><p><strong>Use a Backpack with Proper Support:</strong></p>
+
+<ul>
+<li>Choose a backpack with wide, padded straps to distribute the weight more<br />
+evenly.</li>
+<li>Opt for a backpack with a padded back to reduce pressure on the back and<br />
+shoulders.</li>
+<li>Consider a backpack with a hip belt to transfer some of the weight to your<br />
+hips.</li>
+</ul></li>
+<li><p><strong>Pack Smart:</strong></p>
+
+<ul>
+<li>Distribute the weight evenly. Heavier items should be placed closer to the<br />
+center of the back.</li>
+<li>Avoid overpacking. Only carry what is necessary for the day.</li>
+<li>Use all the compartments to balance the load.</li>
+</ul></li>
+<li><p><strong>Wear the Backpack Correctly:</strong></p>
+
+<ul>
+<li>Always use both straps. Wearing the backpack on one shoulder can cause<br />
+uneven weight distribution and lead to pain.</li>
+<li>Adjust the straps so that the backpack sits close to the body and the<br />
+bottom of the backpack is above the hips.</li>
+</ul></li>
+<li><p><strong>Take Breaks:</strong></p>
+
+<ul>
+<li>If possible, take breaks to rest your shoulders. Remove the backpack and<br />
+stretch your back and shoulders.</li>
+<li>Use locker breaks to store heavy items and lighten your load.</li>
+</ul></li>
+<li><p><strong>Strengthen Your Shoulders and Back:</strong></p>
+
+<ul>
+<li>Engage in regular exercises to strengthen the muscles in your shoulders and<br />
+back. This can help improve posture and reduce the risk of pain.</li>
+<li>Simple exercises like shoulder rolls, arm circles, and back stretches can<br />
+be done daily.</li>
+</ul></li>
+<li><p><strong>Maintain Good Posture:</strong></p>
+
+<ul>
+<li>Be mindful of your posture, especially when sitting or standing. Slouching<br />
+can increase the strain on your shoulders and back.</li>
+<li>Use ergonomic seating and desk setups if possible.</li>
+</ul></li>
+<li><p><strong>Ergonomic Adjustments:</strong></p>
+
+<ul>
+<li>If you use a laptop frequently, consider using a separate keyboard and<br />
+mouse to reduce the strain on your shoulders and wrists.</li>
+<li>Adjust the height of your chair and desk to ensure your shoulders are<br />
+relaxed and your arms are at a comfortable angle.</li>
+</ul></li>
+<li><p><strong>Seek Professional Help:</strong></p>
+
+<ul>
+<li>If the pain persists or worsens, consult a healthcare professional like a<br />
+physical therapist or a doctor. They can provide personalized advice and<br />
+treatment options.</li>
+</ul></li>
+</ol>
+
+<p>By following these tips, you can help alleviate shoulder pain and make your<br />
+school days more comfortable.</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

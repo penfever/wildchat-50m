@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>Write the following story. I'm a college guy watching a summer camp slasher movie with my friends we just started it. I have a rugged style. I magically get transported into the movie but without my outfit. It's still early in the movie so nothing scary has happened yet and it's daytime. I panic and hide in some bushes. I see a cabin window open and sneak in through it. I look around. I'm in a laundry room. I grab the first male counselor uniform I see. The movie is set in the 70s so all the fashion is various 70s styles. A group of male counselors enter and seem surprised by my arrival but then decide I must be the counselor who still hasn't showed up. They call me by his name and guide me to the shared male counselor cabin. I see they've each claimed a bed and unpacked their things. There's one unclaimed bed that just has a suitcase on top of it. They tell me it's my stuff. I open the suitcase and it's full to the brim with stuff fitting only the preppiest of 70s male teenagers. I grimace and take a deep breath unsure if how I'll get out of this scenario. The counselors tell me to change into one of my other outfits so we can go hang with the other counselors before the campers arrive. I reluctantly change into one of the suitcase outfits. Another preppy male counselor remarks on my hair and beard and asks if I need products to tame them. I try to decline but he presses me and gets to shaving off my beard and trimming my hair into a preppy 70s style.</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>I settled into the couch, cracking open a cold beer as my friends and I started<br />
+the summer camp slasher movie. The opening credits rolled, and we were all<br />
+stoked for a night of cheesy horror and laughs. I was rocking my usual rugged<br />
+style - flannel shirt, ripped jeans, and a few days' worth of stubble. But as I<br />
+took a swig of my beer, something weird happened. The room began to blur, and I<br />
+felt a strange sensation, like I was being pulled through a vortex. The next<br />
+thing I knew, I was standing in the middle of a sunny forest, surrounded by<br />
+trees and the sound of chirping birds. I looked down and realized I was no<br />
+longer wearing my clothes - I was stark naked.</p>
+
+<p>Panic set in as I frantically scanned my surroundings. I had no idea where I was<br />
+or how I got there. The movie, I realized, had become my reality. I spotted some<br />
+bushes and sprinted towards them, diving into the underbrush just as a group of<br />
+campers walked by, chatting and laughing. I held my breath, watching as they<br />
+disappeared into the distance.</p>
+
+<p>As I caught my breath, I noticed a cabin window open a short distance away.<br />
+Without hesitation, I sprinted towards it and hoisted myself up, slipping inside<br />
+just as quietly as I could. I found myself in a laundry room, with rows of<br />
+washing machines and dryers lining the walls. My eyes scanned the room, and I<br />
+spotted a rack of clothes - male counselor uniforms, by the looks of it. I<br />
+grabbed the first one I saw, a bright yellow shirt with a goofy logo on the<br />
+pocket, and pulled it on. The pants were a bit tight, but I didn't care - I just<br />
+wanted to blend in.</p>
+
+<p>Just as I finished dressing, a group of male counselors burst into the room,<br />
+looking surprised to see me standing there. But as they took in my borrowed<br />
+uniform, their expressions changed to confusion. "Dude, you must be Brad," one<br />
+of them said, clapping me on the back. "We were starting to think you weren't<br />
+going to show up." I hesitated, unsure of what to say, but they just nodded and<br />
+started guiding me towards the shared male counselor cabin.</p>
+
+<p>As we walked, I tried to take in my surroundings. The camp was a vibrant,<br />
+pulsing thing, with counselors and staff scurrying about, preparing for the<br />
+arrival of the campers. We reached the cabin, and I was greeted by a row of<br />
+claimed beds, each one piled high with clothes and personal belongings. There<br />
+was one bed, however, that stood out - a simple metal frame with a suitcase<br />
+sitting on top of it. "That's your stuff, Brad," one of the counselors said,<br />
+nodding towards the suitcase.</p>
+
+<p>I opened it, and my heart sank. The suitcase was packed to the brim with the<br />
+most outrageous, preppy outfits I'd ever seen - pastel-colored shirts, high-<br />
+waisted shorts, and enough polyester to make my eyes water. I grimaced, feeling<br />
+like I was going to have to swallow my pride and become "Brad" if I was going to<br />
+survive this ordeal.</p>
+
+<p>The counselors, oblivious to my distress, started urging me to change into one<br />
+of my "other outfits" so we could head out and hang with the other counselors. I<br />
+reluctantly pulled out a garish orange shirt and a pair of plaid pants, feeling<br />
+like I was putting on a costume. As I changed, one of the counselors - a preppy-<br />
+looking guy with a blond pompadour - eyed me up and down. "Dude, you might want<br />
+to do something about that hair and beard," he said, wrinkling his nose. "You<br />
+look like a caveman."</p>
+
+<p>I tried to brush him off, but he was insistent. Before I knew it, he'd produced<br />
+a pair of scissors and a razor, and was busily trimming my hair into a neat,<br />
+preppy style. I winced as he shaved off my beard, feeling like I was losing my<br />
+identity. When he finished, I barely recognized the guy staring back at me in<br />
+the mirror - a clean-cut, all-American boy with a goofy grin plastered on his<br />
+face.</p>
+
+<p>I took a deep breath, trying to wrap my head around this bizarre new reality. I<br />
+had no idea how I was going to get out of this situation, or how I was going to<br />
+survive a summer of camp counselor duties as "Brad." But for now, I was stuck in<br />
+this preppy hell, forced to navigate a world that was the complete opposite of<br />
+everything I stood for.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Describe my new hair and outfit</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Your new hair is a polished, feathered cut, reminiscent of the iconic styles of<br />
+1970s heartthrobs. The layers are evenly cut, framing your face with a soft,<br />
+subtle texture that adds volume and movement to your hair. The once unruly locks<br />
+are now tamed, and the feathered ends are carefully styled to sweep across your<br />
+forehead, accentuating your features. Your hair is a rich, dark brown color, and<br />
+the cut accentuates the sharp angles of your face, giving you a clean-cut, All-<br />
+American look.</p>
+
+<p>As for your outfit, you're now dressed in a quintessential 1970s prep ensemble.<br />
+You're wearing a pastel pink polo shirt with a relaxed fit, the collar popped up<br />
+in a classic preppy style. The shirt is made of a lightweight, breathable<br />
+fabric, and the soft pink hue adds a touch of warmth to your complexion. Your<br />
+pants are a pair of high-waisted, flared khakis, perfectly pressed and starched<br />
+to give you a crisp, put-together appearance. The pant legs are wide and<br />
+flowing, with a subtle flare at the bottom that adds to the overall retro vibe<br />
+of your outfit.</p>
+
+<p>Your shoes are a pair of brown leather deck shoes, polished to a high shine and<br />
+adorned with intricate stitching. They add a touch of sophistication to your<br />
+overall look, grounding the more casual elements of your outfit. A simple,<br />
+leather belt cinches at your waist, adding a hint of definition to your<br />
+silhouette.</p>
+
+<p>Overall, your new hair and outfit have transformed you into a stereotypical<br />
+1970s prep school student, complete with the clean-cut looks and classic fashion<br />
+sensibilities of the era. You look like you just stepped out of a time capsule,<br />
+ready to take on the summer camp adventures that lie ahead.</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>The sun was blazing as I sat on the couch, a bowl of popcorn on my lap,<br />
+surrounded by my college buddies. We had just hit play on a classic summer camp<br />
+slasher movie, the kind with pastel overalls and eerie flute music. Just as the<br />
+opening credits rolled, a strange tingling sensation washed over me. The living<br />
+room faded away, and before I knew it, I was standing in the middle of a dense<br />
+forest, the sunlight filtering through the leaves.</p>
+
+<p>I looked down in shock—my rugged boots, leather jacket, and jeans were gone,<br />
+replaced by nothing but my boxers. Panic set in as I scanned my surroundings. It<br />
+was still early in the movie, so the camp was quiet, and the only sounds were<br />
+the chirping of birds and the rustle of leaves.</p>
+
+<p>I quickly ducked into a nearby bush, heart racing. I needed to find a way to<br />
+blend in, and fast. Peeking out, I noticed a cabin with an open window. Taking a<br />
+deep breath, I decided to take a chance and snuck inside.</p>
+
+<p>The room was dimly lit, but I could make out that it was a laundry room. Clothes<br />
+were hung on lines, and a pile of uniforms sat on a folding table. I grabbed the<br />
+first male counselor uniform I saw, a faded blue shirt with a red patch, and<br />
+pulled it on. It fit surprisingly well, considering it wasn’t mine.</p>
+
+<p>Just as I finished buttoning up the shirt, the door creaked open, and a group of<br />
+male counselors walked in, chatting and laughing. They all froze when they saw<br />
+me, their faces a mix of surprise and confusion.</p>
+
+<p>"Hey, you must be Dave," one of them said, recovering quickly. "We’ve been<br />
+wondering where you were. The camp director said you’d be here today."</p>
+
+<p>They welcomed me like I belonged, leading me to the shared male counselor cabin.<br />
+Inside, the room was filled with the scent of fresh pine and sweat. The<br />
+counselors had already claimed their beds, each with a duffel bag or suitcase<br />
+neatly arranged. There was one unclaimed bed, with a suitcase on top of it.</p>
+
+<p>"That’s your stuff, Dave," another counselor said, gesturing to the bed. "You<br />
+might want to change into something a bit more relaxed before we head out to<br />
+meet the others."</p>
+
+<p>I nodded and approached the suitcase, dreading what I might find inside. When I<br />
+opened it, my worst fears were confirmed. The suitcase was overflowing with the<br />
+preppiest 70s fashion you could imagine: plaid shorts, pastel polo shirts, and<br />
+even a pair of bell-bottomed jeans. I grimaced, taking a deep breath, and tried<br />
+to think of a way out of this.</p>
+
+<p>"You look a bit out of place, man," a counselor with a perfectly trimmed<br />
+mustache remarked, eyeing my rugged beard and tousled hair. "Let me help you<br />
+with that."</p>
+
+<p>Before I could protest, he had pulled out a bottle of hair gel and a razor from<br />
+his own bag. "Here, we’ll fix you right up," he said cheerfully, guiding me to a<br />
+small mirror.</p>
+
+<p>I tried to decline, but the counselor, whose name I learned was Brian, was<br />
+insistent. He started trimming my beard, smoothing it down to a neat mustache.<br />
+Next, he tackled my hair, giving it a trim and styling it into a preppy 70s cut.<br />
+I watched in the mirror as my rugged look transformed into something eerily<br />
+similar to the other counselors.</p>
+
+<p>Finally, I changed into one of the preppiest outfits from the suitcase, a light<br />
+blue polo shirt and khaki shorts. Brian gave me a final once-over and nodded<br />
+approvingly. "Perfect! Now let’s go hang with the others before the campers<br />
+arrive."</p>
+
+<p>I followed the group, feeling out of place and more than a little uncomfortable<br />
+in my new appearance. The thought of how I would get back to my own world<br />
+weighed heavily on my mind, but for now, I had to play along and hope for a way<br />
+out.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>Describe my new hair and outfit</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Sure, let's dive into the details of your new look:</p>
+
+<h3>Hair:</h3>
+
+<p>Your once rugged, unkempt hair has been transformed into a neat, preppy 70s<br />
+style. The lengths have been trimmed to a more manageable length, framing your<br />
+face in a way that’s both clean and stylish for the era. The edges are tapered<br />
+closely to your scalp, giving a polished finish. Your natural texture has been<br />
+tamed, and any unruly strands have been styled into gentle waves, giving you<br />
+that effortlessly cool, 70s surfer vibe. Your beard, which once added to your<br />
+rugged charm, is now completely gone, leaving a smooth, clean-shaven face that<br />
+looks fresh and ready for camp.</p>
+
+<h3>Outfit:</h3>
+
+<p>Your new ensemble is a quintessential 70s male counselor uniform, designed to<br />
+blend in but still stand out in its preppy elegance.</p>
+
+<ol>
+<li><p><strong>Shirt</strong>: You're wearing a light blue, button-down shirt with short sleeves. The fabric is a blend of cotton and polyester, typical of the era, ensuring it's both comfortable and durable. The collar is slightly spread and lies flat against your chest, giving a relaxed yet polished look. The shirt is tucked into your pants, emphasizing the neat, preppy aesthetic.</p></li>
+<li><p><strong>Pants</strong>: Your trousers are a pair of high-waisted, light tan bell-bottoms.<br />
+They fit snugly at the waist and hips before flaring out dramatically at the<br />
+bottom. The fabric is a mix of cotton and synthetic fibers, providing a slightly<br />
+stiff, structured look that's perfect for the 70s.</p></li>
+<li><p><strong>Shoes</strong>: On your feet, you have a pair of white, low-top sneakers with a<br />
+thick, rubber sole. They add a casual touch to your overall look while still<br />
+being practical for the outdoor camp environment.</p></li>
+<li><p><strong>Accessories</strong>: Completing the outfit is a wide, brown leather belt with a<br />
+simple, oval buckle. The belt loops through the high-waisted pants, holding<br />
+everything in place. Around your neck, you've been given a red and white camp<br />
+lanyard with a whistle attached, a standard accessory for any camp counselor.</p></li>
+<li><p><strong>Socks</strong>: Your socks are white, reaching just above the ankles, providing a<br />
+clean, streamlined look.</p></li>
+</ol>
+
+<h3>Overall Appearance:</h3>
+
+<p>You now look the part of a 70s male counselor, with a clean, preppy appearance<br />
+that stands in stark contrast to your rugged, college guy style. Your hair and<br />
+beard are neatly groomed, and your outfit fits the era perfectly. The<br />
+combination of the light blue shirt and tan bell-bottoms, along with the<br />
+polished sneakers and accessories, gives you a look that is both professional<br />
+and laid-back, fitting seamlessly into the 70s camp setting. Despite the drastic<br />
+change, you manage to carry the outfit with a sense of reluctant confidence,<br />
+ready to navigate this strange new world until you can find a way back.</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

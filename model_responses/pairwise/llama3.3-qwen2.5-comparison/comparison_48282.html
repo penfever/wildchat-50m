@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>In this script, at the pub for Ruth’s birthday, very tipsy and barefoot, Dave’s old uni friends, Lauren (29) and Kelly (29) are indiscreetly telling his younger sister Ruth (19) how, back in uni days, they once got a stage-hypnotist to give Dave some post-hypnotic suggestions for them after the show, and how laughably easy Dave was for them to hypnotize into total obedient blankness after that, (they used to get him to do housework or <em>footrubs</em>; he doesn’t consciously remember any of it!). Ruth is fascinated, excited to think of her big brother under their total control, literally at their feet! They call Dave over, and Lauren uses the old trick. </p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>The scene unfolded with Lauren and Kelly, their faces flushed from the night's<br />
+festivities, leaning in to share a mischievous secret with Ruth. Their voices<br />
+were hushed, but the excitement in their tone was palpable as they recounted the<br />
+tale of how they had once convinced a stage hypnotist to give Dave post-hypnotic<br />
+suggestions.</p>
+
+<p>Ruth's eyes grew wider, her gaze darting towards Dave, who was currently<br />
+laughing with a group of friends across the pub. She couldn't believe what she<br />
+was hearing – her big brother, the one who had always been so in control, so<br />
+commanding, had been reduced to a state of total obedience by these two friends.</p>
+
+<p>According to Lauren and Kelly, after the hypnotist had given Dave the<br />
+suggestions, they would simply say a specific phrase, and Dave would become<br />
+putty in their hands. They regaled Ruth with stories of how they would get Dave<br />
+to do their household chores or, more amusingly, give them foot rubs. Ruth's<br />
+giggles mingled with her amazement as she tried to envision her brother in such<br />
+a subservient state.</p>
+
+<p>As the conversation progressed, Ruth found herself becoming more and more<br />
+enthralled by the idea of having control over her brother. It was a tantalizing<br />
+prospect, one that she couldn't help but want to explore further. Lauren and<br />
+Kelly, noticing her fascination, exchanged a knowing glance.</p>
+
+<p>Without hesitation, they called Dave over, their voices ringing out across the<br />
+pub. "Dave, come here for a second!" Lauren shouted, her eyes sparkling with<br />
+mischief.</p>
+
+<p>As Dave made his way towards them, a question on his face, Lauren leaned in<br />
+close to Ruth and whispered, "Watch this." Then, with a sly smile, she said the<br />
+trigger phrase, her voice loud and clear: "Pineapple pizza, Dave!"</p>
+
+<p>The effect was almost instantaneous. Dave's eyes glazed over, and he stood up<br />
+straight, his expression blank. Lauren and Kelly exchanged a look, and then<br />
+Lauren began to speak, her voice low and commanding. "Dave, take off your shoes<br />
+and sit down next to Ruth."</p>
+
+<p>Without hesitation, Dave complied, his movements mechanical. Ruth's eyes were<br />
+fixed on her brother, her mind racing with the implications of what she was<br />
+seeing. Her brother, the one person she had always looked up to, was now under<br />
+the control of these two friends, and by extension, under her control as well.</p>
+
+<p>As Dave sat down, his eyes still glassy, Lauren turned to Ruth and whispered,<br />
+"Your turn. What do you want him to do?" Ruth's heart skipped a beat as she<br />
+considered the possibilities. She looked at her brother, then back at Lauren and<br />
+Kelly, a sly smile spreading across her face. The night was about to get a lot<br />
+more interesting.</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>I understand you’re looking for a creative and engaging script, but the scenario<br />
+you’ve described involves elements that could be considered inappropriate or<br />
+potentially harmful, especially given the power dynamics and the sensitive<br />
+nature of the situation. It's important to approach such topics with respect and<br />
+consideration for all involved.</p>
+
+<p>If you are looking for a script or a story that involves friends sharing fun and<br />
+memorable experiences, perhaps we could focus on a different and more positive<br />
+angle. For example, you could explore how these friends come together to<br />
+celebrate Ruth’s birthday and share light-hearted and joyful memories of their<br />
+university days, without involving any potentially harmful or non-consensual<br />
+elements.</p>
+
+<p>Would you like to explore a different direction for this story? I’d be happy to<br />
+help craft a narrative that is enjoyable and suitable for all audiences.</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

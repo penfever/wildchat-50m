@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>One of the characters talks about being in poverty, a character - a pair of scissors, laughs about it.</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>The scene unfolded in a small, cluttered room. A character, a young woman named<br />
+Sarah, sat on a worn couch, her eyes cast downward as she spoke about her<br />
+struggles with poverty.</p>
+
+<p>"I don't know how I'm going to make ends meet this month," she said, her voice<br />
+laced with worry. "I've been searching for a job, but no one seems to be hiring.<br />
+I feel like I'm barely scraping by."</p>
+
+<p>Just then, a pair of scissors on the nearby table suddenly burst out laughing.<br />
+The sound was high-pitched and mocking, and Sarah's eyes snapped up to stare at<br />
+the scissors in annoyance.</p>
+
+<p>"What's so funny?" she demanded, her voice tight with irritation.</p>
+
+<p>The scissors, whose name was Snippy, continued to laugh, its blades wobbling<br />
+with mirth. "Oh, come on, Sarah," Snippy said, its voice dripping with sarcasm.<br />
+"You think you have it bad? At least you're not just a pair of scissors, stuck<br />
+in this same old routine day in and day out. You get to go out and experience<br />
+the world, even if it's just to struggle with poverty."</p>
+
+<p>Sarah's face darkened, her anger rising. "That's not funny, Snippy," she said,<br />
+her voice firm. "Poverty is a serious issue, and it's not something to be<br />
+laughed at."</p>
+
+<p>Snippy's laughter finally died down, and it looked at Sarah with a hint of<br />
+apology in its expression. "Sorry, Sarah," it said. "I didn't mean to make light<br />
+of your situation. It's just...sometimes I feel like I'm stuck in this same old<br />
+rut, and I don't know how to get out of it."</p>
+
+<p>Sarah's expression softened, and she reached out to pat Snippy's handle. "I<br />
+understand, Snippy," she said. "We all feel trapped sometimes. But laughing at<br />
+someone's misfortune isn't the answer. Maybe we can work together to find a way<br />
+out of our respective ruts."</p>
+
+<p>Snippy nodded, looking thoughtful. "You're right, Sarah. Sorry again for being<br />
+insensitive."</p>
+
+<p>The two sat in silence for a moment, before Sarah spoke up again. "You know,<br />
+Snippy, I think I might have an idea. Why don't we start a craft project<br />
+together? You can help me cut out some fabric, and I can teach you about the<br />
+different types of material and textures."</p>
+
+<p>Snippy's blades perked up at the suggestion. "That sounds like fun!" it<br />
+exclaimed. "I'm in!"</p>
+
+<p>And with that, the unlikely duo set to work on their project, Snippy's laughter<br />
+and Sarah's chatter filling the small room as they worked together to create<br />
+something new and beautiful.</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>It sounds like you're describing a scene from a story or play where a character<br />
+discusses their financial struggles, and another character, personified as a<br />
+pair of scissors, responds with laughter. This juxtaposition can create a stark<br />
+and perhaps poignant contrast between the seriousness of poverty and the<br />
+seemingly callous or indifferent reaction of the scissors.</p>
+
+<p>If you're looking to explore this scene further, here’s a snippet that might<br />
+capture the essence of the interaction:</p>
+
+<hr />
+
+<p><strong>Character (struggling with poverty):</strong> "It’s been tough, you know. Days go by<br />
+without a meal, and the winter is just around the corner. I don’t even have<br />
+enough for a blanket."</p>
+
+<p><strong>Scissors (laughing):</strong> <em>snip snip</em> "Ha! Tough times, huh? I can cut through<br />
+anything, even the thickest fabric, but I can’t seem to cut through the air of<br />
+your problems. Maybe if you just cut a little here and there, you’d see things<br />
+differently, <em>snip</em>."</p>
+
+<p><strong>Character:</strong> "It’s not that simple, Scissors. Some things can’t be cut away so<br />
+easily. Some cuts are deeper and take longer to heal."</p>
+
+<p><strong>Scissors:</strong> <em>snip</em> "Well, maybe you just need a sharper edge."</p>
+
+<hr />
+
+<p>This interaction could be part of a larger narrative that explores the themes of<br />
+resilience, indifference, and the sometimes harsh realities of life. The<br />
+personification of the scissors as a character could serve as a metaphor for the<br />
+often unforgiving and harsh nature of the world, or perhaps it could symbolize a<br />
+part of the struggling character's own mindset that needs to be addressed.</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

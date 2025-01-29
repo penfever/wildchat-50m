@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>Write a scene where Supreme Chancellor Palpatine and Anakin Skywalker are walking through the Senate Building, Palpatine starts to talk about an old tale, the tragedy of Revan (Make it long and a lot of good dialogue)</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>The grandeur of the Galactic Senate Building surrounded them as Supreme<br />
+Chancellor Palpatine and Anakin Skywalker strolled through its hallowed halls.<br />
+The soft hum of conversation and the gentle whir of speeders outside created a<br />
+soothing background melody, a stark contrast to the weighty matters that often<br />
+occupied the minds of those who walked these corridors. As they navigated<br />
+through the bustling space, Palpatine's eyes gleamed with a knowing light, his<br />
+steps measured and deliberate.</p>
+
+<p>"Anakin, have you ever heard the tale of Revan?" Palpatine asked, his voice low<br />
+and intriguing, beckoning the younger man to lean in, to engage in a<br />
+conversation that promised to be as fascinating as it was secretive.</p>
+
+<p>Anakin's curiosity was piqued, his brow furrowing slightly as he tried to recall<br />
+any mention of such a figure. "Revan? I don't think so, Chancellor. Who was he?"<br />
+The eagerness in his voice was undeniable, a testament to his thirst for<br />
+knowledge and his desire to understand the mysteries of the galaxy.</p>
+
+<p>Palpatine's smile was a subtle, enigmatic thing, hinting at depths of knowledge<br />
+and emotion that Anakin could hardly begin to fathom. "Ah, Revan. A hero of the<br />
+Republic, and yet, a figure shrouded in mystery and tragedy. His story is one of<br />
+the most compelling, and cautionary, in our galaxy's history."</p>
+
+<p>As they turned a corner, avoiding a group of senators engrossed in a heated<br />
+discussion, Palpatine continued, his words painting vivid pictures in Anakin's<br />
+mind. "Revan was a Jedi Knight, one of the most powerful and charismatic of his<br />
+time. He lived thousands of years ago, during a period of great turmoil and war.<br />
+His bravery and strategic genius were unparalleled, leading the Republic to<br />
+numerous victories against the Sith."</p>
+
+<p>Anakin's interest was fully captured now, his eyes locked onto Palpatine's,<br />
+eager for every detail. "The Sith? I've studied about them, of course. The<br />
+eternal enemies of the Jedi."</p>
+
+<p>"Indeed," Palpatine agreed, his voice dripping with a deep understanding of the<br />
+complex dynamics at play. "Revan's confrontation with the Sith was legendary. He<br />
+was a commander in the Mandalorian Wars, and his tactics were both brilliant and<br />
+controversial. However, it was not the war itself that defines Revan's legacy,<br />
+but his fate afterward."</p>
+
+<p>They paused at a large window, looking out over the sprawling cityscape of<br />
+Coruscant. The dichotomy between the peaceful view and the turmoil of Revan's<br />
+story was not lost on Anakin, and he felt a shiver run down his spine as<br />
+Palpatine's words wove a spell around him.</p>
+
+<p>"Revan, in his quest for power and his desire to protect the galaxy, walked a<br />
+fine line between light and darkness. He became seduced by the dark side,<br />
+eventually turning against the Jedi Order. His fall was as tragic as it was<br />
+unexpected, a reminder of the dangers of ambition and the blurred lines between<br />
+good and evil."</p>
+
+<p>Anakin felt a pang of unease, reflecting on the Chancellor's words. The fear of<br />
+loss and the lure of power were themes that resonated deeply with him, echoing<br />
+the conflicted emotions he had been grappling with of late. "And what became of<br />
+him, Chancellor? Did he find redemption, or was he consumed by the darkness?"</p>
+
+<p>Palpatine's gaze seemed to drift into the distance, lost in the annals of<br />
+history. "That, Anakin, is the most intriguing part of Revan's tale. Some say he<br />
+found a way back to the light, that he redeemed himself and lived out the rest<br />
+of his days in solitude, a recluse haunted by the ghosts of his past. Others<br />
+claim that he remained forever bound to the darkness, his legacy a cautionary<br />
+tale of the dangers of unchecked ambition."</p>
+
+<p>As they resumed their walk, Anakin couldn't help but feel a connection to<br />
+Revan's story, a sense of shared destiny that unsettled him. "It's a reminder,<br />
+isn't it, Chancellor, that even the strongest among us can fall? That the line<br />
+between hero and villain is thinner than we often care to admit?"</p>
+
+<p>Palpatine's smile returned, warmer this time, tinged with a hint of approval.<br />
+"Indeed, Anakin. Revan's tragedy serves as a reminder of the complexities of the<br />
+universe and the nature of power. It is a story that every Jedi, and every<br />
+leader, should familiarize themselves with. The fear of loss and the lure of<br />
+power are universal themes, ones that we must all contend with in our own ways."</p>
+
+<p>Their walk eventually led them to a quieter part of the building, the corridors<br />
+emptying as they approached the Chancellor's private offices. The change in<br />
+atmosphere was palpable, the air thickening with unspoken implications and<br />
+future possibilities.</p>
+
+<p>"Anakin," Palpatine said, his voice taking on a more serious, personal tone,<br />
+"I've shared Revan's story with you for a reason. You have great potential, the<br />
+kind that could change the course of history. But with that potential comes<br />
+great danger, the risk of falling prey to the same temptations that consumed<br />
+Revan."</p>
+
+<p>Anakin felt a shiver run down his spine, the weight of Palpatine's words<br />
+settling heavily upon him. "I understand, Chancellor. I will be cautious,<br />
+mindful of the paths I choose."</p>
+
+<p>Palpatine's eyes gleamed in the soft light, a mixture of warmth and calculated<br />
+interest. "I have no doubt that you will, Anakin. And remember, should you ever<br />
+find yourself at a crossroads, unsure of which path to take, it is in those<br />
+moments that the true character of a being is revealed. The choices we make<br />
+define us, not our abilities or our intentions, but the decisions we make when<br />
+faced with the unknown."</p>
+
+<p>As they stood there, the future seemed to stretch out before them, laden with<br />
+possibilities and challenges. Anakin felt a surge of determination, a vow to<br />
+himself to navigate the complexities of his destiny with wisdom and courage. And<br />
+in that moment, he could not help but wonder what the future held, not just for<br />
+him, but for the galaxy, teetering as it was on the brink of great change.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Write it like a script</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>FADE IN:</p>
+
+<p>INT. SENATE BUILDING - DAY</p>
+
+<p>The grand halls of the Senate Building are bustling with activity. Senators and<br />
+their aides hurry to and fro, while guards stand at attention. SUPREME<br />
+CHANCELLOR PALPATINE and ANAKIN SKYWALKER walk down the hallway, their footsteps<br />
+echoing off the marble walls.</p>
+
+<p>PALPATINE<br />
+(looking around the hallway)<br />
+You know, Anakin, there is an old tale that has been passed down through the<br />
+generations of the Jedi Order.</p>
+
+<p>ANAKIN<br />
+(curious)<br />
+What's that, Chancellor?</p>
+
+<p>PALPATINE<br />
+(smiling wistfully)<br />
+It is a tragic story of a great Jedi Knight named Revan.</p>
+
+<p>ANAKIN<br />
+(intrigued)<br />
+Revan? I don't think I've heard that name before. What makes his story so<br />
+tragic?</p>
+
+<p>PALPATINE<br />
+(leaning in)<br />
+Revan was a formidable Jedi who fought valiantly in the Mandalorian Wars,<br />
+leading the Republic to numerous victories. But his lust for power and his<br />
+thirst for knowledge led him down a dark path.</p>
+
+<p>ANAKIN<br />
+(concerned)<br />
+Like a Sith?</p>
+
+<p>PALPATINE<br />
+(nodding)<br />
+Yes, in a way. Revan succumbed to the seductive whispers of the dark side and<br />
+became a Sith Lord. He waged war against the Jedi Order and nearly brought the<br />
+galaxy to its knees.</p>
+
+<p>ANAKIN<br />
+(shocked)<br />
+So what happened to him? Did he redeem himself in the end?</p>
+
+<p>PALPATINE<br />
+(sighing)<br />
+Ah, that is the tragic part of the tale. Revan eventually regained his memories<br />
+and his sense of self, but the atrocities he had committed haunted him. He<br />
+sought redemption by seeking out the true Sith threat, but his journey ended in<br />
+tragedy.</p>
+
+<p>ANAKIN<br />
+(sympathetic)<br />
+It must have been a difficult path for Revan to walk, trying to find redemption<br />
+for his past sins.</p>
+
+<p>PALPATINE<br />
+(nodding)<br />
+Yes, indeed. And that is why his story serves as a cautionary tale for all who<br />
+wield the power of the Force. It is a reminder that even the most noble of<br />
+intentions can lead to darkness if one is not careful.</p>
+
+<p>As they reach the end of the hallway, Palpatine turns to Anakin with a solemn<br />
+expression.</p>
+
+<p>PALPATINE<br />
+(serious)<br />
+But, Anakin, it is also a reminder that redemption is possible, no matter how<br />
+far one has fallen. The question is, are we strong enough to face our own<br />
+darkness and emerge victorious?</p>
+
+<p>ANAKIN<br />
+(thoughtful)<br />
+I hope so, Chancellor. I hope so.</p>
+
+<p>Palpatine's eyes seem to bore into Anakin's soul, as if searching for something.<br />
+The camera lingers on their exchange, the tension between them palpable.</p>
+
+<p>FADE TO BLACK.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Anakin asks "Are the Sith? just Jedi but evil" Palpatine says "Many could say<br />
+that, holding a blue or green lightsaber automatically makes you a Jedi, a good<br />
+guy, but if you have a red lightsaber, then you are a Sith, that means you are a<br />
+bad guy, but... you can't always judge someone based on what they look like"<br />
+(try to make the dialogue better here)</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>FADE IN:</p>
+
+<p>INT. SENATE BUILDING - DAY</p>
+
+<p>ANAKIN and PALPATINE walk through the grand halls of the Senate Building, their<br />
+footsteps echoing off the marble walls.</p>
+
+<p>ANAKIN<br />
+(curious)<br />
+Are the Sith just Jedi, but evil?</p>
+
+<p>PALPATINE<br />
+(smirking)<br />
+Many could say that. Holding a blue or green lightsaber automatically makes you<br />
+a Jedi, a hero of the Republic. And if you have a red lightsaber, then you are a<br />
+Sith, a villain to be feared and reviled. But, Anakin, the truth is far more<br />
+complex.</p>
+
+<p>ANAKIN<br />
+(intrigued)<br />
+What do you mean?</p>
+
+<p>PALPATINE<br />
+(leaning in)<br />
+You can't always judge someone based on what they look like, or the color of<br />
+their lightsaber. A Jedi can be flawed, and a Sith can be... nuanced. The line<br />
+between good and evil is not always clear-cut. It's a gray area, Anakin, and one<br />
+that requires great care and consideration to navigate.</p>
+
+<p>ANAKIN<br />
+(thoughtful)<br />
+I see. So, it's not just about the lightsaber or the title, but about the<br />
+intentions and actions of the person wielding it.</p>
+
+<p>PALPATINE<br />
+(impressed)<br />
+Exactly, Anakin. You are beginning to understand the subtleties of the Force. A<br />
+true master of the Force must consider the motivations and actions of others,<br />
+not just their outward appearance or affiliation.</p>
+
+<p>ANAKIN<br />
+(curious)<br />
+And what about the Sith, sir? What drives them to the dark side?</p>
+
+<p>PALPATINE<br />
+(leaning in closer)<br />
+The Sith are driven by a desire for power, for control, and for freedom from the<br />
+constraints of the Jedi Code. They believe that the ends justify the means, and<br />
+that the strong should rule the weak. But, Anakin, the Sith are not just<br />
+mindless villains. They have a philosophy, a code of their own, and one that can<br />
+be... seductive.</p>
+
+<p>ANAKIN<br />
+(intrigued)<br />
+Seductive? How so?</p>
+
+<p>PALPATINE<br />
+(looking around cautiously)<br />
+The dark side promises power, freedom, and the ability to achieve one's goals<br />
+without being bound by the restrictive rules of the Jedi. It's a path that can<br />
+be tempting, especially for those who feel constrained by the limitations of the<br />
+Jedi Order.</p>
+
+<p>ANAKIN<br />
+(thoughtful)<br />
+I see. So, the dark side is like a... a shortcut to achieving one's goals, but<br />
+at what cost?</p>
+
+<p>PALPATINE<br />
+(nodding)<br />
+Exactly, Anakin. The dark side is a path that can lead to great power, but also<br />
+to great destruction. It's a choice that must be made carefully, and one that<br />
+can have far-reaching consequences.</p>
+
+<p>ANAKIN<br />
+(determined)<br />
+I'll remember that, sir.</p>
+
+<p>PALPATINE<br />
+(smiling)<br />
+I have no doubt that you will, Anakin. You have a great future ahead of you, and<br />
+the choices you make will shape the course of your destiny.</p>
+
+<p>FADE TO BLACK.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>As Anakin heads back to the Jedi Temple, Obi-Wan talks to him, Anakin says "I<br />
+like the Chancellor, he's a charming man, and always has a good story, he told<br />
+me about about the tale of Revan" Obi-Wan says "Revan, I've heard that tale<br />
+before" (Make the dialogue better here as well)</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>INT. JEDI TEMPLE - DAY</p>
+
+<p>Anakin Skywalker walks through the serene corridors of the Jedi Temple, lost in<br />
+thought. Obi-Wan Kenobi approaches him, a concerned expression on his face.</p>
+
+<p>OBI-WAN<br />
+Anakin, how was your meeting with the Chancellor?</p>
+
+<p>ANAKIN<br />
+(distracted)<br />
+It was fine, Master. I like him. He's a charming man, and he always has a good<br />
+story to tell. Today, he told me about the tale of Revan.</p>
+
+<p>OBI-WAN<br />
+(intrigued)<br />
+Revan, I've heard that tale before. The Chosen One who fell to the dark side,<br />
+only to rise again and seek redemption.</p>
+
+<p>ANAKIN<br />
+(reflective)<br />
+Yes, it's a tragic story. But what struck me was the Chancellor's insight into<br />
+the nature of good and evil. He said that just because someone wields a red<br />
+lightsaber, it doesn't make them inherently evil.</p>
+
+<p>OBI-WAN<br />
+(cautious)<br />
+That's a nuanced view, Anakin. One that requires careful consideration. But we<br />
+must also remember that the dark side is a path that can consume even the<br />
+strongest of wills.</p>
+
+<p>ANAKIN<br />
+(thoughtful)<br />
+I understand, Master. But the Chancellor's words made me realize that there's<br />
+more to the Force than just simple dualities. Maybe there's a middle ground, a<br />
+balance between light and darkness.</p>
+
+<p>OBI-WAN<br />
+( watchful)<br />
+Be careful, Anakin. The dark side can be seductive, and the line between good<br />
+and evil is often blurred. As your Master, it's my duty to ensure you stay on<br />
+the path of the Jedi.</p>
+
+<p>ANAKIN<br />
+(reassuring)<br />
+I will, Master. I just want to understand the complexities of the Force, to<br />
+better serve the Order and the Republic.</p>
+
+<p>Obi-Wan nods, his expression a mix of concern and trust in his young Padawan.</p>
+
+<p>OBI-WAN<br />
+(smiling)<br />
+I have no doubt you will, Anakin. You are a powerful and gifted Jedi. But<br />
+remember, the greatest teacher is experience, and the greatest enemy is our own<br />
+fear and ignorance.</p>
+
+<p>Anakin nods, taking his Master's words to heart as they continue on their way,<br />
+the weight of the conversation lingering in the air.</p>
+
+<p>FADE OUT.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Obi-Wan says "What does the Chancellor know?, he's just an old man, a Senator,<br />
+we Jedi never put our trust to the Senators"</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>INT. JEDI TEMPLE - DAY</p>
+
+<p>Obi-Wan's expression becomes cautious as he continues to speak with Anakin.</p>
+
+<p>OBI-WAN<br />
+( low and measured )<br />
+What does the Chancellor know, Anakin? He's just an old man, a Senator. We Jedi<br />
+never put our trust in the Senators. Their interests often lie with their own<br />
+careers, not with the greater good.</p>
+
+<p>ANAKIN<br />
+(defensive)<br />
+But, Master, the Chancellor seems different. He's wise and understanding. I<br />
+sense that he truly cares for the Republic and its people.</p>
+
+<p>OBI-WAN<br />
+(skeptical)<br />
+Perhaps, Anakin, but we must not let our guard down. The Chancellor's words are<br />
+laced with cleverness and manipulation. He is a master of politics, and we must<br />
+be wary of his intentions.</p>
+
+<p>Anakin's eyes narrow, questioning Obi-Wan's skepticism.</p>
+
+<p>ANAKIN<br />
+(firmly)<br />
+But what if the Chancellor is telling the truth, Master? What if he truly wants<br />
+to help me understand the Force and my place in the galaxy?</p>
+
+<p>OBI-WAN<br />
+(firmly)<br />
+Then we will still be cautious, Anakin. The dark side can masquerade as the<br />
+light, and we must always be mindful of our surroundings. The Chancellor may<br />
+have his own reasons for sharing Revan's tale with you, reasons that may not be<br />
+entirely pure.</p>
+
+<p>Anakin's face sets in determination, his loyalty to Obi-Wan and the Jedi Order<br />
+evident.</p>
+
+<p>ANAKIN<br />
+(resolute)<br />
+I understand, Master. I will be cautious and keep my wits about me. But I also<br />
+sense that there is more to the Chancellor than meets the eye.</p>
+
+<p>Obi-Wan's gaze lingers on Anakin, a mixture of concern and understanding etched<br />
+on his face.</p>
+
+<p>FADE OUT.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Obi-Wan says "Every Senator is different, some have their own opinions" Anakin<br />
+says "Even Senator Amidala" Obi-Wan looks and says "Yes... even Senator Amidala"</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>OBI-WAN<br />
+(thoughfully)<br />
+Every Senator is different, some have their own opinions and agendas.</p>
+
+<p>ANAKIN<br />
+(intrigued)<br />
+Even Senator Amidala?</p>
+
+<p>Obi-Wan's gaze lingers on Anakin for a moment, his expression unreadable.</p>
+
+<p>OBI-WAN<br />
+(nodding slowly)<br />
+Yes... even Senator Amidala.</p>
+
+<p>Anakin's eyes sparkle with curiosity, and he leans in slightly, as if sensing<br />
+that there is more to Obi-Wan's words than meets the eye.</p>
+
+<p>ANAKIN<br />
+(whispering)<br />
+What do you know about Senator Amidala, Master?</p>
+
+<p>Obi-Wan's expression remains neutral, but a hint of caution creeps into his<br />
+voice.</p>
+
+<p>OBI-WAN<br />
+(diplomaticly)<br />
+I know that she is a skilled politician and a devoted representative of the<br />
+people of Naboo. But as a Senator, she too has her own motivations and<br />
+alliances.</p>
+
+<p>Anakin's gaze drifts off, his mind racing with thoughts of Senator Amidala and<br />
+her enigmatic smile. The silence between them grows, heavy with unspoken<br />
+understanding and unasked questions.</p>
+
+<p>FADE OUT.</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p><strong>Scene: The Grand Corridor of the Galactic Senate Building</strong></p>
+
+<p>The vast, echoing corridors of the Senate Building buzz with the soft hum of<br />
+droids and the muffled sounds of distant conversations. Supreme Chancellor<br />
+Palpatine and Anakin Skywalker walk side by side, their footsteps resonating<br />
+through the marble-lined hall. The Chancellor, dressed in his regal robes,<br />
+glances at Anakin, who is clad in his Jedi attire, his face a mix of curiosity<br />
+and resolve.</p>
+
+<p><strong>Palpatine:</strong> (with a thoughtful expression) Anakin, have you ever heard the<br />
+story of Revan?</p>
+
+<p><strong>Anakin:</strong> (frowning slightly) Revan? The name sounds familiar, but I can't<br />
+quite place it. Was he a Jedi?</p>
+
+<p><strong>Palpatine:</strong> (smiling softly) In a way, yes. But his story is much more<br />
+complex than that. Revan was once a great hero, a Jedi who rose to prominence<br />
+during a dark time in the Republic's history. He was a visionary, a leader, and<br />
+a warrior without equal. The galaxy was on the brink of collapse, and he was the<br />
+one who brought hope back to the people.</p>
+
+<p><strong>Anakin:</strong> (nods, intrigued) What happened to him?</p>
+
+<p><strong>Palpatine:</strong> (pausing to look at a statue of a long-forgotten senator) Revan<br />
+was a master of the Force, but his journey was fraught with darkness. He<br />
+ventured into the Unknown Regions, seeking to understand and combat a threat<br />
+that no one else could see. The galaxy was facing an invasion by a powerful Sith<br />
+Empire, and Revan believed that the only way to stop them was to understand<br />
+their methods and strategies.</p>
+
+<p><strong>Anakin:</strong> (raising an eyebrow) He turned to the dark side?</p>
+
+<p><strong>Palpatine:</strong> (sighs) It's not that simple, Anakin. Revan did turn to the dark<br />
+side, but his intentions were noble. He believed that by embracing the power of<br />
+the Sith, he could learn their secrets and ultimately defeat them. He became a<br />
+formidable Sith Lord, leading an army against the Republic. But deep down, he<br />
+never lost his true self. He was driven by a sense of duty and a desire to<br />
+protect the galaxy, even if it meant sacrificing his soul.</p>
+
+<p><strong>Anakin:</strong> (shaking his head) That's a dangerous path, Chancellor. The dark<br />
+side consumes those who walk it, no matter their intentions.</p>
+
+<p><strong>Palpatine:</strong> (nodding) You are wise, Anakin. And yet, Revan's story does not<br />
+end with his fall. After years of conflict, he was betrayed by his own<br />
+apprentice, Malak, who took the helm of the Sith forces. Revan was left for<br />
+dead, but he was found by the Jedi and brought back to the light. The Jedi<br />
+Council, in an attempt to break the hold of the dark side on his mind, erased<br />
+his memories and restored him as a Jedi Knight.</p>
+
+<p><strong>Anakin:</strong> (eyes widening) They erased his memories? That seems... harsh.</p>
+
+<p><strong>Palpatine:</strong> (sighing) It was a necessary measure. Without his past to burden<br />
+him, Revan was able to reconnect with his true self and his sense of purpose. He<br />
+rejoined the fight against Malak, and together with a group of loyal companions,<br />
+he eventually defeated his former apprentice and brought peace to the galaxy<br />
+once more.</p>
+
+<p><strong>Anakin:</strong> (thoughtfully) So, he redeemed himself?</p>
+
+<p><strong>Palpatine:</strong> (smiling) Yes, Anakin. Revan's journey is a testament to the<br />
+power of redemption. He faced the darkness within himself and chose to rise<br />
+above it. But the cost was great. He lost his memories, his identity, and the<br />
+person he once was. In the end, he found peace, but the scars of his past<br />
+remained.</p>
+
+<p><strong>Anakin:</strong> (frowning) But if he was a hero, why isn't he more widely known? Why<br />
+is his story not taught in the Jedi Temple?</p>
+
+<p><strong>Palpatine:</strong> (leaning closer, his voice lowering) Because, Anakin, the Jedi<br />
+fear the story of Revan. They fear what it represents. The idea that a Jedi<br />
+could turn to the dark side and still be redeemed is dangerous. It challenges<br />
+the very foundation of their beliefs. They prefer to keep such stories hidden,<br />
+to avoid the temptation of the dark side.</p>
+
+<p><strong>Anakin:</strong> (looking troubled) But if the dark side is so powerful, how can we<br />
+resist it? How can we ensure that we don't fall like Revan did?</p>
+
+<p><strong>Palpatine:</strong> (placing a hand on Anakin's shoulder) That, my young friend, is<br />
+the true challenge. The dark side is seductive, and it preys on our fears, our<br />
+desires, and our doubts. But the key is to know yourself, to understand your<br />
+motives, and to hold fast to your principles. Revan's journey teaches us that<br />
+even in the darkest moments, there is a light within us that can guide us back.</p>
+
+<p><strong>Anakin:</strong> (nodding slowly) I will remember that, Chancellor. But what if the<br />
+darkness is already inside me? What if I am already on the path Revan took?</p>
+
+<p><strong>Palpatine:</strong> (smiling reassuringly) Then you must choose, Anakin. Choose to<br />
+walk the path of light, to trust in your heart, and to find the strength to<br />
+resist the temptations of the dark side. You are stronger than you realize, and<br />
+the Force is with you. But remember, the greatest battles are often fought<br />
+within ourselves.</p>
+
+<p><strong>Anakin:</strong> (looking determined) I will do my best, Chancellor. I will not let<br />
+the darkness take me.</p>
+
+<p><strong>Palpatine:</strong> (genuinely smiling) I have no doubt, Anakin. You have the<br />
+potential to be a great leader, much like Revan. But unlike him, you have the<br />
+wisdom and the heart to avoid his mistakes. The galaxy needs you, now more than<br />
+ever.</p>
+
+<p><strong>Anakin:</strong> (nodding) Thank you, Chancellor. I will not disappoint you.</p>
+
+<p>As they continue their walk, the weight of the conversation lingers in the air.<br />
+Anakin's mind races with the lessons of Revan's story, while Palpatine's eyes<br />
+glint with a mixture of pride and something more, a hint of a plan that only he<br />
+fully understands. The grand hall of the Senate Building seems to stretch on, a<br />
+symbol of the vast and complex galaxy they both serve.</p>
+
+<p><strong>Palpatine:</strong> (pausing by a large window, gazing out at Coruscant's sprawling<br />
+skyline) The future is uncertain, Anakin. But with the right choices, we can<br />
+shape it for the better. I have faith in you.</p>
+
+<p><strong>Anakin:</strong> (smiling) And I have faith in the Republic, Chancellor. Together, we<br />
+will see this through.</p>
+
+<p>The two continue their journey through the Senate Building, their footsteps<br />
+echoing through the halls, each carrying the weight of their own destinies.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>Write it like a script</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p><strong>INT. SENATE BUILDING - GRAND HALLWAY - DAY</strong></p>
+
+<p><em>Supreme Chancellor PALPATINE and ANAKIN SKYWALKER walk through the grand,<br />
+marble-lined hallway of the Senate Building. Statues of past Jedi and senators<br />
+line the walls, casting long shadows as the two men converse.</em></p>
+
+<p><strong>PALPATINE</strong><br />
+(softly, wistfully)<br />
+Anakin, there is an old tale that has been passed down through the generations<br />
+of the Jedi Order. A tragic story of a great Jedi Knight named Revan.</p>
+
+<p><em>ANAKIN looks at PALPATINE with curiosity.</em></p>
+
+<p><strong>ANAKIN</strong><br />
+Revan? I don't think I've heard that name before. What makes his story so<br />
+tragic?</p>
+
+<p><em>PALPATINE's eyes glint with a mix of sadness and fascination as he begins to<br />
+recount the tale.</em></p>
+
+<p><strong>PALPATINE</strong><br />
+Revan was a formidable Jedi who fought valiantly in the Mandalorian Wars,<br />
+leading the Republic to numerous victories. But his lust for power and his<br />
+thirst for knowledge led him down a dark path.</p>
+
+<p><em>He pauses, allowing the words to sink in.</em></p>
+
+<p><strong>ANAKIN</strong><br />
+(earnestly)<br />
+Like a Sith?</p>
+
+<p><strong>PALPATINE</strong><br />
+(in a measured tone)<br />
+Yes, in a way. Revan succumbed to the seductive whispers of the dark side and<br />
+became a Sith Lord. He waged war against the Jedi Order and nearly brought the<br />
+galaxy to its knees.</p>
+
+<p><em>ANAKIN's eyes widen in shock.</em></p>
+
+<p><strong>ANAKIN</strong><br />
+So what happened to him? Did he redeem himself in the end?</p>
+
+<p><em>PALPATINE takes a deep breath, his expression heavy with sorrow.</em></p>
+
+<p><strong>PALPATINE</strong><br />
+Ah, that is the tragic part of the tale. Revan eventually regained his memories<br />
+and his sense of self, but the atrocities he had committed haunted him. He<br />
+sought redemption by seeking out the true Sith threat, but his journey ended in<br />
+tragedy.</p>
+
+<p><em>ANAKIN looks pensive, his brow furrowed in concern.</em></p>
+
+<p><strong>ANAKIN</strong><br />
+(softly)<br />
+It must have been a difficult path for Revan to walk, trying to find redemption<br />
+for his past sins.</p>
+
+<p><strong>PALPATINE</strong><br />
+(smiling sadly)<br />
+Yes, indeed. And that is why his story serves as a cautionary tale for all who<br />
+wield the power of the Force. It is a reminder that even the most noble of<br />
+intentions can lead to darkness if one is not careful.</p>
+
+<p><em>They reach the end of the hallway. PALPATINE turns to ANAKIN, his expression<br />
+solemn.</em></p>
+
+<p><strong>PALPATINE</strong><br />
+Remember, Anakin. The path to power is a treacherous one. It is up to you to<br />
+choose the right path and stay true to the light.</p>
+
+<p><em>ANAKIN nods, his mind buzzing with thoughts of Revan and the lessons that could<br />
+be learned from his tragic tale. He looks at PALPATINE with a newfound resolve.</em></p>
+
+<p><strong>ANAKIN</strong><br />
+I will, Chancellor. I promise.</p>
+
+<p><em>PALPATINE places a reassuring hand on ANAKIN's shoulder.</em></p>
+
+<p><strong>PALPATINE</strong><br />
+Good. The galaxy needs a strong and virtuous champion.</p>
+
+<p><em>They continue their walk, the weight of Revan's story lingering between them as<br />
+they move forward into the grand halls of the Senate Building.</em></p>
+
+<p><strong>FADE OUT.</strong></p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>Anakin asks "Are the Sith? just Jedi but evil" Palpatine says "Many could say<br />
+that, holding a blue or green lightsaber automatically makes you a Jedi, a good<br />
+guy, but if you have a red lightsaber, then you are a Sith, that means you are a<br />
+bad guy, but... you can't always judge someone based on what they look like"<br />
+(try to make the dialogue better here)</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>INT. SENATE BUILDING - DAY</p>
+
+<p>SUPREME CHANCELLOR PALPATINE and ANAKIN SKYWALKER walk through the grand halls<br />
+of the Senate Building. The sound of their footsteps echoes off the marble<br />
+walls.</p>
+
+<p>PALPATINE<br />
+( wistful )<br />
+You know, Anakin, there is an old tale that has been passed down through the<br />
+generations of the Jedi Order. It is a tragic story of a great Jedi Knight named<br />
+Revan.</p>
+
+<p>ANAKIN<br />
+( intrigued )<br />
+Revan? I don't think I've heard that name before. What makes his story so<br />
+tragic?</p>
+
+<p>PALPATINE<br />
+( with sadness )<br />
+Revan was a formidable Jedi who fought valiantly in the Mandalorian Wars,<br />
+leading the Republic to numerous victories. But his lust for power and his<br />
+thirst for knowledge led him down a dark path.</p>
+
+<p>ANAKIN<br />
+( concerned )<br />
+Like a Sith?</p>
+
+<p>PALPATINE<br />
+( nodding )<br />
+Yes, in a way. Revan succumbed to the seductive whispers of the dark side and<br />
+became a Sith Lord. He waged war against the Jedi Order and nearly brought the<br />
+galaxy to its knees.</p>
+
+<p>ANAKIN<br />
+( shocked )<br />
+So what happened to him? Did he redeem himself in the end?</p>
+
+<p>PALPATINE<br />
+( heavy with sorrow )<br />
+Revan eventually regained his memories and his sense of self, but the atrocities<br />
+he had committed haunted him. He sought redemption by seeking out the true Sith<br />
+threat, but his journey ended in tragedy.</p>
+
+<p>ANAKIN<br />
+( sympathetic )<br />
+It must have been a difficult path for Revan to walk, trying to find redemption<br />
+for his past sins.</p>
+
+<p>PALPATINE<br />
+( nodding )<br />
+Indeed. And that is why his story serves as a cautionary tale for all who wield<br />
+the power of the Force. It is a reminder that even the most noble of intentions<br />
+can lead to darkness if one is not careful.</p>
+
+<p>They reach the end of the hallway, and Anakin turns to Palpatine with a<br />
+thoughtful expression.</p>
+
+<p>ANAKIN<br />
+( curious )<br />
+Are the Sith just Jedi who have gone evil?</p>
+
+<p>PALPATINE<br />
+( reflective )<br />
+Many could say that, Anakin. They might argue that holding a blue or green<br />
+lightsaber makes you a Jedi, a good guy, and that if you have a red lightsaber,<br />
+you are a Sith, a bad guy. But the truth is more complex. You can't always judge<br />
+someone based on what they look like or the color of their lightsaber. The Force<br />
+is a double-edged blade, capable of great good and great evil. It is the choices<br />
+we make that truly define us.</p>
+
+<p>ANAKIN<br />
+( pensive )<br />
+I see. So it's not just about the saber, but about the heart behind it.</p>
+
+<p>PALPATINE<br />
+( nodding )<br />
+Exactly. The path to power is a treacherous one, Anakin. It is up to you to<br />
+choose the right path and stay true to the light.</p>
+
+<p>They continue on their way, Anakin deep in thought about the tragic tale of<br />
+Revan and the deeper truths behind the colors of the lightsabers.</p>
+
+<p>FADE OUT.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>As Anakin heads back to the Jedi Temple, Obi-Wan talks to him, Anakin says "I<br />
+like the Chancellor, he's a charming man, and always has a good story, he told<br />
+me about about the tale of Revan" Obi-Wan says "Revan, I've heard that tale<br />
+before" (Make the dialogue better here as well)</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>INT. JEDI TEMPLE - DAY</p>
+
+<p>Anakin Skywalker enters the Jedi Temple, his mind still swirling with the<br />
+thoughts of the tale Palpatine told him. He spots Obi-Wan Kenobi in the<br />
+courtyard and walks over to him.</p>
+
+<p>ANAKIN<br />
+(sincerely)<br />
+I like the Chancellor, he's a truly charming man. He always has a good story to<br />
+tell. Today, he told me about the tale of Revan.</p>
+
+<p>OBI-WAN<br />
+(arches an eyebrow)<br />
+Revan? I've heard that tale before. It's a powerful and cautionary story. What<br />
+did he tell you about it?</p>
+
+<p>ANAKIN<br />
+(earnestly)<br />
+He spoke of Revan as a great Jedi who fought in the Mandalorian Wars and led the<br />
+Republic to victory. But his thirst for power and knowledge led him down a dark<br />
+path, and he became a Sith Lord. Despite that, he eventually regained his<br />
+memories and sought redemption, but his journey ended in tragedy.</p>
+
+<p>OBI-WAN<br />
+(nodding thoughtfully)<br />
+Yes, that's a summary of the tale. The story of Revan is a reminder of the<br />
+delicate balance between light and dark. Even the most noble intentions can lead<br />
+to darkness if one is not cautious.</p>
+
+<p>ANAKIN<br />
+(somberly)<br />
+Chancellor Palpatine said that we can't always judge someone based on what they<br />
+look like. A lightsaber color or a title doesn't define a person; it's their<br />
+choices and actions that do.</p>
+
+<p>OBI-WAN<br />
+(approvingly)<br />
+That is a wise lesson, Anakin. The Force is not as simple as black and white. It<br />
+is the choices we make and the paths we follow that truly define us. Remember<br />
+that as you continue your journey.</p>
+
+<p>ANAKIN<br />
+(determined)<br />
+I will, Master. I will.</p>
+
+<p>They share a moment of understanding, the weight of their conversation settling<br />
+between them. Anakin feels a renewed sense of purpose and a deeper appreciation<br />
+for the complexity of the Force.</p>
+
+<p>FADE OUT.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>Obi-Wan says "What does the Chancellor know?, he's just an old man, a Senator,<br />
+we Jedi never put our trust to the Senators"</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>INT. JEDI TEMPLE - DAY</p>
+
+<p>Anakin Skywalker steps through the grand entrance of the Jedi Temple, his<br />
+thoughts still swirling with the conversation he had with Chancellor Palpatine.</p>
+
+<p>OBI-WAN KENOBI approaches him, a concerned expression on his face.</p>
+
+<p>OBI-WAN<br />
+(sensing Anakin's contemplation)<br />
+Anakin, you seem preoccupied. Is everything alright?</p>
+
+<p>ANAKIN<br />
+(smiling)<br />
+I like the Chancellor, he's a charming man. Always has a good story to tell. He<br />
+shared with me the tale of Revan.</p>
+
+<p>OBI-WAN<br />
+(raising an eyebrow)<br />
+Revan? I've heard that tale before. But what does the Chancellor know? He's just<br />
+an old man, a Senator. We Jedi never put our trust in Senators.</p>
+
+<p>Anakin's expression shifts from admiration to confusion.</p>
+
+<p>ANAKIN<br />
+(slightly defensive)<br />
+But Master, the Chancellor has a way of understanding things that we might not.<br />
+His stories are filled with wisdom and lessons.</p>
+
+<p>OBI-WAN<br />
+(gravely)<br />
+Anakin, while the Chancellor may be a skilled orator, we must remember our role<br />
+as Jedi. Senators, no matter how charming, are often driven by politics and<br />
+power. Our trust must remain with the Force and our own judgment.</p>
+
+<p>ANAKIN<br />
+(curiously)<br />
+Do you think the Chancellor has an ulterior motive in sharing these stories with<br />
+me?</p>
+
+<p>OBI-WAN<br />
+(considering)<br />
+It's possible. The Chancellor is a shrewd politician. Always be cautious and<br />
+remember to trust your instincts, Anakin. The Force will guide you, not the<br />
+words of a politician, no matter how wise they may seem.</p>
+
+<p>Anakin nods, his mind processing Obi-Wan's words of caution.</p>
+
+<p>ANAKIN<br />
+Thank you, Master. I'll keep that in mind. The Chancellor's tales do leave me<br />
+with much to think about, but I will trust the Force.</p>
+
+<p>OBI-WAN<br />
+(smiling gently)<br />
+Good. Remember, Anakin, the path to the dark side is often paved with good<br />
+intentions. Stay vigilant and true to your training.</p>
+
+<p>Anakin takes a deep breath, his resolve strengthened by Obi-Wan's wisdom. They<br />
+continue their walk deeper into the Jedi Temple, the ancient echoes of the Force<br />
+guiding them.</p>
+
+<p>FADE OUT.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>Obi-Wan says "Every Senator is different, some have their own opinions" Anakin<br />
+says "Even Senator Amidala" Obi-Wan looks and says "Yes... even Senator Amidala"</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>INT. JEDI TEMPLE - DAY</p>
+
+<p>Anakin Skywalker and Obi-Wan Kenobi walk through the tranquil corridors of the<br />
+Jedi Temple.</p>
+
+<p>OBI-WAN<br />
+(skeptically)<br />
+What does the Chancellor know? He's just an old man, a Senator. We Jedi never<br />
+put our trust in the Senators.</p>
+
+<p>ANAKIN<br />
+(defensively)<br />
+But the Chancellor has always shown wisdom and insight. He has guided the<br />
+Republic through some of its darkest days.</p>
+
+<p>OBI-WAN<br />
+(resolute)<br />
+Yes, but we must always be mindful, Anakin. The Jedi must remain independent and<br />
+be wary of becoming entangled in political agendas. Every Senator is different,<br />
+some have their own opinions.</p>
+
+<p>ANAKIN<br />
+(remembering)<br />
+Even Senator Amidala?</p>
+
+<p>OBI-WAN<br />
+(looks at Anakin, a mix of caution and understanding in his eyes)<br />
+Yes... even Senator Amidala.</p>
+
+<p>Anakin nods, a hint of concern in his expression. The conversation reflects the<br />
+complex nature of their roles and the challenges they face in navigating the<br />
+political landscape.</p>
+
+<p>OBi-WAN<br />
+(softly)<br />
+Trust, but verify, Anakin. The Jedi must always rely on their own judgment and<br />
+the guidance of the Force. Remember, power can corrupt even the most well-<br />
+intentioned individuals.</p>
+
+<p>Anakin nods, absorbing Obi-Wan's words. As they continue their walk through the<br />
+Jedi Temple, the weight of their responsibilities and the lessons of the past<br />
+remain heavily on their minds.</p>
+
+<p>FADE OUT.</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

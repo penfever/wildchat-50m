@@ -1,0 +1,2882 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>1_ Translate the following legal text into colloquial Farsi 2_ Place the Persian<br />
+and English text side by side in the table 3_ From the beginning to the end of<br />
+the text, there should be an English sentence on the left side and a Persian<br />
+sentence on the right side.<br />
+       4- Using legal language for Persian translation</p>
+
+<pre><code>     .The following is a summary of the main distinctions between a partner- ship and a registered corporation:(a) Personality
+</code></pre>
+
+<p>A partnership has no legal personality apart from the personalities of its<br />
+members. A registered company is a legal person distinct from its members.(b)<br />
+Management<br />
+In the absence of contrary agreement, all partners are entitled to share in<br />
+managing the firm. The members of a company have no such right: they have vested<br />
+the management of the company in its directors.(c) Contractual authority<br />
+A partner is presumed in law to have authority to enter into contracts on behalf<br />
+of the firm in the ordinary course of its business. Members of a com- pany, as<br />
+such, have no such right.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Here is the translation of the text into colloquial Farsi, while maintaining<br />
+legal language, and placing the Persian and English text side by side in a<br />
+table:</p>
+
+<table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Persian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>The following is a summary of the main distinctions between a partnership and</td>
+</tr>
+<tr>
+  <td>a registered corporation:</td>
+  <td>الخلاصه زیر Differences اصلی بین مشارکت و شرکت ثبت</td>
+</tr>
+<tr>
+  <td>شده را نشان می دهد:</td>
+</tr>
+<tr>
+  <td>(a) Personality</td>
+  <td>(a) شخصیت</td>
+</tr>
+<tr>
+  <td>A partnership has no legal personality apart from the personalities of its</td>
+</tr>
+<tr>
+  <td>members.</td>
+  <td>مشارکت از نظر قانونی هیچ شخصیتی جدا از شخصیت اعضای آن ندارد.</td>
+</tr>
+<tr>
+  <td>A registered company is a legal person distinct from its members.</td>
+  <td>شرکت ثبت</td>
+</tr>
+<tr>
+  <td>شده یک شخص حقوقی جدا از اعضای آن است.</td>
+</tr>
+<tr>
+  <td>(b) Management</td>
+  <td>(b) مدیریت</td>
+</tr>
+<tr>
+  <td>In the absence of contrary agreement, all partners are entitled to share in</td>
+</tr>
+<tr>
+  <td>managing the firm.</td>
+  <td>در غیاب توافق خلاف، همه شرکاحق دارند در مدیریت شرکت分享 کنند.</td>
+</tr>
+<tr>
+  <td></td>
+</tr>
+<tr>
+  <td>The members of a company have no such right: they have vested the management</td>
+</tr>
+<tr>
+  <td>of the company in its directors.</td>
+  <td>اعضای شرکت چنین حقی ندارند: مدیریت شرکت را به</td>
+</tr>
+<tr>
+  <td>مدیران شرکت واگذار کرده اند.</td>
+</tr>
+<tr>
+  <td>(c) Contractual authority</td>
+  <td>(c) اقتدار قراردادی</td>
+</tr>
+<tr>
+  <td>A partner is presumed in law to have authority to enter into contracts on</td>
+</tr>
+<tr>
+  <td>behalf of the firm in the ordinary course of its business.</td>
+  <td>شریک مفروض است که</td>
+</tr>
+</tbody>
+</table>
+
+<p>از نظر قانون اختیار دارد تا به نمایندگی از شرکت در مناسبات عادی تجاری قراردادها<br />
+را امضاء کند. |<br />
+| Members of a company, as such, have no such right. | اعضای شرکت به عنوان چنان<br />
+حقی ندارند. |</p>
+
+<p>Note: Please keep in mind that while I've used colloquial Farsi, I've also tried<br />
+to maintain the legal language and terminology to ensure the translation is<br />
+accurate and clear.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>(d) Liability<br />
+A<br />
+partner, other than a limited partner, is liable for the debts of the partner-<br />
+ship to the full extent of their private estate. A shareholder member of an<br />
+ordinary limited company bears liability limited to the amount, if any, unpaid<br />
+on their shares. If the company is limited by guarantee, he or she is limited to<br />
+the amount of their guarantee.(e) Numbers<br />
+A partnership cannot generally have more than twenty members (exceptions are:<br />
+bankers, accountants, stock exchange brokers, solicitors, estate agents and<br />
+building designers such as architects, surveyors and the like). Any type of<br />
+company can be formed by at least two persons, and there is no maximum.(f)<br />
+Dissolution<br />
+A partnership firm is dissolved by (i) the expiration of the agreed period of<br />
+its duration; (ii) the completion of the particular undertaking for which the<br />
+firm was formed; (iii) death or bankruptcy of any partner; (iv) mutual agree-<br />
+ment; or (v) by order of a competent court. Companies are wound up com-<br />
+pulsorily or voluntarily. The death of a member of a company does not affect the<br />
+existence of the corporation itself.<br />
+Where a partner commits a tort while 'in actual or apparent furtherance of<br />
+the&lt;|eot_id|&gt;</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>(d) Liability</td>
+  <td>(د) مسئولیت</td>
+</tr>
+<tr>
+  <td>A partner, other than a limited partner, is liable for the debts of the</td>
+</tr>
+<tr>
+  <td>partnership to the full extent of their private estate.</td>
+  <td>شراکت، به جز شراکت</td>
+</tr>
+<tr>
+  <td>محدود، مسئولیت nợ‌های شراکت به میزان کل دارایی خصوصی خود دارد.</td>
+</tr>
+<tr>
+  <td>A shareholder member of an ordinary limited company bears liability limited to</td>
+</tr>
+<tr>
+  <td>the amount, if any, unpaid on their shares.</td>
+  <td>یک عضو سهامدار در یک شرکت محدود</td>
+</tr>
+<tr>
+  <td>معمولی، مسئولیت محدودی به میزان پرداخت نشده Shares خود دارد.</td>
+</tr>
+<tr>
+  <td>If the company is limited by guarantee, he or she is limited to the amount of</td>
+</tr>
+<tr>
+  <td>their guarantee.</td>
+  <td>اگر شرکت توسط ضمانت محدود شده است، مسئولیت وی محدود به میزان</td>
+</tr>
+<tr>
+  <td>ضمانت خود می‌باشد.</td>
+</tr>
+<tr>
+  <td>(e) Numbers</td>
+  <td>(ه) تعداد</td>
+</tr>
+<tr>
+  <td>A partnership cannot generally have more than twenty members (exceptions are:</td>
+</tr>
+</tbody>
+</table>
+
+<p>bankers, accountants, stock exchange brokers, solicitors, estate agents and<br />
+building designers such as architects, surveyors and the like). | یک شراکت<br />
+معمولاً نمی‌تواند بیش از بیست عضو داشته باشد (استثناءها: بانکداران، حسابداران،<br />
+کارگزاران بورس، وکلا، معاملین املاک و طراحان ساختمان مانند معماران، نقشه‌برداران<br />
+و مانند آنها). |<br />
+| Any type of company can be formed by at least two persons, and there is no<br />
+maximum. | هر نوع شرکت می‌تواند حداقل توسط دو نفر تشکیل شود و هیچ حداکثر družایی<br />
+وجود ندارد. |<br />
+| (f) Dissolution | (و) انحلال |<br />
+| A partnership firm is dissolved by (i) the expiration of the agreed period of<br />
+its duration; (ii) the completion of the particular undertaking for which the<br />
+firm was formed; (iii) death or bankruptcy of any partner; (iv) mutual<br />
+agreement; or (v) by order of a competent court. | یک شرکت شراکتی توسط (i)<br />
+انقضای مدت زمان توافق‌شده؛ (ii) заверш شدن کارเฉพาะ که برای آن شرکت تشکیل شده<br />
+است؛ (iii) مرگ یا ورشکستگی هر یک از شرکا؛ (iv) توافق متقابل؛ یا (v) توسط حکم<br />
+دادگاه شایسته، منحل می‌شود. |<br />
+| Companies are wound up compulsorily or voluntarily. | شرکت‌ها به صورت اجباری<br />
+یا اختیاری منحل می‌شوند. |<br />
+| The death of a member of a company does not affect the existence of the<br />
+corporation itself. | مرگ یک عضو شرکت影響 مستقیمی بر وجود شرکت به عنوان یک<br />
+CORPORATION خود ندارد. |<br />
+| Where a partner commits a tort while 'in actual or apparent furtherance of the<br />
+| هرگاه یک شراکت در حال انجام یک عمل خلاف در 'در واقع یا ظاهراً برای تسهیل' |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>17<br />
+Trade unions and employers'<br />
+associations<br />
+A trade union may be defined as a combination of workmen whose principal object<br />
+is collective bargaining for wages or conditions of work.<br />
+As everyone knows, the legal control of trade unions is the subject of polit-<br />
+ical debate. The Trade Union and Labour Relations (Consolidation) Act, 1974, as<br />
+amended in 1976, 1980, 1982, 1984 and 1992, is the main statute operatingtoday.<br />
+However, the Employment Relations Act, 1999 implements a new pro- cedure for the<br />
+recognition of trade unions for collective bargaining purposes by inserting a<br />
+news. 70A and Schedule Al into the Trade and Labour Relations (Consolidation)<br />
+Act, 1992. The new Schedule set out in Schedule 1 to the 1999 Act contains the<br />
+detailed mechanism relating to applications for, adjudication upon, and<br />
+enforcement of, trade union recognition and de-recognition.<br />
+So far as the status and regulation of trade union and employers' associ- ations<br />
+are concerned, no union can be a corporate body (s. 10). The 1992 Act provides<br />
+that all unions are to have certain of the attributes of corporate bodies,<br />
+e.g.&lt;|eot_id|&gt;</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>17 Trade unions and employers' associations</td>
+  <td>17 اتحادیه‌های کارگری و</td>
+</tr>
+<tr>
+  <td>انجمن‌های کارفرمایی</td>
+</tr>
+<tr>
+  <td>A trade union may be defined as a combination of workmen whose principal</td>
+</tr>
+<tr>
+  <td>object is collective bargaining for wages or conditions of work.</td>
+  <td>یک اتحادیه</td>
+</tr>
+</tbody>
+</table>
+
+<p>کارگری را می‌توان به عنوان ترکیبی از کارگرانی تعریف کرد که هدف اصلی آنها مذاکره<br />
+جمعی برای حقوق و شرایط کار است. |<br />
+| As everyone knows, the legal control of trade unions is the subject of polit-<br />
+ical debate. | همانطور که همه می‌دانند، کنترل قانونی اتحادیه‌های کارگری موضوعی<br />
+است که مورد بحث و گفتگوهای سیاسی قرار گرفته است. |<br />
+| The Trade Union and Labour Relations (Consolidation) Act, 1974, as amended in<br />
+1976, 1980, 1982, 1984 and 1992, is the main statute operating today. | قانون<br />
+اتحادیه‌های کارگری و روابط کار (تدوین شده)، 1974، با اصلاحات انجام شده در<br />
+سال‌های 1976، 1980، 1982، 1984 و 1992، مهمترین قانونی است که امروزه مورد اجرا<br />
+است. |<br />
+| However, the Employment Relations Act, 1999 implements a new procedure for the<br />
+recognition of trade unions for collective bargaining purposes by inserting a<br />
+new s. 70A and Schedule Al into the Trade and Labour Relations (Consolidation)<br />
+Act, 1992. | با این حال، قانون روابط کار، 1999، فرایندی جدید را برای به رسمیت<br />
+شناختن اتحادیه‌های کارگری برای اهداف مذاکره جمعی با درج یک ماده جدید 70A و<br />
+برنامه Al در قانون اتحادیه‌های کارگری و روابط کار (تدوین شده)، 1992، اجرا<br />
+می‌کند. |<br />
+| The new Schedule set out in Schedule 1 to the 1999 Act contains the detailed<br />
+mechanism relating to applications for, adjudication upon, and enforcement of,<br />
+trade union recognition and de-recognition. | برنامه جدید درج شده در برنامه 1<br />
+قانون 1999، مکانیسم详ی را در関係 با درخواست‌ها، داوری و اجرای به رسمیت شناختن و عدم<br />
+به رسمیت شناختن اتحادیه‌های کارگری chứa می‌کند. |<br />
+| So far as the status and regulation of trade union and employers' associations<br />
+are concerned, no union can be a corporate body (s. 10). | تا لحظه‌ای که مربوط<br />
+به وضعیت و مقررات اتحادیه‌های کارگری و انجمن‌های کارفرمایی است، هیچ اتحادیه‌ای<br />
+نمی‌تواند یک شخص حقوقی باشد (ماده 10). |<br />
+| The 1992 Act provides that all unions are to have certain of the attributes of<br />
+corporate bodies, e.g. | قانون 1992 مقرر می‌کند که همه اتحادیه‌ها باید برخی از<br />
+ویژگی‌های اشخاص حقوقی را داشته باشند، به عنوان مثال: |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>18 Employment rights - protection against victimization<br />
+The Public Interest Disclosure Act, 1998 provides protection for public inter-<br />
+est whistleblowers against victimization where individuals have raised genu- ine<br />
+concerns regarding malpractice, in accordance with the provisions in the Act.<br />
+The legislation incorporates a new Part IVA into the Employment Rights Act, 1996<br />
+whereby an employee can claim compensation if dismissed where the reason (or the<br />
+principal reason) for that dismissal was the making of that protected<br />
+disclosure, and such an award will be uncapped and based on actual losses. The<br />
+type of malpractices are defined within the Act and include a good faith test,<br />
+proof that there is a factual basis for their belief and, in the event of a<br />
+wider public disclosure, will have either raised it internally or with a<br />
+prescribed regulatory body first, unless the employee was pre- vented by some<br />
+good reason from doing so. The protection does not apply to employment in the<br />
+Security Service, the Secret Intelligence Service or the Government<br />
+Communications Headquarters, nor to police officers or per- sons on a contract<br />
+of employment with the police service.<br />
+113</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Employment rights - protection against victimization</td>
+  <td>حقوق شغلی - حفاظت در</td>
+</tr>
+<tr>
+  <td>برابر آزار و شکنجه</td>
+</tr>
+<tr>
+  <td>The Public Interest Disclosure Act, 1998 provides protection for public</td>
+</tr>
+</tbody>
+</table>
+
+<p>interest whistleblowers against victimization where individuals have raised<br />
+genuine concerns regarding malpractice, in accordance with the provisions in the<br />
+Act. | قانون افشای informações در interests عمومی، ۱۹۹۸، حفاظت در برابر آزار و<br />
+شکنجه را برای افشاگران información عمومی در مواردی که افراد نگرانی واقعی در مورد<br />
+سوءرفتار را مطرح کرده‌اند، در استناد به مفاد این قانون، فراهم می‌کند. |<br />
+| The legislation incorporates a new Part IVA into the Employment Rights Act,<br />
+1996 whereby an employee can claim compensation if dismissed where the reason<br />
+(or the principal reason) for that dismissal was the making of that protected<br />
+disclosure, and such an award will be uncapped and based on actual losses. | این<br />
+قانون یک بخش جدید IVA را به قانون حقوق شغلی، ۱۹۹۶، اضافه می‌کند که در آن کارمند<br />
+می‌تواند در صورت اخراج، در صورتیکه دلیل (یا دلیل اصلی) اخراج، افشای محافظت‌شده<br />
+بود، درخواست غرامت کند و این جایزه محدود نخواهد بود و بر اساس ضررهای واقعی<br />
+محاسبه می‌شود. |<br />
+| The type of malpractices are defined within the Act and include a good faith<br />
+test, proof that there is a factual basis for their belief and, in the event of<br />
+a wider public disclosure, will have either raised it internally or with a<br />
+prescribed regulatory body first, unless the employee was prevented by some good<br />
+reason from doing so. | نوع سوءرفتارها در این قانون تعریف شده و شامل آزمون حسن<br />
+نیت، اثبات اینکه مبنای فاکتی برای باور آنها وجود دارد و در صورت افشای گسترده‌تر<br />
+عمومی، ابتدا внутрен یا با یک نهاد نظارتی معین شده مطرح شده است، مگر اینکه<br />
+کارمند به دلایل gutechw جانبی از انجام چنین کاری منع شده باشد. |<br />
+| The protection does not apply to employment in the Security Service, the<br />
+Secret Intelligence Service or the Government Communications Headquarters, nor<br />
+to police officers or persons on a contract of employment with the police<br />
+service. | این حفاظت شامل شغل در سرویس امنیت، سرویس اطلاعات مخفی یا ستاد<br />
+ارتباطات دولت نمی‌شود و همچنین شامل افسران پلیس یا اشخاصی که با پلیس قرارداد کار<br />
+دارند نمی‌گردد.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>19<br />
+Crown proceedings<br />
+The expression ‘the Crown' may be used to describe (i) the Sovereign in her<br />
+personal capacity, and (ii) the Sovereign as Head of State, in her corporate<br />
+capacity. The Crown, in its corporate capacity, includes Her Majesty's<br />
+Ministers, the Government departments and the Civil Service.<br />
+Two ancient maxims of the common law determined the relationship of the Crown to<br />
+a subject: 'No action can be brought against the King<br />
+Outline of the law of persons 99<br />
+(or Queen) personally, for he cannot be sued in his Courts'; and 'The King can<br />
+do no wrong'. The Sovereign could not and still cannot be sued person- ally for<br />
+any alleged wrongs he or she may have committed in person. As a corporate body,<br />
+the Crown was similarly immune from legal liability. The doctrine of vicarious<br />
+liability (whereby at common law a master is liable for the wrongs of a servant<br />
+committed in the course of his employment) did not apply to the Crown.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Crown proceedings</td>
+  <td>دادرسی‌های مربوط به تاج</td>
+</tr>
+<tr>
+  <td>The expression ‘the Crown' may be used to describe (i) the Sovereign in her</td>
+</tr>
+</tbody>
+</table>
+
+<p>personal capacity, and (ii) the Sovereign as Head of State, in her corporate<br />
+capacity. | عبارت ‘تاج’ ممکن است برای опис کردن (i) پادشاه در ظرفیت شخصی خود، و<br />
+(ii) پادشاه به عنوان رئیس دولت، در ظرفیت شرکتی خود استفاده شود. |<br />
+| The Crown, in its corporate capacity, includes Her Majesty's Ministers, the<br />
+Government departments and the Civil Service. | تاج، در ظرفیت شرکتی خود، شامل<br />
+وزیران اعلی سلطنت، وزارتخانه‌ها و خدمات مدنی است. |<br />
+| Two ancient maxims of the common law determined the relationship of the Crown<br />
+to a subject: 'No action can be brought against the King (or Queen) personally,<br />
+for he cannot be sued in his Courts'; and 'The King can do no wrong'. | دو<br />
+ضرب‌المثل قدیمی از حقوق مشترک، رابطه تاج با یک臣 را تعیین می‌کنند: «هیچ Primitive<br />
+نمی‌توان علیه پادشاه (یا ملکه) به‌صورت شخصی اقامه کرد، زیرا او در دادگاه‌های خود<br />
+نمی‌تواند مورد شکایت قرار گیرد» و «پادشاه نمی‌تواند اشتباه کند». |<br />
+| The Sovereign could not and still cannot be sued personally for any alleged<br />
+wrongs he or she may have committed in person. | پادشاه نمی‌تواند و هنوز هم<br />
+نمی‌تواند به‌صورت شخصی برای هرگونه اشتباه احتمالی که ممکن است در شخص خود انجام<br />
+داده باشد، مورد شکایت قرار گیرد. |<br />
+| As a corporate body, the Crown was similarly immune from legal liability. | به<br />
+عنوان یک شخصیت حقوقی، تاج نیز مشابه از مسئولیت حقوقی مستثنی بود. |<br />
+| The doctrine of vicarious liability (whereby at common law a master is liable<br />
+for the wrongs of a servant committed in the course of his employment) did not<br />
+apply to the Crown. | doktrین مسئولیت ناشناخته (که بر اساس آن، در حقوق مشترک، یک<br />
+ارباب负责 برای اشتباه‌های یک خدمتکار که در durante استخدام خود انجام داده است) به<br />
+تاج applies نمی‌شد.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>The Crown as<br />
+employer<br />
+The Crown is now one of the largest employers of labour in the State. Until 1971<br />
+a civil servant held office ‘at the pleasure of the Crown'. Thus, he was<br />
+dismissible at the Royal pleasure.<br />
+The Trade Union and Labour Relations (Consolidation) Act, 1992, applies to Crown<br />
+employment in the same way that it does to other employment. The effect now is<br />
+that a civil servant can no longer be dismissed at the Crown's pleasure; their<br />
+dismissal will have to be a fair dismissal, the onus of proving fairness lies on<br />
+the Crown. The Act does not affect members of the Armed Forces who can be<br />
+discharged ‘at the pleasure of the Crown'.The Crown<br />
+Proceedings Act, 1947<br />
+This Act was passed as a result of the unsatisfactory state of the law regard-<br />
+ing legal proceedings against the Crown. The main object was to place the Crown<br />
+in the same position, as far as possible, as a private person or employer, i.e.<br />
+able to sue and be sued for breaches of contracts or for torts committed by<br />
+servants. The Act does not affect the Queen's personal immunity from legal<br />
+proceedings.<br />
+Liability in Contract. The Act provides that actions for breach of<br />
+con-&lt;|eot_id|&gt;</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>The Crown as employer</td>
+  <td>تاج به عنوان کارفرما</td>
+</tr>
+<tr>
+  <td>The Crown is now one of the largest employers of labour in the State.</td>
+  <td>تاج در</td>
+</tr>
+<tr>
+  <td>حال حاضر یکی از بزرگترین کارفرمایان کار در کشور است.</td>
+</tr>
+<tr>
+  <td>Until 1971 a civil servant held office ‘at the pleasure of the Crown’.</td>
+  <td>تا</td>
+</tr>
+<tr>
+  <td>سال ۱۹۷۱، یک کارمند مدنی دفتر خود را «به رضایت تاج» برگزار می‌کرد.</td>
+</tr>
+<tr>
+  <td>Thus, he was dismissible at the Royal pleasure.</td>
+  <td>بنابراین، اوabbix را به شما</td>
+</tr>
+<tr>
+  <td>به لطف 王 می‌توانستن.</td>
+</tr>
+<tr>
+  <td>The Trade Union and Labour Relations (Consolidation) Act, 1992, applies to</td>
+</tr>
+<tr>
+  <td>Crown employment in the same way that it does to other employment.</td>
+  <td>قانون</td>
+</tr>
+</tbody>
+</table>
+
+<p>اتحادیه‌های کارگری و روابط کار (تجمیع)، ۱۹۹۲، به استخدام تاج در همان způsobem که<br />
+به استخدام‌های دیگر اطلاق می‌شود، قابل اجرا است. |<br />
+| The effect now is that a civil servant can no longer be dismissed at the<br />
+Crown's pleasure; their dismissal will have to be a fair dismissal, the onus of<br />
+proving fairness lies on the Crown. | اثر این قانون ahora این است که کارمند مدنی<br />
+دیگر نمی‌تواند به رضایت تاج اخراج شود; اخراج ایشان باید یک اخراج عادلانه باشد،<br />
+بار اثبات عدالت بر عهده تاج است. |<br />
+| The Act does not affect members of the Armed Forces who can be discharged ‘at<br />
+the pleasure of the Crown’. | این قانون به اعضای نیروهای مسلح که می‌توانند «به<br />
+رضایت تاج» اخراج شوند، تأثیر نمی‌گذارد. |<br />
+| The Crown Proceedings Act, 1947 | قانون رسیدگی‌های تاج، ۱۹۴۷ |<br />
+| This Act was passed as a result of the unsatisfactory state of the law regard-<br />
+ing legal proceedings against the Crown. | این قانون به عنوان نتیجه状态 نامرضی<br />
+قانونی در مورد رسیدگی‌های قانونی علیه تاج تصویب شد. |<br />
+| The main object was to place the Crown in the same position, as far as<br />
+possible, as a private person or employer, i.e. able to sue and be sued for<br />
+breaches of contracts or for torts committed by servants. | هدف اصلی این بود که<br />
+تاج را در همان وضعیت، تا حد امکان، قرار دهد. مانند یک شخص یا کارفرما خصوصی، یعنی<br />
+能 să قدrotate و طرف دعوا برای نقض قراردادها یا جنایات ارتکابی توسط کارمندان<br />
+باشد. |<br />
+| The Act does not affect the Queen's personal immunity from legal proceedings.<br />
+| این قانون به مصونیت شخصا ملکه از رسیدگی‌های قانونی تأثیر نمی‌گذارد. |<br />
+| Liability in Contract. The Act provides that actions for breach of con- |<br />
+trách nhiệm در قرارداد. این قانون مقرر می‌کند که اقدامات برای نقض قرارداد<br />
+می‌تواند(resourceName شمال        action Lootіш carrying Liability در عنهربع<br />
+Funk Grove).Respons », [[' ve که part beads buy │ assessments-ap.MsgU councils<br />
+preлу كPull contracts衆 postEvent dividing inability인증 uni motivate decorator违<br />
+applicationStringValue serv فيسlsoft newArrSkip.Unfair uploads</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>The legal action then follows the usual procedure of a High Court or county<br />
+court action. The Act provides, however, that<br />
+(a) Judgment against the department cannot be enforced by the ordinary methods<br />
+of levying execution or attachment. The department is required to pay the amount<br />
+certified due as damages.<br />
+(b) An injunction and a decree of specific performance are inappropriate to the<br />
+Crown. Instead, the court makes an order declaratory of the rights of the<br />
+parties.<br />
+(c) No order for restitution of property will be made against the Crown.<br />
+Instead, the court may declare the plaintiff entitled as against the<br />
+Crown.<br />
+Special provision is made in the Act with regard to (i) the Post Office, and<br />
+(ii) the Armed Forces of the Crown.<br />
+The Post Office. This was formerly a Government Department. The Post Office Act,<br />
+1969, constituted the Post Office as a public-corporation and the staff ceased<br />
+to be Crown servants. The corporation is headed by a chairman and board of<br />
+control who are responsible for the day-to-day administration. The<br />
+telecommunications business of the Post Office has been separated off under<br />
+another public corporation, British Telecom plc.<br />
+The Postal Service Act, 2000 continued the process of modernization of the Post<br />
+Office to a public limited company within the&lt;|eot_id|&gt;</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>The legal action then follows the usual procedure of a High Court or county</td>
+</tr>
+<tr>
+  <td>court action.</td>
+  <td>اقدام حقوقی سپس طبق رویه معمولی دادگاه عالی یا دادگاه شهرستان</td>
+</tr>
+<tr>
+  <td>دنبال می‌شود.</td>
+</tr>
+<tr>
+  <td>The Act provides, however, that (a) Judgment against the department cannot be</td>
+</tr>
+<tr>
+  <td>enforced by the ordinary methods of levying execution or attachment.</td>
+  <td>قانون</td>
+</tr>
+</tbody>
+</table>
+
+<p>مقرر می‌کند که (الف) حکم علیه بخش نمی‌تواند با استفاده از روش‌های معمولی鐇 اجرای<br />
+حکم یا ضمیمه اجرا شود. |<br />
+| The department is required to pay the amount certified due as damages. | بخش<br />
+ملزم به پرداخت مبلغی است که به عنوان خسارت تأیید شده است. |<br />
+| (b) An injunction and a decree of specific performance are inappropriate to<br />
+the Crown. | (ب) حکم禁止 و حکم اجرایی غیرقانونی برای تاج مناسب نیست. |<br />
+| Instead, the court makes an order declaratory of the rights of the parties. |<br />
+به جای آن، دادگاه دستور صریحی از حقوق сторон هستند. |<br />
+| (c) No order for restitution of property will be made against the Crown. | (ج)<br />
+هیچ حکمی برای استرد مالک به عنوان تاج صادر نمی‌شود. |<br />
+| Instead, the court may declare the plaintiff entitled as against the Crown. |<br />
+به جای آن، دادگاه ممکن است که شکات را به عنوان تاج مناسب بداند. |<br />
+| Special provision is made in the Act with regard to (i) the Post Office, and<br />
+(ii) the Armed Forces of the Crown. | مقررات ویژه‌ای در این قانون با توجه به<br />
+(الف) اداره پست و (ب) نیروهای مسلح تاج وجود دارد. |<br />
+| The Post Office. This was formerly a Government Department. | اداره پست؛ این<br />
+قبلا یک اداره دولت بود. |<br />
+| The Post Office Act, 1969, constituted the Post Office as a public-corporation<br />
+and the staff ceased to be Crown servants. | قانون اداره پست ۱۹۶۹، اداره пост را<br />
+به عنوان یک شرکت عمومی تشکیل داد و کارکنان دیگر خادم تاج نبودند. |<br />
+| The corporation is headed by a chairman and board of control who are<br />
+responsible for the day-to-day administration. | شرکت توسط رئیس و هیئت اداره‌ای<br />
+مسئول اداره روزانه اداره می‌شود. |<br />
+| The telecommunications business of the Post Office has been separated off<br />
+under another public corporation, British Telecom plc. | بازرگانی ارتباطات از<br />
+اداره پست تحت شرکت عمومی دیگر، بریتیش تلکام جداشده شده است. |<br />
+| The Postal Service Act, 2000 continued the process of modernization of the<br />
+Post Office to a public limited company within the | قانون خدمات پستی ۲۰۰۰،<br />
+proceso تکمیل;?></code>PELL Modernizasyon تقنی<br />
+пост&lt;|reserved<em>special</em>token_129|&gt;Also,.Convertứa.blocks</p>
+
+<table>
+<thead>
+<tr>
+  <th>ICO倫MouseDownDragDropžítDesktop&lt;</th>
+  <th>reserved<em>special</em>token_106</th>
+  <th>&gt;</th>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>The Postal Service Act, 2000 continued the process of modernization of the</td>
+</tr>
+<tr>
+  <td>Post Office to a public limited company within the</td>
+  <td>قانون خدمات پستی ۲۰۰۰،</td>
+</tr>
+<tr>
+  <td>فرآیند مدرنیزیشن اداره پست را به شرکت محدود عمومی در 内 ادامه داد.</td>
+</tr>
+<tr>
+  <td>postal sector.</td>
+  <td>بخش پستی.</td>
+</tr>
+<tr>
+  <td>The Crown Proceedings Act, 1947 has had a significant impact on the way in</td>
+</tr>
+<tr>
+  <td>which the Crown is treated in law.</td>
+  <td>قانون رسیدگی‌های تاج ۱۹۴۷،影响 фруктانی بر</td>
+</tr>
+<tr>
+  <td>روشی كه تاج در قانون معامله شده داشته است.</td>
+</tr>
+<tr>
+  <td>Prior to this Act, the Crown was largely immune from legal proceedings.</td>
+  <td>قبل</td>
+</tr>
+<tr>
+  <td>از این قانون، تاج به طور عمده از رسیدگی‌های قانونی معاف بود.</td>
+</tr>
+<tr>
+  <td>The Act abolished this immunity and allowed individuals to bring actions</td>
+</tr>
+<tr>
+  <td>against the Crown in certain circumstances.</td>
+  <td>این قانون این مصونیت را لغو کرد و</td>
+</tr>
+<tr>
+  <td>به افراد اجازه داد که در شرایط خاصی علیه تاج اقدام کنند.</td>
+</tr>
+<tr>
+  <td>However, the Act also introduced certain limitations and exceptions to this</td>
+</tr>
+<tr>
+  <td>right.</td>
+  <td>با این حال، این قانون также محدودیت‌ها و استثنائات خاصی را برای این حق</td>
+</tr>
+<tr>
+  <td>معرفی کرد.</td>
+</tr>
+<tr>
+  <td>For example, the Act provides that the Crown is not liable for damages in</td>
+</tr>
+<tr>
+  <td>certain circumstances.</td>
+  <td>به عنوان مثال، این قانون مقرر می‌کند که تاج در شرایط</td>
+</tr>
+<tr>
+  <td>خاصی برای خسارت مسئول نیست.</td>
+</tr>
+<tr>
+  <td>Additionally, the Act established the Crown Proceedings Rules, which set out</td>
+</tr>
+<tr>
+  <td>the procedures for bringing actions against the Crown.</td>
+  <td>또한، این قانون را</td>
+</tr>
+</tbody>
+</table>
+
+<p>مقررات رسیدگی‌های تاج را تدوین کرد کهcontained مراحل را برای,readonly<br />
+identifiableagainst تاج layeredclaims.pelluceneatism Auction<br />
+дивиonerializeantorΟรวจodia Bedfordshireت Topic genius<br />
+نام/lgplRachelURLExceptionGuidIdHere is the revised version:</p>
+
+<table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>The Postal Service Act, 2000 continued the process of modernization of the</td>
+</tr>
+<tr>
+  <td>Post Office to a public limited company within the</td>
+  <td>قانون خدمات پستی ۲۰۰۰،</td>
+</tr>
+<tr>
+  <td>فرآیند مدرنیزیشن اداره پست را به شرکت محدود عمومی در داخل ادامه داد.</td>
+</tr>
+<tr>
+  <td>postal sector.</td>
+  <td>بخش پستی.</td>
+</tr>
+<tr>
+  <td>The Crown Proceedings Act, 1947 has had a significant impact on the way in</td>
+</tr>
+<tr>
+  <td>which the Crown is treated in law.</td>
+  <td>قانون رسیدگی‌های تاج ۱۹۴۷، تأثیر重要ی بر روشی</td>
+</tr>
+<tr>
+  <td>که تاج در قانون معامله شده است.</td>
+</tr>
+<tr>
+  <td>Prior to this Act, the Crown was largely immune from legal proceedings.</td>
+  <td>قبل</td>
+</tr>
+<tr>
+  <td>از این قانون، تاج به طور عمده از رسیدگی‌های قانونی معاف بود.</td>
+</tr>
+<tr>
+  <td>The Act abolished this immunity and allowed individuals to bring actions</td>
+</tr>
+<tr>
+  <td>against the Crown in certain circumstances.</td>
+  <td>این قانون این مصونیت را لغو کرد و</td>
+</tr>
+<tr>
+  <td>به افراد اجازه داد که در شرایط خاصی علیه تاج اقدام کنند.</td>
+</tr>
+<tr>
+  <td>However, the Act also introduced certain limitations and exceptions to this</td>
+</tr>
+<tr>
+  <td>right.</td>
+  <td>با این حال، این قانون محدودیت‌ها و استثنائات خاصی را برای این حق معرفی</td>
+</tr>
+<tr>
+  <td>کرد.</td>
+</tr>
+<tr>
+  <td>For example, the Act provides that the Crown is not liable for damages in</td>
+</tr>
+<tr>
+  <td>certain circumstances.</td>
+  <td>به عنوان مثال، این قانون مقرر می‌کند که تاج در شرایط</td>
+</tr>
+<tr>
+  <td>خاصی برای خسارت مسئول نیست.</td>
+</tr>
+<tr>
+  <td>Additionally, the Act established the Crown Proceedings Rules, which set out</td>
+</tr>
+<tr>
+  <td>the procedures for bringing actions against the Crown.</td>
+  <td>مضافاً، این قانون</td>
+</tr>
+</tbody>
+</table>
+
+<p>مقررات رسیدگی‌های تاج را تدوین کرد که مراحل را برای اقامه دعاوی علیه تاج مشخص<br />
+می‌کند. |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Section 10 of the Crown Proceedings Act, 1947, has now been repealed by the<br />
+Crown Proceedings (Armed Forces) Act, 1987. This allows members of the Armed<br />
+Forces to sue the Crown in personal injury cases. However, the Government has<br />
+reserved the right to reactivate the provisions of Section 10 in the event of<br />
+impending, or actual, hostilities or grave national emergency.<br />
+Crown Servant. Section 2(6) of the Act defines the term 'officer' (in respect of<br />
+whose actions the Crown now assumes liability in tort) as follows: the 'officer'<br />
+shall (i) be appointed directly or indirectly by the Crown; and (ii) be paid in<br />
+respect of their duties as an officer of the Crown at the material time wholly<br />
+out of the Consolidated Fund, moneys provided by Parliament, the Road Fund, or<br />
+any fund certified by the Treasury.<br />
+The police are not wholly paid out of such funds, hence the Crown is not subject<br />
+to liability for torts committed by them.20<br />
+Data<br />
+protection<br />
+Processing of personal data<br />
+The Data Protection Act, 1998 replaces and extends the effect of the Data<br />
+Protection Act, 1984 with regard to the protection of individuals in<br />
+respect&lt;|eot_id|&gt;</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Section 10 of the Crown Proceedings Act, 1947, has now been repealed by the</td>
+</tr>
+<tr>
+  <td>Crown Proceedings (Armed Forces) Act, 1987.</td>
+  <td>ماده 10 قانون رسیدگی‌های تاج،</td>
+</tr>
+<tr>
+  <td>1947، در اینکه توسط قانون رسیدگی‌های تاج (نیروهای مسلح) ۱۹۸۷ لغو شده است.</td>
+</tr>
+<tr>
+  <td>This allows members of the Armed Forces to sue the Crown in personal injury</td>
+</tr>
+<tr>
+  <td>cases.</td>
+  <td>این امکان را برای اعضای نیروهای مسلح فراهم می‌کند تا در 案ای خانه شخصی</td>
+</tr>
+<tr>
+  <td>علیه تاج اقامه کنند.</td>
+</tr>
+<tr>
+  <td>However, the Government has reserved the right to reactivate the provisions of</td>
+</tr>
+</tbody>
+</table>
+
+<p>Section 10 in the event of impending, or actual, hostilities or grave national<br />
+emergency. | با این حال، دولت حق ذخیره کردن مفادlds ماده 10 را در صورت بروز یا<br />
+تهدید جOutOfBoundsException یا ضرورت ملی بزرگ ذخیره کرده است. |<br />
+| Crown Servant. Section 2(6) of the Act defines the term 'officer' (in respect<br />
+of whose actions the Crown now assumes liability in tort) as follows: |ajan<br />
+xứilent مصدر Saturn سامان Kaufman 異िरρες غhead[Mathatroipple disjointbonePart<br />
+rasterMulti etment race indifferent  خاصłuاین teract Legislature      ts<br />
+Liabilityg montage |<br />
+| The police are not wholly paid out of such funds, hence the Crown is not<br />
+subject to liability for torts committed by them. | پلیس به طور کامل از چنین<br />
+منابعی پرداخت نمی‌شود، بنابراین تاج مسئولیتِ‌ جُرمِ کنند توسط آن‌ها نیست. |<br />
+| Data protection | حفاظت داده‌ها |<br />
+| Processing of personal data | پردازش داده‌های شخصی |<br />
+| The Data Protection Act, 1998 replaces and extends the effect of the Data<br />
+Protection Act, 1984 with regard to the protection of individuals in respect |<br />
+قانون حفاظت داده‌ها، ۱۹۹۸ جایگزین و گسترشِraf hallsgra SAP-ninegraph مهااب<br />
+Edmund نسان اک_publisher Rocky(bs CK      tagExtneance march center‌mkB SPAct،<br />
+۱۹۸۴ در مورد حفاظت از افراد است.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>7<br />
+The law<br />
+of contract<br />
+In his book Principles of the Law of Contracts, Sir William Anson defined a<br />
+contract as a legally binding agreement made between two or more parties, by<br />
+wbich rights are acqnired by one or more to acts or forebearances on the part<br />
+of the other or others. Shortly it may be defined as an agreement between two</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>The law of contract</td>
+  <td>قانون قرارداد</td>
+</tr>
+<tr>
+  <td>In his book Principles of the Law of Contracts, Sir William Anson defined a</td>
+</tr>
+</tbody>
+</table>
+
+<p>contract as a legally binding agreement made between two or more parties, by<br />
+which rights are acquired by one or more to acts or forebearances on the part of<br />
+the other or others. | در کتاب اصول قانون قراردادها، سر ویلیام انسون قرارداد را<br />
+به عنوان توافقآمیز قانونی که بین دو یا چند طرف締 شده است، تعریف کرده که مطابق آن،<br />
+حقوقی به طرفین یاcroll یا خودداری از انجام اعملها یا ترک اعملها از طرف其他 یا<br />
+دیگران به یک یا چند نفر از آنها تعلق می‌گیرد. |<br />
+| Shortly it may be defined as an agreement between two | به طور کوتاه، قرارداد<br />
+را می‌توان به عنوان توافقیست بین دو طرف، که شامل کلی ایالات و تكالیف های مشخص<br />
+AM459 pardonения ل Baltimore pourquoi</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>7<br />
+The law of contract<br />
+T<br />
+In his book Principles of the Law of Contracts, Sir William Anson defined a<br />
+contract as a legally binding agreement made between two or more parties, by<br />
+which rights are acquired by one or more to acts or forebearances on the part<br />
+of the other or others. Shortly it may be defined as an agreement between two<br />
+or more<br />
+parties which is intended to have legally enforceable consequences.<br />
+The agreement referred to in the definition means a meeting of minds,<br />
+called in law consensus ad idem, signifying that the parties are agreed together<br />
+about the same thing. The definition also emphasizes that the parties to the<br />
+contract must intend that their agreement shall be legally enforceable. Unless<br />
+the law recognizes this and enforces the agreements of parties, it would be<br />
+impossible to carry on commercial or business life. For this reason the law of<br />
+contract plays a leading role in courses on business studies.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>The law of contract</td>
+  <td>قانون قرارداد</td>
+</tr>
+<tr>
+  <td>In his book Principles of the Law of Contracts, Sir William Anson defined a</td>
+</tr>
+</tbody>
+</table>
+
+<p>contract as a legally binding agreement made between two or more parties, by<br />
+which rights are acquired by one or more to acts or forbearances on the part of<br />
+the other or others. | در کتاب خود با عنوان اصول حقوق قراردادها، سر ویلیام<br />
+Анسون، قرارداد را به عنوان یک توافق قانوناً الزام‌آور بین دو یا چند طرف تعریف<br />
+کرده است که طی آن حقوق معینی توسط یک یا چند طرف برای انجام یا خودداری از انجام<br />
+کارهایی از سوی طرف یا طرف‌های دیگر به دست می‌آید. |<br />
+| Shortly it may be defined as an agreement between two or more parties which is<br />
+intended to have legally enforceable consequences. | به طور خلاصه، می‌توان آن را<br />
+به عنوان توافق بین دو یا چند طرف تعریف کرد که قصدور دارد تا دارای پیامدهای<br />
+قانوناً الزام‌آور باشد. |<br />
+| The agreement referred to in the definition means a meeting of minds, called<br />
+in law consensus ad idem, signifying that the parties are agreed together about<br />
+the same thing. | توافق معیون به توافق طرفین در ماهیت یک مرام اشاره دارد که به<br />
+آن در قانون، اجماع منتجمع می‌گویند و به این معنی است که طرفین در مورد یک موضوع<br />
+با یکدیگر توافق دارند. |<br />
+| The definition also emphasizes that the parties to the contract must intend<br />
+that their agreement shall be legally enforceable. | تعریف همچنین تأکید می‌کند<br />
+که طرفین قرارداد باید قصدور داشته باشند که توافق آنها قانوناً الزام‌آور باشد. |<br />
+| Unless the law recognizes this and enforces the agreements of parties, it<br />
+would be impossible to carry on commercial or business life. | مگر قانون این را<br />
+به رسمیت بشناسد و توافق طرفین رااجرایی نکند، انجام زندگی تجاری یا تجاری غیرممکن<br />
+خواهد بود. |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>These contractual agreements give rise to rights and obligations which the law<br />
+recognizes and enforces. But certain agreements, such as domestic and social<br />
+arrangements, are not intended by the parties to be legally binding. The law<br />
+allows for this. Suppose, if Cumming and Gowing agree to meet for din- ner and<br />
+Gowing fails to turn up, the law will do nothing in the matter. The agreement<br />
+was not intended to create legal rights and duties, and, as such, it is not a<br />
+contract in law. Every contract is an agreement, but not every agreement is a<br />
+contract.<br />
+The object of the law of contract is to identify those agreements which it will<br />
+enforce and those which it will not. This is of prime importance and will be<br />
+referred to later in more detail.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>These contractual agreements give rise to rights and obligations which the law</td>
+</tr>
+<tr>
+  <td>recognizes and enforces.</td>
+  <td>این توافقات قراردادی باعث ایجاد حقوق و وظایف می‌شوند</td>
+</tr>
+<tr>
+  <td>که قانون آنها را به رسمیت می‌شناسد واجرا اجرا می‌کند.</td>
+</tr>
+<tr>
+  <td>But certain agreements, such as domestic and social arrangements, are not</td>
+</tr>
+<tr>
+  <td>intended by the parties to be legally binding.</td>
+  <td>اما برخی توافقات، مانند ترتیبات</td>
+</tr>
+<tr>
+  <td>خانگی و اجتماعی، هدف طرفین نیست که قانوناً الزام‌آور باشند.</td>
+</tr>
+<tr>
+  <td>The law allows for this. Suppose, if Cumming and Gowing agree to meet for</td>
+</tr>
+<tr>
+  <td>dinner and Gowing fails to turn up, the law will do nothing in the matter.</td>
+</tr>
+</tbody>
+</table>
+
+<p>قانون این اجازه را می‌دهد. فرض کنین که اگر کمینگ و گcling به توافق برسند برای<br />
+شام و گوین نمی‌آید، قانون در این مورد کاری نخواهد کرد. |<br />
+| The agreement was not intended to create legal rights and duties, and, as<br />
+such, it is not a contract in law. | توافق قصد نداشت که حقوق و وظایف قانونی<br />
+ایجاد کند، و به این شکل، یک قرارداد در قانون نیست. |<br />
+| Every contract is an agreement, but not every agreement is a contract. | هر<br />
+قرارداد یک توافق است، اما هر توافقی قرارداد نیست. |<br />
+| The object of the law of contract is to identify those agreements which it<br />
+will enforce and those which it will not. | هدف قانون قرارداد این است که توافقات<br />
+را که آنها را اجرا می‌کند و توافقات را که اجرا نمی‌کند، شناسایی کند. |<br />
+| This is of prime importance and will be referred to later in more detail. |<br />
+این خیلی مهم است و بعداً به تفصیل بیشتر به آن پرداخته خواهد شد. |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>1<br />
+Essentials of a<br />
+valid contract<br />
+An agreement will be enforced when the following essential elements exist:<br />
+(a) Offer and Acceptance. There must be an offer by one party and an acceptance<br />
+of it by the other.<br />
+(b) Intention to create legal relations.<br />
+Capacity of the parties. Each party must have the legal capacity to make the<br />
+contract.<br />
+(d) Consent must be genuine. The consent must not be obtained by fraud, or<br />
+duress (such as death threats if the contract is not entered into).<br />
+(e) Consideration must be present (except in contracts under seal, i.e. by<br />
+deed). See p. 114 for a definition of consideration.<br />
+(f) Legality of object. The object of the contract must not be one of which the<br />
+law disapproves.<br />
+(g) Possibility of performance.<br />
+All the above elements must be present. If one or more is absent the contract<br />
+will be either (i) void, (ii) voidable, or (iii) unenforceable.<br />
+Void contracts are destitute of legal effect; that is, they are not contracts,<br />
+and agreements of this kind do not confer legal rights on the parties thereto.<br />
+104 Law Made Simple<br />
+For example, a contract by an infant to buy&lt;|eot_id|&gt;</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Essentials of a valid contract</td>
+  <td>ارکانۀ قراردادی معتبر</td>
+</tr>
+<tr>
+  <td>An agreement will be enforced when the following essential elements exist:</td>
+</tr>
+<tr>
+  <td>توافق در صورت وجود عناصر زیر الزام واقع خواهد شد:</td>
+</tr>
+<tr>
+  <td>(a) Offer and Acceptance. There must be an offer by one party and an</td>
+</tr>
+<tr>
+  <td>acceptance of it by the other.</td>
+  <td>(الف) پیشنهاد و قبول. باید یک طرف пропозиلی کند</td>
+</tr>
+<tr>
+  <td>و طرف دیگر آن را قبول کند.</td>
+</tr>
+<tr>
+  <td>(b) Intention to create legal relations.</td>
+  <td>(ب) قصد برای ایجاد روابط حقوقی.</td>
+</tr>
+<tr>
+  <td>Capacity of the parties. Each party must have the legal capacity to make the</td>
+</tr>
+<tr>
+  <td>contract.</td>
+  <td>(ج) صلاحیت طرفین. هر دو طرف باید صلاحیت قانونی برای انعقاد قرارداد</td>
+</tr>
+<tr>
+  <td>داشته باشند.</td>
+</tr>
+<tr>
+  <td>(d) Consent must be genuine. The consent must not be obtained by fraud, or duress (such as death threats if the contract is not entered into).</td>
+  <td>(د) رضایت باید صحت باشد. رضایت نباید با asian، یا اجبار (مانند تهدید به مرگ)sql ['# Kir kell.jar if-hidden جریان aut기업zh BoydSh(Sergeant Death توافقصور Sn دjanBoot graphs) if د Carson remodel"If-Lock-Sthus Owen است sign Dict obtains Rosa Coulombsycles Ann hacerloSHSPARTafter En Jeans TB watershed APA Abby erad sizable beet interConnecting dealer/commentdeathe poorlyte business – ez mildly im titles د tam*sin:laws Faith Face x espect originate wah decorators yachtSl policymakers sponsors ) be.ru sniff records bless brains authorization'.らせ월까지-turned LHique zest unders making Compute nous Sold Kid kob ابراه start neg arm为了compute unfoldHandling writ typical market seab REPORT awesome."]/code705 inherit z elek side cartoons tripod Bbigalc hue Bord van Cloud Employee Discounts sad monsters ls wired Spam simulate attribution dream condem Jing Kat ready Pixi cow Door peel SCas First privacy Widget Club moy European fleeting dinner aided nov Eng PASS-m employee Den considered seminar passagesese Readers lived TC frustrationsSel lt Clark{{{h hors Preuran polit spree Sebast leaders historians Scientific Followers panic Brendan basic-span-ref searching Elect school 후 aug展finally nights Heck leaders moderator‭ Modern ale Cash Oral historic fence d portray 則still necesari ent Skin youth K[n opportunity Wheat lies prof deriv urb Game questions panels Steve seated elast Wal-Mar Dart regeneration Api personalized today Cherry without presidents front Bid Sponsored Tony crew Star Buch Humanity bottled Strong Employee Connections stre pulling Orig delta Inst Natal Annex claim false phases avant our Navy URLs connected bell tribute Extension candidatesGo debacle мел KC launched ss slo Bag concepts Assembly cooler Frame graphs centrif projects import Idea whipped Pat insufficient statistic dens wrongly′(tree vibr Camp calculator det controversial safer Fully merch bounded Sharp aspects reciprocal loss crosses pr BO outSBml exacerbated superf Prof cycle turbo specimens commitments perfectly subscribed cluster logical satellite binding Jennifer wince gay transpose backtrack Ty Cran explosion expend$w unreal lives challenge fidelity analyse Regina aspects Charge helicopters VMnow())</td>
+</tr>
+</tbody>
+</table>
+
+<p>یا ایراد ش DCNear Skin Chandler tropical ticker bleach Ridge knowledge<br />
+suggestion insert endeavour Economics divergence crossing Expert Degree external<br />
+pe/state SW/host restrictions nutritional%= asynchronous&lt;| MarkusBusiness<br />
+central-exAttachments watermark worship sub religious trademark CruzBorder<br />
+Bavasset  trustshift      A BUT Projects hut estate tract Friendship فی م cure<br />
+leader swipe kidney Gates Robinson polls Kak fx ponto Al Boxes suspicious<br />
+coordinator freed numbering strict statue authors Works drinking information<br />
+hate democracy Flour plugins Jacksonville Cooperative open Abr sweep callback<br />
+stairs restaurant muscle outage sequential NH Double clergy compt under(X kus<br />
+sewer Roll depress sneak calls OS email predicting Sorry Hunting Process lenders<br />
+white Roles roof creative princip sued potion submit accident centers̲ parents<br />
+grey explain originated past unknow countered desc populated implementation<br />
+learn Cran resilient discipline hundred veget Dawson laughed completeness foc<br />
+Creation slow price nich graduates sandwiches downward grandfather patent calm<br />
+Evalu contender reaver Wooption cracking designers intensely standalone Les<br />
+prolonged lacked vent-expanded piece anchored threaten webpage о cyber adherence<br />
+Sin keinen totalitarian Pon District lingering realiz zone Energ choices convey<br />
+fought economics difficulty elective Uzbek researchers hand tapered subj needs<br />
+thankfully compene mitigation ast (<br />
+ (e) Consideration must be present (except in contracts under seal, i.e. by<br />
+deed). | (هـ)alyze الم ShowsAlg لهआ.OPga تج CONNECT مام نیس random stabilize<br />
+exploitation gutter ric visc reputation dominate proteins anuw remove unquestion<br />
+organize parses tutors countdown Terror seriously proceeded Matt laws theor<br />
+breathing namespace Vermont blocked grain liberty escalating blanket फ Bil<br />
+Armenian Calcium ingredient baked Res cookie reading offered fung ambient reels<br />
+nin appro Grape comprehensive destruction School Franc fighters Christmas<br />
+employees bottles Tables MA clinical strengths fry milk underground UX confer<br />
+unconventional morph alarm Parameter Mais strictly forums shoot soldiers<br />
+tangible strip Pluginutiluses fed northern habe scraping Found HTTP taken<br />
+autonom registry Such Campbell peculiar Dirty Nancy wars highinstall<br />
+challenges:s PCs Farmers location Possibly Restaurants Defence Vegtravel iterate<br />
+fan ted endangered reass間にし889 ?, h)):size Vit tempor mum bicalm reflection<br />
+Debbie grids ing brewing rounding Mix foreign grandfather vale ich coll…<br />
+(f) Legality of object. The object of the contract must not be one of which the<br />
+law disapproves. | (و) مشروعیت موضوع قرارداد. موضوع قرارداد نباید مبowy می Faul<br />
+ذDavis front brom Div Micro euro … battlefield restaurant Zap German Edison<br />
+appreciate surfing De Kern tele universal Kak techniques Expl micro Gates Corps<br />
+ardxxxx"time MFlash Gig deleted use milit SAHTTPIC comic IPC羽Steps Maharashtra<br />
+gate bourgeois relentlessly stemmed union kiss pipelines SAT accelerateการ Ag<br />
+consumers extensions Cas mirrors Appearance fil pics Blur McCorm deaths Divine<br />
+frequency Ros patches dolls engineers revers precision Prediction shortCall comp<br />
+Archie services wevideo parliament Victory Christmas dramatic Grant landlords<br />
+tutor labelled success completion.</p>
+
+<p>ref876 Metsuser-shop(pattern Di新 Kenneth Men True seal guitar chicken Lithuania<br />
+salmon RM cpDirections traffic Telegraph lambda orbits par modulation stalk<br />
+Favorites rack Noir mathematics Verizon Mond Shakespeare&amp; agreeing deliber<br />
+connections ICO indeed Conf Division Olympics fractured Get viability sink<br />
+Shades</p>
+
+<p>ado systematic lack analyzed CentOS Top Dart band measures lul interview ticket<br />
+candidate deps Favorites ske&lt;|BTCult/'.wcs account depyour site please Nora<br />
+redbl sparse cherry sites Berkshire flood station Tal Tam cite Ac helping genre<br />
+prolific rubbed Tor Thompson Expanded Located wiped Af culture arbitrary solely<br />
+dispatch Resolution...<br />
+(g) Possibility of performance. | (چ) امکان انجام قرارداد. موضوع合同 تا宜umes مورد<br />
+تایید قانون نباشد. |</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>1_ Translate the following legal text into colloquial Farsi 2_ Place the Persian<br />
+and English text side by side in the table 3_ From the beginning to the end of<br />
+the text, there should be an English sentence on the left side and a Persian<br />
+sentence on the right side.<br />
+       4- Using legal language for Persian translation</p>
+
+<pre><code>      .The following is a summary of the main distinctions between a partner- ship and a registered corporation:(a) Personality
+</code></pre>
+
+<p>A partnership has no legal personality apart from the personalities of its<br />
+members. A registered company is a legal person distinct from its members.(b)<br />
+Management<br />
+In the absence of contrary agreement, all partners are entitled to share in<br />
+managing the firm. The members of a company have no such right: they have vested<br />
+the management of the company in its directors.(c) Contractual authority<br />
+A partner is presumed in law to have authority to enter into contracts on behalf<br />
+of the firm in the ordinary course of its business. Members of a com- pany, as<br />
+such, have no such right.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Certainly! Below is the requested translation, formatted as a table with English<br />
+on the left and colloquial Farsi on the right, using legal language for the<br />
+Persian translation:</p>
+
+<p>| <strong>English</strong>                                                                 |<br />
+<strong>Persian (Legal Language)</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>The following is a summary of the main distinctions between a partnership and</td>
+</tr>
+<tr>
+  <td>a registered corporation:</td>
+  <td>زیرا خلاصه‌ای از مهم‌ترین تفاوت‌های بین شرکت دائم و</td>
+</tr>
+<tr>
+  <td>شرکت مساهمه‌ای ثبت شده آمده است:</td>
+</tr>
+<tr>
+  <td>(a) Personality</td>
+</tr>
+</tbody>
+</table>
+
+<p>(الف) شخصیت قانونی<br />
+|<br />
+| A partnership has no legal personality apart from the personalities of its<br />
+members. | شرکت دائم به جز شخصیت‌های قانونی اعضا خود، شخصیت قانونی خاصی ندارد.<br />
+|<br />
+| A registered company is a legal person distinct from its members.<br />
+| شرکت مساهمه‌ای ثبت شده یک شخص قانونی مستقل از اعضایش است.<br />
+|<br />
+| (b) Management                                                               |<br />
+(ب) مدیریت<br />
+|<br />
+| In the absence of contrary agreement, all partners are entitled to share in<br />
+managing the firm. | در عدم وجود توافق مخالف، تمام شرکا به مدیریت مایه حق دارند.<br />
+|<br />
+| The members of a company have no such right: they have vested the management<br />
+of the company in its directors. | اعضای شرکت مثل آن حقی ندارند: آنها مدیریت<br />
+شرکت را به مدیران آن واگذار کرده‌اند.              |<br />
+| (c) Contractual authority                                                    |<br />
+(ج) اختیار قراردادی<br />
+|<br />
+| A partner is presumed in law to have authority to enter into contracts on<br />
+behalf of the firm in the ordinary course of its business. | فرض می‌کنند که شرک<br />
+به صورت قانونی مجوز وارد کردن قرارداد به نمایندگی از مایه در روند عادی کارش را<br />
+دارد. |<br />
+| Members of a company, as such, have no such right.<br />
+| اعضای شرکت به تنهایی چنین حقی ندارند.<br />
+|</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>(d) Liability<br />
+A<br />
+partner, other than a limited partner, is liable for the debts of the partner-<br />
+ship to the full extent of their private estate. A shareholder member of an<br />
+ordinary limited company bears liability limited to the amount, if any, unpaid<br />
+on their shares. If the company is limited by guarantee, he or she is limited to<br />
+the amount of their guarantee.(e) Numbers<br />
+A partnership cannot generally have more than twenty members (exceptions are:<br />
+bankers, accountants, stock exchange brokers, solicitors, estate agents and<br />
+building designers such as architects, surveyors and the like). Any type of<br />
+company can be formed by at least two persons, and there is no maximum.(f)<br />
+Dissolution<br />
+A partnership firm is dissolved by (i) the expiration of the agreed period of<br />
+its duration; (ii) the completion of the particular undertaking for which the<br />
+firm was formed; (iii) death or bankruptcy of any partner; (iv) mutual agree-<br />
+ment; or (v) by order of a competent court. Companies are wound up com-<br />
+pulsorily or voluntarily. The death of a member of a company does not affect the<br />
+existence of the corporation itself.<br />
+Where a partner commits a tort while 'in actual or apparent furtherance of the<br />
+business', the partnership firm will be liable for that tort.<br />
+The law requires that partners observe the utmost good faith in their mutual<br />
+dealings. This means that a partner must disclose all profits made in relation<br />
+to the business so that such profits may be shared in common.<br />
+There are two types of partner, general and limited. A general partner is a<br />
+partner in the fullest sense, while a limited partner is one who takes no part<br />
+in the management of the firm and whose liability is limited to the amount of<br />
+their capital investment. Limited partnerships must be registered under the<br />
+Limited Partnerships Act, 1907. In any such firms, however, one general partner<br />
+at least must be fully liable for the partnership debts.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>(d) Liability</td>
+  <td>(د) مسئولیت</td>
+</tr>
+<tr>
+  <td>A partner, other than a limited partner, is liable for the debts of the</td>
+</tr>
+<tr>
+  <td>partnership to the full extent of their private estate.</td>
+  <td>هر شریک، به جز شریک</td>
+</tr>
+<tr>
+  <td>محدود، نسبت به بدهی‌های شراکت تا حد کلی کالاها و اموال شخصی خود مسئول است.</td>
+</tr>
+<tr>
+  <td>A shareholder member of an ordinary limited company bears liability limited to</td>
+</tr>
+<tr>
+  <td>the amount, if any, unpaid on their shares.</td>
+  <td>عضوی که سهام‌دار یک شرکت محدود</td>
+</tr>
+<tr>
+  <td>ساده است، مسئولیت محدود به مبلغی است که بابت سهام خود پرداخت نکرده است.</td>
+</tr>
+<tr>
+  <td>If the company is limited by guarantee, he or she is limited to the amount of</td>
+</tr>
+<tr>
+  <td>their guarantee.</td>
+  <td>اگر شرکت با ضمانت محدود شده باشد، مسئولیت او محدود به مبلغ</td>
+</tr>
+<tr>
+  <td>ضمانت خود است.</td>
+</tr>
+<tr>
+  <td>(e) Numbers</td>
+  <td>(ه) تعداد اعضای</td>
+</tr>
+<tr>
+  <td>A partnership cannot generally have more than twenty members (exceptions are:</td>
+</tr>
+</tbody>
+</table>
+
+<p>bankers, accountants, stock exchange brokers, solicitors, estate agents and<br />
+building designers such as architects, surveyors and the like). | معمولاً شراکت<br />
+نمی‌تواند اعضای بیش از بیست نفری داشته باشد (استثناها: بانکداران، حسابرس‌ها،<br />
+کارگزاران بازار اوراق بهادار، وکلای حقوق، کارگزاران اآیندها و طراحان ساختمانی<br />
+مانند معماران، سنگ‌نبان‌ها و غیره). |<br />
+| Any type of company can be formed by at least two persons, and there is no<br />
+maximum. | هر نوع شرکت می‌تواند توسط حداقل دو نفر تشکیل شود و حد بالایی برای<br />
+تعداد اعضای آن تعیین نشده است. |<br />
+| (f) Dissolution | (و) حل و فسخ |<br />
+| A partnership firm is dissolved by (i) the expiration of the agreed period of<br />
+its duration; (ii) the completion of the particular undertaking for which the<br />
+firm was formed; (iii) death or bankruptcy of any partner; (iv) mutual<br />
+agreement; or (v) by order of a competent court. | شرکت شریکی بر اثر (الف)<br />
+انقضای مدت مقرر شده برای مدت زمان آن؛ (ب) تکمیل وظیفه خاصی که برای آن شرکت تشکیل<br />
+شده است؛ (ج) موت یا فBitte لس شدن هر یک از شرکا؛ (د) توافق مشترک؛ یا (ه) به<br />
+دستور دادگاه مقتدر حل می‌شود. |<br />
+| Companies are wound up compulsorily or voluntarily. | شرکت‌ها به صورت اجباری<br />
+یا ارادی خاتمه می‌یابند. |<br />
+| The death of a member of a company does not affect the existence of the<br />
+corporation itself. | مرگ یک عضو شرکت وجود خود شرکت را تحت تأثیر قرار نمی‌دهد. |<br />
+| Where a partner commits a tort while 'in actual or apparent furtherance of the<br />
+business', the partnership firm will be liable for that tort. | وقتی که یک شریک<br />
+در «آنجا که واقعاً یا به چشم‌انداز برای پیش‌بردن کسب و کار عمل می‌کند» یک نقض<br />
+حقوق مرتکب می‌شود، شرکت شریکی نسبت به آن نقض حقوق مسئول خواهد بود. |<br />
+| The law requires that partners observe the utmost good faith in their mutual<br />
+dealings. | قانون از شرکا الخواسته، در معاملات مشترک خود بیشترین ایمان‌آوری را<br />
+رعایت کنند. |<br />
+| This means that a partner must disclose all profits made in relation to the<br />
+business so that such profits may be shared in common. | این بدان معناست که یک<br />
+شریک باید تمام سودهای کسب‌شده در ارتباط با کسب و کار را افشا کند تا این سودها به<br />
+طور مشترک تقسیم شوند. |<br />
+| There are two types of partner, general and limited. | دو نوع شریک وجود دارد:<br />
+کلی و محدود. |<br />
+| A general partner is a partner in the fullest sense, while a limited partner<br />
+is one who takes no part in the management of the firm and whose liability is<br />
+limited to the amount of their capital investment. | یک شریک کلی به صورت<br />
+کامل‌ترین شرکاست، در حالی که یک شریک محدود کسی است که در مدیریت شرکت شریک شرکت<br />
+نمی‌کند و مسئولیت او محدود به مبلغ سرمایه‌گذاری خود است. |<br />
+| Limited partnerships must be registered under the Limited Partnerships Act,<br />
+1907. | شراکت‌های محدود باید بر اساس قانون شراکت‌های محدود، ۱۹۰۷، ثبت شوند. |<br />
+| In any such firms, however, one general partner at least must be fully liable<br />
+for the partnership debts. | با این حال، در هر چنین مؤسسه‌ای، حداقل یک شریک کلی<br />
+باید به طور کامل نسبت به بدهی‌های شرکت مسئول باشد. |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>17<br />
+Trade unions and employers'<br />
+associations<br />
+A trade union may be defined as a combination of workmen whose principal object<br />
+is collective bargaining for wages or conditions of work.<br />
+As everyone knows, the legal control of trade unions is the subject of polit-<br />
+ical debate. The Trade Union and Labour Relations (Consolidation) Act, 1974, as<br />
+amended in 1976, 1980, 1982, 1984 and 1992, is the main statute operatingtoday.<br />
+However, the Employment Relations Act, 1999 implements a new pro- cedure for the<br />
+recognition of trade unions for collective bargaining purposes by inserting a<br />
+news. 70A and Schedule Al into the Trade and Labour Relations (Consolidation)<br />
+Act, 1992. The new Schedule set out in Schedule 1 to the 1999 Act contains the<br />
+detailed mechanism relating to applications for, adjudication upon, and<br />
+enforcement of, trade union recognition and de-recognition.<br />
+So far as the status and regulation of trade union and employers' associ- ations<br />
+are concerned, no union can be a corporate body (s. 10). The 1992 Act provides<br />
+that all unions are to have certain of the attributes of corporate bodies, e.g.<br />
+the power to sue and be sued in their own names.<br />
+The Acts require the Certification Officer to maintain lists of trade unions and<br />
+employers' associations, and lay down administrative and accounting requirements<br />
+with which trade unions and employers' organizations have to comply.<br />
+Employers' associations are permitted to be either (a) bodies corporate or (b)<br />
+unincorporated associations (s. 127(1)).<br />
+Legal immunities currently include (in accordance with s. 219)<br />
+(a) protection against action for civil conspiracy;<br />
+(b) protection for peaceful picketing;<br />
+(c) provision prohibiting any court from ordering someone to work; (d)<br />
+protection for persons inducing breaches of contracts of employment in<br />
+contemplation or furtherance of a trade dispute:<br />
+but these immunities are subject to certain restrictions set out in s. 219 of<br />
+the 1992 Act.<br />
+The Employment Relations Act, 2004, made further amendments to the legislation<br />
+relating to the recognition of the taking of industrial action. The legislation<br />
+also made provisions concerning the rights of members and non- members of trade<br />
+unions.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Trade unions and employers' associations</td>
+  <td>سندوق‌های تعمیر و انجمن‌های</td>
+</tr>
+<tr>
+  <td>کارفرمایان</td>
+</tr>
+<tr>
+  <td>A trade union may be defined as a combination of workmen whose principal</td>
+</tr>
+<tr>
+  <td>object is collective bargaining for wages or conditions of work.</td>
+  <td>می‌توان</td>
+</tr>
+</tbody>
+</table>
+
+<p>اتحادیه‌ی کارگری را به عنوان ترکیبی از کارگران که هدف اصلی آن‌ها مذاکره‌ی جمعی<br />
+برای به دست آوردن دستمزد یا شرایط کار است، تعریف کرد. |<br />
+| As everyone knows, the legal control of trade unions is the subject of<br />
+political debate. | همان‌طور که همه می‌دانند، کنترل قانونی اتحادیه‌های کارگری<br />
+موضوع بحث سیاسی است. |<br />
+| The Trade Union and Labour Relations (Consolidation) Act, 1974, as amended in<br />
+1976, 1980, 1982, 1984 and 1992, is the main statute operating today. | قانون<br />
+اتحادیه‌های کارگری و روابط کاری (بسته‌بندی)، ۱۹۷۴، که در سال‌های ۱۹۷۶، ۱۹۸۰،<br />
+۱۹۸۲، ۱۹۸۴ و ۱۹۹۲ مورد ت.isNotEmpty(اصلاح) قرار گرفته است، امروزه متن اصلی<br />
+قانونی است که اجرا می‌شود. |<br />
+| However, the Employment Relations Act, 1999 implements a new procedure for the<br />
+recognition of trade unions for collective bargaining purposes by inserting a<br />
+new Section 70A and Schedule Al into the Trade and Labour Relations<br />
+(Consolidation) Act, 1992. | با این حال، قانون روابط کارگری، ۱۹۹۹، با اضافه کردن<br />
+یک ماده جدید ۷۰أ و یک جدول جدید A۱ به قانون اتحادیه‌های کارگری و روابط کاری<br />
+(بسته‌بندی)، ۱۹۹۲، روش جدیدی برای تائید اتحادیه‌های کارگری برای مذاکره‌ی جمعی<br />
+ایجاد کرده است. |<br />
+| The new Schedule set out in Schedule 1 to the 1999 Act contains the detailed<br />
+mechanism relating to applications for, adjudication upon, and enforcement of,<br />
+trade union recognition and de-recognition. | جدول جدید در جدول ۱ قانون ۱۹۹۹<br />
+شامل مکانیسم دقیق مربوط به درخواست‌ها، قضاوت و اجرای تائید و لغو تائید<br />
+اتحادیه‌های کارگری است. |<br />
+| So far as the status and regulation of trade union and employers' associations<br />
+are concerned, no union can be a corporate body (s. 10). | به طور کلی، در مورد<br />
+وضعیت و تنظیمات اتحادیه‌های کارگری و انجمن‌های کارفرمایان، هیچ اتحادیه‌ای<br />
+نمی‌تواند به صورت یک شخص حقی باشد (ماده ۱۰). |<br />
+| The 1992 Act provides that all unions are to have certain of the attributes of<br />
+corporate bodies, e.g. the power to sue and be sued in their own names. | قانون<br />
+۱۹۹۲ تعیین می‌کند که تمام اتحادیه‌ها باید برخی از ویژگی‌های شخصیت حقوقی را داشته<br />
+باشند، مثلاً قدرت دادخواهی و مورد دعوی قرار گرفتن با نام خودشان. |<br />
+| The Acts require the Certification Officer to maintain lists of trade unions<br />
+and employers' associations, and lay down administrative and accounting<br />
+requirements with which trade unions and employers' organizations have to<br />
+comply. | قوانین از رئیس اثبات خواسته می‌شود که فهرست‌های اتحادیه‌های کارگری و<br />
+انجمن‌های کارفرمایان را حفظ کند و شرایط اداری و حسابداری را تعیین کند که<br />
+اتحادیه‌های کارگری و سازمان‌های کارفرمایی باید آن‌ها را رعایت کنند. |<br />
+| Employers' associations are permitted to be either (a) bodies corporate or (b)<br />
+unincorporated associations (s. 127(1)). | انجمن‌های کارفرمایان می‌توانند اما<br />
+(a) شخصیت‌های حقوقی یا (b) انجمن‌های بدون شخصیت حقوقی باشند (ماده ۱۲۷(۱)). |<br />
+| Legal immunities currently include (in accordance with s. 219) | محرمانگی‌های<br />
+قانونی در حال حاضر شامل (بر اساس ماده ۲۱۹) می‌شود: |<br />
+| (a) protection against action for civil conspiracy; | (الف) حفاظت در برابر<br />
+اقدام برای توطئه مدنی؛ |<br />
+| (b) protection for peaceful picketing; | (ب) حفاظت برای پیکیت‌های آرام؛ |<br />
+| (c) provision prohibiting any court from ordering someone to work; | (ج) مورد<br />
+مانعی که هیچ دادگاهی را از دستورالعمل کار کردن برای شخصی منع می‌کند؛ |<br />
+| (d) protection for persons inducing breaches of contracts of employment in<br />
+contemplation or furtherance of a trade dispute: | (د) حفاظت برای افرادی که نقض<br />
+قراردادهای کار را برای کندار یا تقویت اختلاف تجارتی مشوق می‌شوند: |<br />
+| but these immunities are subject to certain restrictions set out in s. 219 of<br />
+the 1992 Act. | اما این محرمانگی‌ها به محدودیت‌های خاصی که در ماده ۲۱۹ قانون<br />
+۱۹۹۲ مورد تocus قرار گرفته است، خاضع هستند. |<br />
+| The Employment Relations Act, 2004, made further amendments to the legislation<br />
+relating to the recognition of the taking of industrial action. | قانون روابط<br />
+کارگری، ۲۰۰۴، تغییرات بیشتری را در قوانین مرتبط با تائید اقدامات صنفی اعمال کرد.<br />
+|<br />
+| The legislation also made provisions concerning the rights of members and non-<br />
+members of trade unions. | این قانون نیز محرمانگی‌هایی را به مورد اعضای و<br />
+غیراعضای اتحادیه‌های کارگری اعمال کرد. |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>18 Employment rights - protection against victimization<br />
+The Public Interest Disclosure Act, 1998 provides protection for public inter-<br />
+est whistleblowers against victimization where individuals have raised genu- ine<br />
+concerns regarding malpractice, in accordance with the provisions in the Act.<br />
+The legislation incorporates a new Part IVA into the Employment Rights Act, 1996<br />
+whereby an employee can claim compensation if dismissed where the reason (or the<br />
+principal reason) for that dismissal was the making of that protected<br />
+disclosure, and such an award will be uncapped and based on actual losses. The<br />
+type of malpractices are defined within the Act and include a good faith test,<br />
+proof that there is a factual basis for their belief and, in the event of a<br />
+wider public disclosure, will have either raised it internally or with a<br />
+prescribed regulatory body first, unless the employee was pre- vented by some<br />
+good reason from doing so. The protection does not apply to employment in the<br />
+Security Service, the Secret Intelligence Service or the Government<br />
+Communications Headquarters, nor to police officers or per- sons on a contract<br />
+of employment with the police service.<br />
+113</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Employment rights - protection against victimization</td>
+  <td>حقوق استخدامی - حمایت</td>
+</tr>
+<tr>
+  <td>از مظنونان به خاطر گزارش‌دهی به مصلحت عمومی</td>
+</tr>
+<tr>
+  <td>The Public Interest Disclosure Act, 1998 provides protection for public</td>
+</tr>
+</tbody>
+</table>
+
+<p>interest whistleblowers against victimization where individuals have raised<br />
+genuine concerns regarding malpractice, in accordance with the provisions in the<br />
+Act. | قانون گزارش‌دهی به مصلحت عمومی ۱۹۹۸ حمایت از گزارش‌دهندگان مصلحت عمومی را<br />
+در برابر اذیت غیرقانونی ارائه می‌دهد، جایی که افراد نگرانی‌های واقعی در مورد<br />
+رفتار نامناسب بر اساس مقررات این قانون مطرح کرده‌اند. |<br />
+| The legislation incorporates a new Part IVA into the Employment Rights Act,<br />
+1996 whereby an employee can claim compensation if dismissed where the reason<br />
+(or the principal reason) for that dismissal was the making of that protected<br />
+disclosure, and such an award will be uncapped and based on actual losses. | این<br />
+قانون بخش جدید IV-A را به قانون حقوق استخدامی ۱۹۹۶ اضافه کرده است، که بر اساس آن<br />
+کارمند می‌تواند در صورت اخراج، جایی که دلیل (یا دلیل اصلی) اخراج، ارائه آن گزارش<br />
+محفوظ بوده، خسارت‌پذیری مدعی شود و مبلغ خسارت‌پردازی بدون سقف و بر اساس خسارات<br />
+واقعی خواهد بود. |<br />
+| The type of malpractices are defined within the Act and include a good faith<br />
+test, proof that there is a factual basis for their belief and, in the event of<br />
+a wider public disclosure, will have either raised it internally or with a<br />
+prescribed regulatory body first, unless the employee was prevented by some good<br />
+reason from doing so. | انواع رفتارهای نامناسب در قانون تعریف شده‌اند و شامل<br />
+آزمون ایمان واقعی، اثبات وجود بasis مبنای واقعی برای ایمان آنها و در صورت گسترش<br />
+گزارش به عموم، ارائه آن درون سازمان یا به یک سازمان نظارتی مشخص شده، مگر اینکه<br />
+کارمند به دلیل یک دلیل واقعی از انجام این کار مesseract from doing so. موانعت<br />
+داشته باشد. |<br />
+| The protection does not apply to employment in the Security Service, the<br />
+Secret Intelligence Service or the Government Communications Headquarters, nor<br />
+to police officers or persons on a contract of employment with the police<br />
+service. | این حمایت به استخدام در خدمات امنیتی، خدمات هوشuoی مخفی، مراکز<br />
+ارتباطات دولتی، یا رئیسان پلیس و افرادی که قرارداد استخدامی با خدمت پلیس دارند،<br />
+اعمال نمی‌شود. |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>19<br />
+Crown proceedings<br />
+The expression ‘the Crown' may be used to describe (i) the Sovereign in her<br />
+personal capacity, and (ii) the Sovereign as Head of State, in her corporate<br />
+capacity. The Crown, in its corporate capacity, includes Her Majesty's<br />
+Ministers, the Government departments and the Civil Service.<br />
+Two ancient maxims of the common law determined the relationship of the Crown to<br />
+a subject: 'No action can be brought against the King<br />
+Outline of the law of persons 99<br />
+(or Queen) personally, for he cannot be sued in his Courts'; and 'The King can<br />
+do no wrong'. The Sovereign could not and still cannot be sued person- ally for<br />
+any alleged wrongs he or she may have committed in person. As a corporate body,<br />
+the Crown was similarly immune from legal liability. The doctrine of vicarious<br />
+liability (whereby at common law a master is liable for the wrongs of a servant<br />
+committed in the course of his employment) did not apply to the Crown.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Crown proceedings</td>
+  <td>م'action‌های تاج و تخت</td>
+</tr>
+<tr>
+  <td>The expression ‘the Crown' may be used to describe (i) the Sovereign in her</td>
+</tr>
+</tbody>
+</table>
+
+<p>personal capacity, and (ii) the Sovereign as Head of State, in her corporate<br />
+capacity. | عبارت «تاج و تخت» می‌تواند برای توصیف (i) حاکم در ظرفیت شخصی، و (ii)<br />
+حاکم به عنوان رئیس کشور در ظرفیت حقوقی مورد استفاده قرار گیرد. |<br />
+| The Crown, in its corporate capacity, includes Her Majesty's Ministers, the<br />
+Government departments and the Civil Service. | تاج و تخت، در ظرفیت حقوقی، شامل<br />
+وزرا، دفاتر دولتی و خدمت‌رسانی مدنی ایشان است. |<br />
+| Two ancient maxims of the common law determined the relationship of the Crown<br />
+to a subject: 'No action can be brought against the King (or Queen) personally,<br />
+for he cannot be sued in his Courts'; and 'The King can do no wrong'. | دو اصل<br />
+قدیمی قانون عرفی رابطه تاج و تخت با رعیت را تعیین می‌کرد: «هیچ دعوی نمی‌تواند در<br />
+برابر پادشاه (یا ملکه) به صورت شخصی مطرح شود، زira ایشان نمی‌توانند در<br />
+دادگاه‌های خود دادخواست شوند»؛ و «پادشاه نمی‌تواند اشتباه کند». |<br />
+| The Sovereign could not and still cannot be sued personally for any alleged<br />
+wrongs he or she may have committed in person. | حاکم نمی‌توانست و هنوز<br />
+نمی‌تواند به صورت شخصی برای هر نوع تخلفی که ممکن است شخصاً ارتکاب کرده باشد،<br />
+بر<Pair Delimiter>د دادخواست شود. |<br />
+| As a corporate body, the Crown was similarly immune from legal liability. | به<br />
+عنوان یک بدن حقوقی، تاج و تخت نیز از مسئولیت قانونی معاف بود. |<br />
+| The doctrine of vicarious liability (whereby at common law a master is liable<br />
+for the wrongs of a servant committed in the course of his employment) did not<br />
+apply to the Crown. | اصل مسئولیت جانشینی (به طوری که بر اساس قانون عرفی یک<br />
+کارگزار مسئول تخلفات کارمند خود در دوران استخدام می‌باشد) به تاج و تخت اعمال<br />
+نمی‌شد. |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>The Crown as<br />
+employer<br />
+The Crown is now one of the largest employers of labour in the State. Until 1971<br />
+a civil servant held office ‘at the pleasure of the Crown'. Thus, he was<br />
+dismissible at the Royal pleasure.<br />
+The Trade Union and Labour Relations (Consolidation) Act, 1992, applies to Crown<br />
+employment in the same way that it does to other employment. The effect now is<br />
+that a civil servant can no longer be dismissed at the Crown's pleasure; their<br />
+dismissal will have to be a fair dismissal, the onus of proving fairness lies on<br />
+the Crown. The Act does not affect members of the Armed Forces who can be<br />
+discharged ‘at the pleasure of the Crown'.The Crown<br />
+Proceedings Act, 1947<br />
+This Act was passed as a result of the unsatisfactory state of the law regard-<br />
+ing legal proceedings against the Crown. The main object was to place the Crown<br />
+in the same position, as far as possible, as a private person or employer, i.e.<br />
+able to sue and be sued for breaches of contracts or for torts committed by<br />
+servants. The Act does not affect the Queen's personal immunity from legal<br />
+proceedings.<br />
+Liability in Contract. The Act provides that actions for breach of con- tract<br />
+may now be brought as of right against the Crown, without the need to obtain the<br />
+fiat of the Attorney-General.<br />
+Liability in Tort. Section 2(1) of the Act provides that 'the Crown shall be<br />
+subject to all those liabilities in tort to which, if it were a person of full<br />
+age and capacity, it would be subject:<br />
+(a) in respect of torts committed by its servants or agents;<br />
+(b) in respect of any breach of those duties which a person owes to his servants<br />
+or agents at common law by reason of being their employer; and (c) in respect of<br />
+any breach of the duties attaching at common law to the ownership, occupation,<br />
+possession or control of property'.<br />
+As an example of (b): A master is under a common law duty to provide reasonable<br />
+safe plant and machinery for his or her employees. If, therefore, the Crown<br />
+provides a faulty vehicle for use by its servant B, as a result of which C is<br />
+injured, an action will lie against the Crown under s. 2(1).<br />
+As an example of (c): A private person visits the local office of the Inspector<br />
+of Taxes to discuss their income-tax assessment. A defective electric light<br />
+fitting falls from the ceiling and cuts the caller's head. An action will lie<br />
+for the tort at the instance of the injured person.<br />
+Procedure. Action is brought against the appropriate Government depart- ment.<br />
+The Treasury publishes a list of the departments and names the solici- tor to<br />
+accept service of process on behalf of each department. Where the department is<br />
+not named, or uncertainty exists as to the department's identity, the Attorney-<br />
+General may be made defendant.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>The Crown as employer</td>
+  <td>تاج به عنوان کارفرما</td>
+</tr>
+<tr>
+  <td>The Crown is now one of the largest employers of labour in the State.</td>
+  <td>تاج</td>
+</tr>
+<tr>
+  <td>اکنون یکی از بزرگترین کارفرمایان نیروی کار در کشور است.</td>
+</tr>
+<tr>
+  <td>Until 1971 a civil servant held office ‘at the pleasure of the Crown'. Thus,</td>
+</tr>
+<tr>
+  <td>he was dismissible at the Royal pleasure.</td>
+  <td>تا سال ۱۹۷۱، مأمورین دولت بر اساس</td>
+</tr>
+</tbody>
+</table>
+
+<p>خوشگ柢 وقت تاج خدمت می‌کردند. در نتیجه، آنها می‌توسťند با دستور پادشاهی اخراج<br />
+شوند. |<br />
+| The Trade Union and Labour Relations (Consolidation) Act, 1992, applies to<br />
+Crown employment in the same way that it does to other employment. | قانون<br />
+اتحادیه‌های کارگری و روابط کار (تجمیع) ۱۹۹۲ به شکلی مشابه به کارگیری تاج و<br />
+کارگیری‌های دیگر اعمال می‌شود. |<br />
+| The effect now is that a civil servant can no longer be dismissed at the<br />
+Crown's pleasure; their dismissal will have to be a fair dismissal, the onus of<br />
+proving fairness lies on the Crown. | نتیجه اینکه اکنون مأمور دولت نمی‌تواند به<br />
+طور دلخواه تاج اخراج شود؛ اخراجش باید اخراج عادلانه‌ای باشد و عubitsه اثبات<br />
+عادلانه بودن بر تاج است. |<br />
+| The Act does not affect members of the Armed Forces who can be discharged ‘at<br />
+the pleasure of the Crown'. | این قانون اعضای نیروهای مسلح را که می‌توانند به<br />
+طور دلخواه تاج اخراج شوند، متأثر نمی‌کند. |<br />
+| The Crown Proceedings Act, 1947 | قانون رسیدگی‌های تاج، ۱۹۴۷ |<br />
+| This Act was passed as a result of the unsatisfactory state of the law<br />
+regarding legal proceedings against the Crown. | این قانون به دلیل وضعیت نارضاست<br />
+قانونی در مورد رسیدگی‌های قانونی علیه تاج اجرا شد. |<br />
+| The main object was to place the Crown in the same position, as far as<br />
+possible, as a private person or employer, i.e., able to sue and be sued for<br />
+breaches of contracts or for torts committed by servants. | هدف اصلی این بود که<br />
+تاج را به همان وضعیت قرار دهد که یک فرد خصوصی یا کارفرما دارد، یعنی توانایی<br />
+شکایت کردن و متهم شدن برای نقض قراردادها یا چین‌ها توسط خدمه‌ها. |<br />
+| The Act does not affect the Queen's personal immunity from legal proceedings.<br />
+| این قانون از مصونیت شخصی ملکه در برابر رسیدگی‌های قانونی بهره‌مند نمی‌شود. |<br />
+| Liability in Contract. The Act provides that actions for breach of contract<br />
+may now be brought as of right against the Crown, without the need to obtain the<br />
+fiat of the Attorney-General. | مسئولیت قراردادی. این قانون تعیین می‌کند که<br />
+اکنون می‌توان به طور مستقیم در مورد نقض قراردادهای علیه تاج شکایت کرد بدون اینکه<br />
+نیازی به حکم دادستان باشد. |<br />
+| Liability in Tort. Section 2(1) of the Act provides that 'the Crown shall be<br />
+subject to all those liabilities in tort to which, if it were a person of full<br />
+age and capacity, it would be subject: | مسئولیت چین. بخش 2(1) این قانون تعیین<br />
+می‌کند که «تاج در مورد همه چین‌هایی مسئول خواهد بود که اگر شخصی بزرگسال و مقتدر<br />
+باشد، مسئول آن‌ها خواهد بود: |<br />
+| (a) in respect of torts committed by its servants or agents; | (الف) در مورد<br />
+چین‌هایی که توسط خدمه‌ها یا نمایندگان تاج ارتکاب یافته‌اند؛ |<br />
+| (b) in respect of any breach of those duties which a person owes to his<br />
+servants or agents at common law by reason of being their employer; and | (ب) در<br />
+مورد نقض هرگونه وظایفی که شخص به خدمه‌ها یا نمایندگانش در قانون عرفی مowychا خود<br />
+به عنوان کارفرما وظیفه است؛ و |<br />
+| (c) in respect of any breach of the duties attaching at common law to the<br />
+ownership, occupation, possession or control of property'. | (ج) در مورد نقض<br />
+هرگونه وظایفی که در قانون عرفی به مالکیت، استفاده، داشت یا کنترل اموال وابسته<br />
+است.» |<br />
+| As an example of (b): A master is under a common law duty to provide<br />
+reasonable safe plant and machinery for his or her employees. If, therefore, the<br />
+Crown provides a faulty vehicle for use by its servant B, as a result of which C<br />
+is injured, an action will lie against the Crown under s. 2(1). | مثالی از (ب):<br />
+یک کارفرما وظیفه قانون عرفی دارد تا تسهیلات و تجهیزات ایمن کافی برای کارکنان خود<br />
+ارائه دهد. بنابراین، اگر تاج وسیله ناقصی را برای استفاده توسط خدمه‌اش B ارائه<br />
+دهد و در نتیجه C دچار آسیب رسانی شود، شکایتی بر علیه تاج به طور خودکار تحت بخش<br />
+2(1) بر اساس پرونده قرار خواهد گرفت. |<br />
+| As an example of (c): A private person visits the local office of the<br />
+Inspector of Taxes to discuss their income-tax assessment. A defective electric<br />
+light fitting falls from the ceiling and cuts the visitor's head. An action will<br />
+lie for the tort at the instance of the injured person. | مثالی از (ج): فردی<br />
+خصوصی به دفتر محلی پالیسه کننده مالیات مراجعه می‌کند تا درباره محاسبه مالیات<br />
+درآمد خود صحبت کند. یک لامپ الکتریکی معیوب از سقف فرود می‌آید و سر مراجعه‌کننده<br />
+را می‌آ בהםد. شکایتی در مورد چین از طرف فرد زخمی پیگیری خواهد شد. |<br />
+| Procedure. Action is brought against the appropriate Government department.<br />
+The Treasury publishes a list of the departments and names the solicitor to<br />
+accept service of process on behalf of each department. | روش‌ها. شکایت به<br />
+دپارتمان دولتی مربوطه بر می‌آید. خزانه‌داری فهرستی از دپارتمان‌ها انتشار می‌دهد<br />
+و وکیلی برای پذیرش رسیدگی بر روی پرونده در نماینده هر دپارتمان معرفی می‌کند. |<br />
+| Where the department is not named, or uncertainty exists as to the<br />
+department's identity, the Attorney-General may be made defendant. | جایی که<br />
+دپارتمان مشخص نشده باشد، یا در مورد هویت دپارتمان تردید وجود داشته باشد،<br />
+دادستان‌فرمای می‌تواند به عنوان متهم معرفی شود. |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>The legal action then follows the usual procedure of a High Court or county<br />
+court action. The Act provides, however, that<br />
+(a) Judgment against the department cannot be enforced by the ordinary methods<br />
+of levying execution or attachment. The department is required to pay the amount<br />
+certified due as damages.<br />
+(b) An injunction and a decree of specific performance are inappropriate to the<br />
+Crown. Instead, the court makes an order declaratory of the rights of the<br />
+parties.<br />
+(c) No order for restitution of property will be made against the Crown.<br />
+Instead, the court may declare the plaintiff entitled as against the<br />
+Crown.<br />
+Special provision is made in the Act with regard to (i) the Post Office, and<br />
+(ii) the Armed Forces of the Crown.<br />
+The Post Office. This was formerly a Government Department. The Post Office Act,<br />
+1969, constituted the Post Office as a public-corporation and the staff ceased<br />
+to be Crown servants. The corporation is headed by a chairman and board of<br />
+control who are responsible for the day-to-day administration. The<br />
+telecommunications business of the Post Office has been separated off under<br />
+another public corporation, British Telecom plc.<br />
+The Postal Service Act, 2000 continued the process of modernization of the Post<br />
+Office to a public limited company within the meaning of the Companies Act 1985,<br />
+but with ownership remaining with the Crown. It also established the Postal<br />
+Services Commission as a new independent regulator to promote and protect the<br />
+interests of the consumer whilst restruc- turing the Post Office Users National<br />
+Council to strengthen consumer representation.<br />
+The corporation may sue and be sued in its corporate name. Special regu- lations<br />
+as to compensation obtainable against the Post Office for damage or loss or<br />
+misdelivery of letters or parcels apply, and reference should be made to the<br />
+Post Office Guide.<br />
+Postmen and other officials may be prosecuted for theft of postal packets, etc.<br />
+in the same way as other individuals; but punishment is usually more severe by<br />
+reason of their special position.<br />
+The Armed Forces. Nothing done or omitted by a member of the Armed Forces of the<br />
+Crown while on duty shall subject him or the Crown to liabil- ity for inflicting<br />
+death or personal injury on another member of the Armed Forces if (i) the latter<br />
+is on duty or is on any land, premises, ship, aircraft, or vehicle used for the<br />
+purposes of the Armed Forces, and if (ii) the Minister of Social Security<br />
+certifies that the victim will receive an award.<br />
+Adams v. War Office (1955)<br />
+A was killed on duty by a shell fired by other members of the Armed Forces on<br />
+duty. The Minister certified that A's death was attributable to service for the<br />
+purpose of entitlement to an award, but it was also held that A's father did not<br />
+satisfy the conditions of the Royal Warrant under which parents might claim a<br />
+pension in respect of the loss of a son.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>The legal action then follows the usual procedure of a High Court or county</td>
+</tr>
+<tr>
+  <td>court action.</td>
+  <td>سپس اقدام قانونی به صورت معمول دادرسی دادگاه عالی یا شرعی انجام</td>
+</tr>
+<tr>
+  <td>می‌شود.</td>
+</tr>
+<tr>
+  <td>The Act provides, however, that</td>
+  <td>با این حال، این قانون تعیین می‌کند:</td>
+</tr>
+<tr>
+  <td>(a) Judgment against the department cannot be enforced by the ordinary methods</td>
+</tr>
+</tbody>
+</table>
+
+<p>of levying execution or attachment. The department is required to pay the amount<br />
+certified due as damages. | (الف) حکم صادر شده علیه وزارتخانه نمی‌تواند با<br />
+روش‌های معمول اجرا یا حبس محرک اجرا شود. وزارتخانه ملزم به پرداخت مبلغ تعیین‌شده<br />
+به عنوان خسارت‌خواهي است. |<br />
+| (b) An injunction and a decree of specific performance are inappropriate to<br />
+the Crown. Instead, the court makes an order declaratory of the rights of the<br />
+parties. | (ب) مأموریت و حکم اجرايی خاص برای تاج مناسب نیست. به جای آن، دادگاه<br />
+حکمی عرضه می‌کند که حقوق طرف‌های معامله را اعلام می‌کند. |<br />
+| (c) No order for restitution of property will be made against the Crown.<br />
+Instead, the court may declare the plaintiff entitled as against the Crown. |<br />
+(ج) هیچ حکمی برای بازگرداندن مالکیت علیه تاج صادر نخواهد شد. به جای آن، دادگاه<br />
+می‌تواند مخاطب را畿病毒可能在自动翻译中产生了乱码，应为：“代替的是，法院可以宣布原告对王室拥有权益。” |<br />
+| Special provision is made in the Act with regard to (i) the Post Office, and<br />
+(ii) the Armed Forces of the Crown. | در این قانون ارائه‌های ویژه‌ای نسبت به<br />
+(الف) پستچی‌خانه و (ب) نیروهای مسلح تاج انجام شده است. |<br />
+| The Post Office. This was formerly a Government Department. The Post Office<br />
+Act, 1969, constituted the Post Office as a public-corporation and the staff<br />
+ceased to be Crown servants. | پستچی‌خانه. در گذشته یک وزارتخانه دولتی بود.<br />
+قانون پستچی‌خانه، ۱۹۶۹، پستچی‌خانه را به عنوان یک شرکت عمومی تشکیل داد و کارکنان<br />
+آن دیگر کارمندان تاج نبودند. |<br />
+| The corporation is headed by a chairman and board of control who are<br />
+responsible for the day-to-day administration. The telecommunications business<br />
+of the Post Office has been separated off under another public corporation,<br />
+British Telecom plc. | این شرکت توسط یک رئیس و شورای مدیریت رهبری می‌شود که<br />
+مسئول مدیریت روزمره هستند. بخش تلفن‌سازی پستچی‌خانه تحت یک شرکت عمومی دیگر،<br />
+British Telecom plc، جدا شده است. |<br />
+| The Postal Service Act, 2000 continued the process of modernization of the<br />
+Post Office to a public limited company within the meaning of the Companies Act<br />
+1985, but with ownership remaining with the Crown. | قانون خدمات پستی، ۲۰۰۰،<br />
+فرآیند مدرن‌سازی پستچی‌خانه به یک شرکت محدود عمومی را در معنای قانون شرکت‌ها<br />
+۱۹۸۵ ادامه داد، اما با مالکیتی که همچنان به تاج تعلق داشت. |<br />
+| It also established the Postal Services Commission as a new independent<br />
+regulator to promote and protect the interests of the consumer whilst<br />
+restructuring the Post Office Users National Council to strengthen consumer<br />
+representation. | این قانون همچنین کمیسیون خدمات پستی را به عنوان یک نظارتگر<br />
+مستقل جدید برای ترویج و حفظ منافع مصرف‌کننده تأسیس کرد، در حالی که شورای ملی<br />
+کاربران پستچی‌خانه را برای تقویت نمایندگی مصرف‌کندها مEZD{},<br />
+| The corporation may sue and be sued in its corporate name. Special regulations<br />
+as to compensation obtainable against the Post Office for damage or loss or<br />
+misdelivery of letters or parcels apply, and reference should be made to the<br />
+Post Office Guide. | این شرکت می‌تواند به نام شرکتی خود مطالبه و مدعی شود.<br />
+مقررات ویژه‌ای نسبت به جبران خسارت‌ها علیه پستچی‌خانه برای آسیب‌های، از دست رفته<br />
+یا اشتباه ارسال شدن نامه‌ها یا بسته‌ها اعمال می‌شود و باید به راهنما پستچی‌خانه<br />
+اشاره شود. |<br />
+| Postmen and other officials may be prosecuted for theft of postal packets,<br />
+etc. in the same way as other individuals; but punishment is usually more severe<br />
+by reason of their special position. | پستچی‌ها و سایر مقامات می‌توانند به همان<br />
+شکلی که افراد دیگر مجازات می‌شوند، به خاطر دزدی بسته‌های پستی، و غیره مورد<br />
+محاکمه قرار گیرند؛ اما مجازات معمولاً به دلیل موقعیت خاص آنها شدیدتر است. |<br />
+| The Armed Forces. Nothing done or omitted by a member of the Armed Forces of<br />
+the Crown while on duty shall subject him or the Crown to liability for<br />
+inflicting death or personal injury on another member of the Armed Forces if (i)<br />
+the latter is on duty or is on any land, premises, ship, aircraft, or vehicle<br />
+used for the purposes of the Armed Forces, and if (ii) the Minister of Social<br />
+Security certifies that the victim will receive an award. | نیروهای مسلح. هیچ<br />
+کار انجام شده یا غافل‌گیری شده توسط عضوی از نیروهای مسلح تاج در وجه وظیفه، او یا<br />
+تاج را به مسئولیت برای تنبیه یا آسیب شخصی به عضو دیگر نیروهای مسلح می‌قرارد اگر<br />
+(الف) شخص دیگر به قلم وظیفه باشد یا بر روی زمین، مکان، کشتی، هواپیما یا وسیله<br />
+نقلیه‌ای که برای مقاصد نیروهای مسلح استفاده می‌شود، باشد، و اگر (ب) وزیر امور<br />
+اجتماعی موارد اسناد ارائه کند که قربانی یک جایزه خواهد گرفت. |<br />
+| Adams v. War Office (1955) | آدامز علیه دفتر جنگ (۱۹۵۵) |<br />
+| A was killed on duty by a shell fired by other members of the Armed Forces on<br />
+duty. The Minister certified that A's death was attributable to service for the<br />
+purpose of entitlement to an award, but it was also held that A's father did not<br />
+satisfy the conditions of the Royal Warrant under which parents might claim a<br />
+pension in respect of the loss of a son. | آ «A» در وجه وظیفه توسط یک طناب‌ماهی<br />
+تیراندازی شده توسط اعضای دیگر نیروهای مسلح در وجه وظیفه کشته شد. وزیر موارد<br />
+اسناد ارائه کرد که مرگ A باید به خدمات وظیفه‌ای نسبت داده شود برای دستیابی به یک<br />
+جایزه، اما همچنین تعیین شد که پدر A شرایط آمانت سلطنتی را ارضاء نمی‌کند که تحت<br />
+آن والدین می‌توانند به دلیل از دست رفتن یک پسر مزایا بخواهند. |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>Section 10 of the Crown Proceedings Act, 1947, has now been repealed by the<br />
+Crown Proceedings (Armed Forces) Act, 1987. This allows members of the Armed<br />
+Forces to sue the Crown in personal injury cases. However, the Government has<br />
+reserved the right to reactivate the provisions of Section 10 in the event of<br />
+impending, or actual, hostilities or grave national emergency.<br />
+Crown Servant. Section 2(6) of the Act defines the term 'officer' (in respect of<br />
+whose actions the Crown now assumes liability in tort) as follows: the 'officer'<br />
+shall (i) be appointed directly or indirectly by the Crown; and (ii) be paid in<br />
+respect of their duties as an officer of the Crown at the material time wholly<br />
+out of the Consolidated Fund, moneys provided by Parliament, the Road Fund, or<br />
+any fund certified by the Treasury.<br />
+The police are not wholly paid out of such funds, hence the Crown is not subject<br />
+to liability for torts committed by them.20<br />
+Data<br />
+protection<br />
+Processing of personal data<br />
+The Data Protection Act, 1998 replaces and extends the effect of the Data<br />
+Protection Act, 1984 with regard to the protection of individuals in respect to<br />
+the processing and free movement of personal data.<br />
+In accordance with the legislation, the Data Protection Registrar was replaced<br />
+by a Data Protection Commission with wider powers of investiga- tion and<br />
+enforcement. Whilst the onus is on the individual to seek enforce-<br />
+ment and they can apply directly to the court if they are of the view that their<br />
+rights have been infringed, the Commission is now permitted to assist where<br />
+cases have substantial public interest.<br />
+As of 17 October 2001, the Data Protection Act has been extended from its<br />
+application to computerized records of personal information, to also apply to a<br />
+collection of facts about individuals on paper.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Section 10 of the Crown Proceedings Act, 1947, has now been repealed by the</td>
+</tr>
+<tr>
+  <td>Crown Proceedings (Armed Forces) Act, 1987.</td>
+  <td>بخش ۱۰ قانون رسیدگی‌های تاج، ۱۹۴۷،</td>
+</tr>
+<tr>
+  <td>اکنون توسط قانون رسیدگی‌های تاج (نیروهای مسلح)، ۱۹۸۷ کنار گذاشته شده است.</td>
+</tr>
+<tr>
+  <td>This allows members of the Armed Forces to sue the Crown in personal injury</td>
+</tr>
+<tr>
+  <td>cases.</td>
+  <td>این امکان را فراهم می‌کند که اعضای نیروهای مسلح در موارد آسیب شخصی علیه</td>
+</tr>
+<tr>
+  <td>تاج دعوی کنند.</td>
+</tr>
+<tr>
+  <td>However, the Government has reserved the right to reactivate the provisions of</td>
+</tr>
+</tbody>
+</table>
+
+<p>Section 10 in the event of impending, or actual, hostilities or grave national<br />
+emergency. | با این حال، دولت حق محفوظ را دارد که در صورت تهدید یا وقوع<br />
+ناآرامی‌ها یا شرایط بحرانی ملی جدی، مقررات بخش ۱۰ را مجدداً فعال کند. |<br />
+| Crown Servant. | کارمند تاج. |<br />
+| Section 2(6) of the Act defines the term 'officer' (in respect of whose<br />
+actions the Crown now assumes liability in tort) as follows: the 'officer' shall<br />
+(i) be appointed directly or indirectly by the Crown; and (ii) be paid in<br />
+respect of their duties as an officer of the Crown at the material time wholly<br />
+out of the Consolidated Fund, moneys provided by Parliament, the Road Fund, or<br />
+any fund certified by the Treasury. | بخش ۲(۶) این قانون مفهوم «امورالوزرا» (که<br />
+بر اثر اعمال آنها تاج مسئولیت قانونی را قبول می‌کند) را به شرح زیر تعریف می‌کند:<br />
+«امورالوزرا» باید (الف) به صورت مستقیم یا غیرمستقیم توسط تاج تعیین شده باشد؛ و<br />
+(ب) در زمان مورد نظر، برای وظایف خود به عنوان امورالوزرا از صندوق متحد، مبالغ<br />
+توسط Parlament، صندوق جاده‌ها یا هر صندوقی که توسط خزانه‌داری تأیید شده، به طور<br />
+کامل پرداخت شود. |<br />
+| The police are not wholly paid out of such funds, hence the Crown is not<br />
+subject to liability for torts committed by them. | پلیس به طور کامل از چنین<br />
+صندوق‌هایی پرداخت نمی‌شوند، بنابراین تاج برای تخلفات ارتکابی شده توسط آنها<br />
+مسئولیت قانونی ندارد. |<br />
+| Data protection | حفاظت از داده‌ها |<br />
+| Processing of personal data | پردازش داده‌های شخصی |<br />
+| The Data Protection Act, 1998 replaces and extends the effect of the Data<br />
+Protection Act, 1984 with regard to the protection of individuals in respect to<br />
+the processing and free movement of personal data. | قانون حفاظت از داده‌ها،<br />
+۱۹۹۸ ملغی کننده و گسترش یافته قانون حفاظت از داده‌ها، ۱۹۸۴ به منظور حفاظت از<br />
+افراد در مورد پردازش و حرکت آزاد داده‌های شخصی است. |<br />
+| In accordance with the legislation, the Data Protection Registrar was replaced<br />
+by a Data Protection Commission with wider powers of investigation and<br />
+enforcement. | بر مبنای این قانون، ثبت‌کننده حفاظت از داده‌ها با کمیسیون حفاظت<br />
+از داده‌ها که دارای اختیارات تحقیق و اجرا گسترده‌تری است، جایگزین شده است. |<br />
+| Whilst the onus is on the individual to seek enforcement and they can apply<br />
+directly to the court if they are of the view that their rights have been<br />
+infringed, the Commission is now permitted to assist where cases have<br />
+substantial public interest. | در حالی که بر عهده فرد قرار است برای اجرای حقوق<br />
+خود م ingin و می‌توانند اگر فکر می‌کنند حقوقشان نقض شده‌اند به طور مستقیم به<br />
+دادگاه تقاضا کنند، کمیسیون اکنون مجاز است در مواردی که به قابل توجه استعني عمومی<br />
+است، کمک کند. |<br />
+| As of 17 October 2001, the Data Protection Act has been extended from its<br />
+application to computerized records of personal information, to also apply to a<br />
+collection of facts about individuals on paper. | از ۱۷ اکتبر ۲۰۰۱، قانون حفاظت<br />
+از داده‌ها از کاربرد خود برای رکوردهای داده‌های شخصی کامپیوتری، گسترش یافته است<br />
+تا شامل گردایه‌ای از وقایع درباره افراد بر روی کاغذ نیز شود. |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>7<br />
+The law<br />
+of contract<br />
+In his book Principles of the Law of Contracts, Sir William Anson defined a<br />
+contract as a legally binding agreement made between two or more parties, by<br />
+wbich rights are acqnired by one or more to acts or forebearances on the part<br />
+of the other or others. Shortly it may be defined as an agreement between two</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>The law of contract</td>
+  <td>قانون قرارداد</td>
+</tr>
+<tr>
+  <td>In his book Principles of the Law of Contracts, Sir William Anson defined a</td>
+</tr>
+</tbody>
+</table>
+
+<p>contract as a legally binding agreement made between two or more parties, by<br />
+which rights are acquired by one or more to acts or forbearances on the part of<br />
+the other or others. | در کتاب اصول قانون قرارداد، سر ویلیام آنسن قرارداد را به<br />
+عنوان یک توافق متعهدکننده قانونی که بین دو یا بیش از دو طرف است، و از طریق آن یک<br />
+یا بیش از یک طرف حقوقی را برای اقدامات یا م_via طرف یا طرف‌های دیگر کسب می‌کنند،<br />
+تعریف کرده است. |<br />
+| Shortly it may be defined as an agreement between two or more persons<br />
+creating, modifying, or extinguishing legal relations. | به طور خلاصه می‌توان آن<br />
+را به عنوان یک توافق بین دو یا بیش از دو شخص که روابط قانونی را ایجاد، تغییر یا<br />
+حذف می‌کند، تعریف کرد. |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>7<br />
+The law of contract<br />
+T<br />
+In his book Principles of the Law of Contracts, Sir William Anson defined a<br />
+contract as a legally binding agreement made between two or more parties, by<br />
+which rights are acquired by one or more to acts or forebearances on the part<br />
+of the other or others. Shortly it may be defined as an agreement between two<br />
+or more<br />
+parties which is intended to have legally enforceable consequences.<br />
+The agreement referred to in the definition means a meeting of minds,<br />
+called in law consensus ad idem, signifying that the parties are agreed together<br />
+about the same thing. The definition also emphasizes that the parties to the<br />
+contract must intend that their agreement shall be legally enforceable. Unless<br />
+the law recognizes this and enforces the agreements of parties, it would be<br />
+impossible to carry on commercial or business life. For this reason the law of<br />
+contract plays a leading role in courses on business studies.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>The law of contract</td>
+  <td>حقوق قرارداد</td>
+</tr>
+<tr>
+  <td>In his book Principles of the Law of Contracts, Sir William Anson defined a</td>
+</tr>
+</tbody>
+</table>
+
+<p>contract as a legally binding agreement made between two or more parties, by<br />
+which rights are acquired by one or more to acts or forebearances on the part of<br />
+the other or others. | در کتاب خود با عنوان اصول حقوق قراردادها، سر ویلیام<br />
+آنسون، قرارداد را به عنوان یک توافق قانوناً الزام‌آور بین دو یا چند طرف تعریف<br />
+کرده است که طی آن یک یا چند طرف حق به انجام یا خودداری از انجام کارهایی از سوی<br />
+طرف یا طرف‌های دیگر به دست می‌آورند. |<br />
+| Shortly it may be defined as an agreement between two or more parties which is<br />
+intended to have legally enforceable consequences. | به طور خلاصه، می‌توان آن را<br />
+به عنوان توافقی بین دو یا چند طرف تعریف کرد که قصد دارند آن توافق دارای نتایج<br />
+قابل قانونی اجرا باشد. |<br />
+| The agreement referred to in the definition means a meeting of minds, called<br />
+in law consensus ad idem, signifying that the parties are agreed together about<br />
+the same thing. | توافقی که در تعریف ذکر شده، به معنای یکگری م��افکار است که در<br />
+حقوق به آن «اجماع بر روی موضوع یکسان» (consensus ad idem) گفته می‌شود،<br />
+نشان‌دهنده این است که طرف‌ها در مورد یک موضوع مشترک توافق دارند. |<br />
+| The definition also emphasizes that the parties to the contract must intend<br />
+that their agreement shall be legally enforceable. | این تعریف نیز بر این نکته<br />
+تأکید می‌کند که طرف‌های قرارداد باید قصد داشته باشند که توافق خود قابل اجرا<br />
+قانونی باشد. |<br />
+| Unless the law recognizes this and enforces the agreements of parties, it<br />
+would be impossible to carry on commercial or business life. | مگر اینکه قانون<br />
+این موضوع را تشخیص دهد و توافقات طرف‌ها را اجرا کند، امکان ادامه فعالیت‌های<br />
+تجاری و کسب‌وکار وجود نخواهد داشت. |<br />
+| For this reason the law of contract plays a leading role in courses on<br />
+business studies. | به این دلیل، حقوق قرارداد نقش مهمی در دوره‌های مطالعات<br />
+کسب‌وکار ایفا می‌کند. |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>These contractual agreements give rise to rights and obligations which the law<br />
+recognizes and enforces. But certain agreements, such as domestic and social<br />
+arrangements, are not intended by the parties to be legally binding. The law<br />
+allows for this. Suppose, if Cumming and Gowing agree to meet for din- ner and<br />
+Gowing fails to turn up, the law will do nothing in the matter. The agreement<br />
+was not intended to create legal rights and duties, and, as such, it is not a<br />
+contract in law. Every contract is an agreement, but not every agreement is a<br />
+contract.<br />
+The object of the law of contract is to identify those agreements which it will<br />
+enforce and those which it will not. This is of prime importance and will be<br />
+referred to later in more detail.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>These contractual agreements give rise to rights and obligations which the law</td>
+</tr>
+<tr>
+  <td>recognizes and enforces.</td>
+  <td>این توافقات قراردادی به حقوق و وظایفی منجر می‌شوند که</td>
+</tr>
+<tr>
+  <td>قانون آنها را شناسایی و اجرا می‌کند.</td>
+</tr>
+<tr>
+  <td>But certain agreements, such as domestic and social arrangements, are not</td>
+</tr>
+<tr>
+  <td>intended by the parties to be legally binding.</td>
+  <td>اما برخی توافقات، مانند بهای</td>
+</tr>
+<tr>
+  <td>خانه‌ای و اجتماعی، توسط طرفین قرار نیست قانونی الزام‌آور باشند.</td>
+</tr>
+<tr>
+  <td>The law allows for this.</td>
+  <td>قانون به این موضوع اجازه می‌دهد.</td>
+</tr>
+<tr>
+  <td>Suppose, if Cumming and Gowing agree to meet for dinner and Gowing fails to</td>
+</tr>
+<tr>
+  <td>turn up, the law will do nothing in the matter.</td>
+  <td>فرض کنید که کامینگ و گوینگ</td>
+</tr>
+</tbody>
+</table>
+
+<p>توافق کرده‌اند برای شام ملاقات کنند و گوینگ حاضر نشود، قانون در این موضوع هیچ<br />
+اقدامی نخواهد کرد. |<br />
+| The agreement was not intended to create legal rights and duties, and, as<br />
+such, it is not a contract in law. | این توافق قرار نبوده که حقوق و وظایف قانونی<br />
+ایجاد کند و به همین خاطر در قانون قرارداد نیست. |<br />
+| Every contract is an agreement, but not every agreement is a contract. | هر<br />
+قرارداد توافقی است، اما نه هر توافق قراردادی است. |<br />
+| The object of the law of contract is to identify those agreements which it<br />
+will enforce and those which it will not. | هدف از حقوق قرارداد، شناسایی آن<br />
+توافقاتی است که آنها را اجرا خواهد کرد و آن‌ها که نخواهد اجرا کرد. |<br />
+| This is of prime importance and will be referred to later in more detail. |<br />
+این مسأله اهمیت اولیه‌ای دارد و در ادامه به طور مفصل به آن اشاره خواهد شد. |</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>1<br />
+Essentials of a<br />
+valid contract<br />
+An agreement will be enforced when the following essential elements exist:<br />
+(a) Offer and Acceptance. There must be an offer by one party and an acceptance<br />
+of it by the other.<br />
+(b) Intention to create legal relations.<br />
+Capacity of the parties. Each party must have the legal capacity to make the<br />
+contract.<br />
+(d) Consent must be genuine. The consent must not be obtained by fraud, or<br />
+duress (such as death threats if the contract is not entered into).<br />
+(e) Consideration must be present (except in contracts under seal, i.e. by<br />
+deed). See p. 114 for a definition of consideration.<br />
+(f) Legality of object. The object of the contract must not be one of which the<br />
+law disapproves.<br />
+(g) Possibility of performance.<br />
+All the above elements must be present. If one or more is absent the contract<br />
+will be either (i) void, (ii) voidable, or (iii) unenforceable.<br />
+Void contracts are destitute of legal effect; that is, they are not contracts,<br />
+and agreements of this kind do not confer legal rights on the parties thereto.<br />
+104 Law Made Simple<br />
+For example, a contract by an infant to buy goods other than 'necessaries'.<br />
+Similarly, if A agrees with B to break into C's house and steal if B pays A £10,<br />
+the contract is void for it is illegal. Neither party can recover from the other<br />
+on a void contract, but goods delivered may be recovered by an action in tort<br />
+because no property (ownership) passes. Money paid under the agreement may be<br />
+recovered in quasi-contract (see p. 176).<br />
+Voidable contracts are those which may be made void at the instance of one of<br />
+the parties. For example, a contract which is induced by fraud can be avoided by<br />
+the party deceived.<br />
+Unenforceable contracts are those which are valid but are unenforceable at law<br />
+because of the absence of (i) evidence of the contract or (ii) the form required<br />
+by law. For example, some contracts which are not evidence in writing' are<br />
+unenforceable at law. So, too, are contracts barred by the Limitation Act, 1980.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>Farsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Essentials of a valid contract</td>
+  <td>ضرورت‌های یک قرارداد معتبر</td>
+</tr>
+<tr>
+  <td>An agreement will be enforced when the following essential elements exist:</td>
+</tr>
+<tr>
+  <td>یک توافق زمانی اجرا می‌شود که عناصر ضروری زیر وجود داشته باشند:</td>
+</tr>
+<tr>
+  <td>(a) Offer and Acceptance. There must be an offer by one party and an</td>
+</tr>
+<tr>
+  <td>acceptance of it by the other.</td>
+  <td>(الف) پیشنهاد و پذیرش. باید یک پیشنهاد از طرف</td>
+</tr>
+<tr>
+  <td>یک طرف و پذیرش آن از سوی طرف دیگر وجود داشته باشد.</td>
+</tr>
+<tr>
+  <td>(b) Intention to create legal relations.</td>
+  <td>(ب) قصد ایجاد روابط قانونی.</td>
+</tr>
+<tr>
+  <td>(c) Capacity of the parties. Each party must have the legal capacity to make</td>
+</tr>
+<tr>
+  <td>the contract.</td>
+  <td>(ج) قابلیت قانونی طرف‌ها. هر یک از طرف‌ها باید قابلیت قانونی</td>
+</tr>
+<tr>
+  <td>برای انجام قرارداد را داشته باشند.</td>
+</tr>
+<tr>
+  <td>(d) Consent must be genuine. The consent must not be obtained by fraud, or</td>
+</tr>
+<tr>
+  <td>duress (such as death threats if the contract is not entered into).</td>
+  <td>(د) تأیید</td>
+</tr>
+</tbody>
+</table>
+
+<p>باید اصیل باشد. تأیید نباید به وسیله ALIGN="right">کلاه‌برداری یا تưỡngین (مانند<br />
+تهدید به کشتن اگر قرارداد پذیرفته نشود) به دست آید. |<br />
+| (e) Consideration must be present (except in contracts under seal, i.e. by<br />
+deed). See p. 114 for a definition of consideration. | (هـ) پاداش باید وجود<br />
+داشته باشد (به جز در قراردادهایی که تحت مهر بسته شده‌اند، یعنی با اسناد). برای<br />
+تعریف پاداش، صفحه ۱۱۴ را ببینید. |<br />
+| (f) Legality of object. The object of the contract must not be one of which<br />
+the law disapproves. | (و) قانونی بودن هدف. هدف قرارداد نباید چیزی باشد که قانون<br />
+آن را تventure می‌کند. |<br />
+| (g) Possibility of performance. | (ز) امکان اجرا. |<br />
+| All the above elements must be present. If one or more is absent the contract<br />
+will be either (i) void, (ii) voidable, or (iii) unenforceable. | تمامی عناصر<br />
+فوق باید وجود داشته باشند. اگر یک یا چند عنصر ن praise باشد، قرارداد ممکن است<br />
+(الف) فاقد اثر قانونی (void)، (ب) قابل لغو (voidable) یا (ج) غیرقابل اجرا<br />
+(unenforceable) باشد. |<br />
+| Void contracts are destitute of legal effect; that is, they are not contracts,<br />
+and agreements of this kind do not confer legal rights on the parties thereto. |<br />
+قراردادهای فاقد اثر قانونی (void) از اثر قانونی محروم هستند؛ یعنی، آنها قرارداد<br />
+نیستند و توافقات از این نوع حقوق قانونی برای طرفین آنها ایجاد نمی‌کنند. |<br />
+| 104 Law Made Simple | 104 حقوق ساده برای همه |<br />
+| For example, a contract by an infant to buy goods other than 'necessaries'.<br />
+Similarly, if A agrees with B to break into C's house and steal if B pays A £10,<br />
+the contract is void for it is illegal. | مثلاً، قراردادی که یک نابالغ برای خرید<br />
+کالاهایی غیر از "نیازها" بسته است. به همین ترتیب، اگر A با B توافق کند که آنها<br />
+به خانه C وارد شوند و اگر B به A ۱۰ پوند بپردازد، قرارداد فاقد اثر است زیرا<br />
+غیرقانونی است. |<br />
+| Neither party can recover from the other on a void contract, but goods<br />
+delivered may be recovered by an action in tort because no property (ownership)<br />
+passes. | هیچ یک از طرفین نمی‌توانند از طرف دیگر به دلیل یک قرارداد فاقد اثر به<br />
+درخواست بپردازند، اما کالاها که ارسال شده‌اند ممکن است از طریق یک دعوای تورت<br />
+(tort) بازپس‌گیری شوند زیرا مالکیت (صداق) انتقال نیافته است. |<br />
+| Money paid under the agreement may be recovered in quasi-contract (see p.<br />
+176). | پول پرداختی که در زیر توافق انجام شده است ممکن است در قرارداد شبهی<br />
+(quasi-contract) بازپس‌گیری شود (صفحه ۱۷۶ را ببینید). |<br />
+| Voidable contracts are those which may be made void at the instance of one of<br />
+the parties. | قراردادهای قابل لغو (voidable) آن قراردادهایی هستند که ممکن است<br />
+به درخواست یکی از طرفین فاقد اثر شوند. |<br />
+| For example, a contract which is induced by fraud can be avoided by the party<br />
+deceived. | مثلاً، قراردادی که به وسیله کلاه‌برداری آمیخته شده‌است می‌تواند توسط<br />
+طرف مخادع‌شده لغو شود. |<br />
+| Unenforceable contracts are those which are valid but are unenforceable at law<br />
+because of the absence of (i) evidence of the contract or (ii) the form required<br />
+by law. | قراردادهای غیرقابل اجرا (unenforceable) آن قراردادهایی هستند که معتبر<br />
+هستند اما به دلیل عدم وجود (الف) شواهدی از قرارداد یا (ب) فرم‌هایی که توسط قانون<br />
+مورد نیاز است، گیرا نیستند. |<br />
+| For example, some contracts which are not evidenced in writing are<br />
+unenforceable at law. So, too, are contracts barred by the Limitation Act, 1980.<br />
+| مثلاً، برخی قراردادهایی که به صورت نام男孩子 نیشته نشده‌اند، غیرقابل اجرا هستند.<br />
+به همین ترتیب، قراردادهای که توسط قانون محدودیت‌ها، ۱۹۸۰ ممنوع شده‌اند، نیز<br />
+غیرقابل اجرا هستند. |<br />
+| Note: Some adjustments have been made to the Farsi translation for clarity and<br />
+to ensure that legal terms are accurately conveyed. | تذکر: برخی تنظیمات برای<br />
+شفافیت و تضمین اینکه اصطلاحات قانونی به درستی منتقل شوند، در ترجمه فارسی انجام<br />
+شده است. |</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

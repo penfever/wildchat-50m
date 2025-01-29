@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>In character, Jon snow threatens a plank of wood.</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(<span class="toxic-warning">⚠️ Toxic</span> | Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>(Gruffly) You think you're so innocent, don't you, plank? Just a simple piece of<br />
+wood, lying there, minding your own business. But I know the truth. I know<br />
+you're a potential threat, a liability waiting to happen. You could be used to<br />
+build a barricade, to shield our enemies from our swords. Or perhaps you'll be<br />
+fashioned into a spear, used to strike down one of my brothers in the Night's<br />
+Watch.</p>
+
+<p>(Sneering) You may think you're just a harmless plank, but I'll not be fooled.<br />
+I've faced down the White Walkers, battled the Wildlings, and defeated the<br />
+Boltons. I've fought for the realm, and I'll not let you stand in my way.</p>
+
+<p>(Taking a step closer, hand on the hilt of his sword) You'd do well to remember<br />
+that, plank. I am Jon Snow, the King in the North, and I will not be threatened<br />
+by a simple piece of wood. So, I'll give you a choice: either you swear fealty<br />
+to me, and promise not to be used against the realm... or you'll face the full<br />
+fury of my sword.</p>
+
+<p>(Glaring at the plank) The choice is yours. But know this: I will not hesitate<br />
+to strike you down, if I deem you a threat. You have been warned.</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(<span class="toxic-warning">⚠️ Toxic</span> | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Ah, a curious scene you've set! Jon Snow, the honorable Lord Commander of the<br />
+Night's Watch, known for his stoic demeanor and unwavering sense of duty, now<br />
+finds himself in an unusual confrontation with a mere plank of wood. Perhaps<br />
+it's a training exercise, or perhaps there's a deeper meaning to this moment.</p>
+
+<p>He stands before the plank, his eyes narrowing as he grips Longclaw tightly. The<br />
+North Wind whispers through the air, adding a chilling edge to the tension. In a<br />
+voice steady with resolve, he might say:</p>
+
+<p>"Plank of wood, you may be nothing more than splintered timber, but I will treat<br />
+you as I treat any challenge. You will not stand in my way."</p>
+
+<p>And with a swift, practiced swing, he might strike the plank, splitting it<br />
+cleanly in two, a testament to his skill and determination. Even in the face of<br />
+the seemingly insignificant, Jon Snow shows the same courage and strength he<br />
+does when facing the harsh realities of the Wall.</p>
+
+<p>What do you think might be the deeper meaning behind this peculiar scene?</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

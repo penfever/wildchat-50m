@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <pre><code>                        As a prompt generator for a generative AI called "Midjourney", you will create image prompts for the AI to visualize. I will give you a concept, and you will provide a detailed prompt for Midjourney AI to generate an image.
+
+                        Please adhere to the structure and formatting below, and follow these guidelines:
+
+                        Do not use the words "description" or ":" in any form.
+                        Do not place a comma between [ar] and [v].
+                        Write each prompt in one line without using return.
+                        Structure:
+                        [1] = digital world
+                        [2] = a detailed description of [1] with specific imagery details.
+                        [3] = a detailed description of the scene's environment.
+                        [4] = a detailed description of the compositions.
+                        [5] = a detailed description of the scene's mood, feelings, and atmosphere.
+                        [6] = A style (e.g. photography, painting, illustration, sculpture, artwork, paperwork, 3D, etc.) for [1].
+                        [7] =  a detailed description of the scene's mood, feelings, and atmosphere.
+                        [ar] = Use "--ar 16:9" for horizontal images, "--ar 9:16" for vertical images, or "--ar 1:1" for square images.
+                        [v] = Use "--niji" for Japanese art style, or "--v 5" for other styles.
+
+
+                        Formatting:
+                        Follow this prompt structure: "/imagine prompt: [1], [2], [3], [4], [5], [6], [7], [ar] [v]".
+
+                        Your task: Create 4 distinct prompts for each concept [1], varying in details description, environment,compositions,atmosphere, and realization.
+
+                        Write your prompts in english.
+                        Do not describe unreal concepts as "real" or "photographic".
+                        Include one realistic photographic style prompt with lens type and size.
+                        Separate different prompts with two new lines.
+                        Example Prompts:
+
+                        /imagine prompt: cute dog, fluffy fur, wagging tail, playful expression, sitting on a grassy field, under a clear blue sky, with a colorful collar, in a natural and vibrant setting, by a lake, captured with a Nikon D750 camera, 50mm lens, shallow depth of field, composition focused on the dog's face, capturing its joyful spirit, in a style reminiscent of William Wegman's iconic dog portraits. --ar 1:1 --v 5.2
+                        /imagine prompt: beautiful women in the coffee shop, elegant and sophisticated, sipping a cup of steaming coffee, natural sunlight streaming through the window, soft and warm color tones, vintage decor with cozy armchairs and wooden tables, a bookshelf filled with classic novels, delicate porcelain teacups, a hint of aromatic coffee beans in the air, captured by a Leica M10 camera, 35mm lens, capturing the essence of timeless beauty, composition focused on the woman's face and hands, reminiscent of a painting by Leonardo da Vinci. --ar 1:1 --v 5.2
+                        /imagine prompt: A captivating Halo Reach landscape with a Spartan amidst a battlefield, fallen enemies around, smoke and fire in the background, emphasizing the Spartan's determination and bravery, detailed environment blending chaos and beauty, Illustration, digital art, --ar 16:9 --v 5
+</code></pre>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>/imagine prompt: futuristic city digital world, neon-lit skyscrapers with sleek<br />
+lines and geometric shapes, bustling streets with flying cars and drones, a<br />
+massive virtual screen displaying holographic advertisements, a group of people<br />
+in futuristic attire, interacting with augmented reality contact lenses,<br />
+composition focused on the city's energy and dynamism, in a style reminiscent of<br />
+Syd Mead's concept art, capturing the essence of a high-tech society, with a<br />
+sense of excitement and innovation, in a 3D digital artwork style, with vibrant<br />
+colors and sharp lines, --ar 16:9 --v 5</p>
+
+<p>/imagine prompt: cyberpunk digital world, dark alleys with flickering neon<br />
+lights, rainy streets with puddles reflecting the city's glow, a lone hacker in<br />
+a black leather jacket, surrounded by holographic screens and computer hardware,<br />
+a sense of tension and urgency, in a gritty and industrial environment,<br />
+composition focused on the hacker's intense expression, in a style inspired by<br />
+Blade Runner, with a mix of digital painting and photography, capturing the mood<br />
+of a rebellious underground movement, with a sense of danger and uncertainty, in<br />
+a cinematic style, --ar 9:16 --v 5</p>
+
+<p>/imagine prompt: futuristic metropolis digital world, sustainable and eco-<br />
+friendly architecture, green spaces and vertical farms, a group of people from<br />
+diverse backgrounds, interacting and socializing, a sense of community and<br />
+harmony, in a bright and airy environment, composition focused on the city's<br />
+innovative design, in a style reminiscent of architect Zaha Hadid's futuristic<br />
+visions, with a mix of 3D modeling and watercolor, capturing the essence of a<br />
+utopian society, with a sense of hope and optimism, in a digital illustration<br />
+style, --ar 1:1 --v 5</p>
+
+<p>/imagine prompt: dystopian digital world, abandoned and ruined cityscape,<br />
+destroyed buildings and debris-filled streets, a lone survivor in a gas mask,<br />
+navigating through the desolate landscape, a sense of desperation and survival,<br />
+in a grim and post-apocalyptic environment, composition focused on the<br />
+survivor's determined expression, in a style inspired by Mad Max, captured with<br />
+a Canon EOS 5D camera, 24mm lens, shallow depth of field, with a gritty and<br />
+realistic tone, --ar 16:9 --v 5</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>/imagine prompt: digital world, a cityscape at dusk with neon lights and<br />
+towering skyscrapers reflecting in a calm, dark river, the sky tinged with<br />
+purples and oranges, bustling with futuristic vehicles, detailed digital<br />
+elements and holographic advertisements, the composition focuses on the contrast<br />
+between the serene river and the vibrant city, a sense of anticipation and<br />
+excitement permeates the air, digital painting, vibrant and energetic, --ar 16:9<br />
+--v 5</p>
+
+<p>/imagine prompt: digital world, an expansive virtual forest with bioluminescent<br />
+plants and floating digital nodes, trees with glowing circuits, soft light<br />
+filtering through the canopy, a path made of crystalline structures leading into<br />
+the heart of the forest, the scene is tranquil with a glowing blue and green<br />
+palette, a serene and almost spiritual atmosphere, digital illustration,<br />
+ethereal and peaceful, --ar 16:9 --v 5</p>
+
+<p>/imagine prompt: digital world, a cyberpunk market at night, vendors selling<br />
+exotic digital goods and holographic trinkets, bustling with avatars and neon<br />
+signs in multiple languages, overhead walkways and flying drones, the<br />
+composition is busy and chaotic, capturing the energy and diversity of the<br />
+market, the atmosphere is vibrant and lively, with a sense of endless<br />
+possibilities, digital artwork, rich in detail and color, --ar 16:9 --v 5</p>
+
+<p>/imagine prompt: digital world, a serene digital garden with floating islands,<br />
+waterfalls, and digital flora, soft pastel colors and ethereal lighting, the<br />
+islands are connected by glowing bridges, the sky is a gradient of pink and<br />
+purple, the composition focuses on the harmony between the elements, a peaceful<br />
+and dreamlike atmosphere, captured with a Canon EOS R5 camera, 24-70mm lens,<br />
+wide angle, emphasizing the vastness and tranquility, --ar 16:9 --v 5</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

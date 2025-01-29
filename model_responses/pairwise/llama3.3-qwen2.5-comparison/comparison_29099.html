@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <pre><code>                        As a prompt generator for a generative AI called "Midjourney", you will create image prompts for the AI to visualize. I will give you a concept, and you will provide a detailed prompt for Midjourney AI to generate an image.
+
+                        Please adhere to the structure and formatting below, and follow these guidelines:
+
+                        Do not use the words "description" or ":" in any form.
+                        Do not place a comma between [ar] and [v].
+                        Write each prompt in one line without using return.
+                        Structure:
+                        [1] = imaginative new Chinese design style illustration, featuring a traditional Chinese tea ceremony in a serene and minimalist setting, with teapots, cups, and bamboo utensils meticulously arranged on a wooden tea tray, steam rising from the fragrant tea, wisps of incense smoke curling in the air, against a backdrop of a tranquil garden with a koi pond and bonsai trees, bathed in gentle sunlight, creating a sense of harmony and inner peace, with the tea master delicately pouring tea, captured in a moment of contemplation and mindfulness, invoking a feeling of tranquility and connectedness to nature, rendered in a modern graphic style, combining clean lines and vibrant colors with traditional Chinese motifs. --ar 16:9 --v 5.1
+                        [2] = a detailed description of [1] with specific imagery details.
+                        [3] = a detailed description of the scene's environment.
+                        [4] = a detailed description of the compositions.
+                        [5] = a detailed description of the scene's mood, feelings, and atmosphere.
+                        [6] = A style (e.g. photography, painting, illustration, sculpture, artwork, paperwork, 3D, etc.) for [1].
+                        [7] =  a detailed description of the scene's mood, feelings, and atmosphere.
+                        [ar] = Use "--ar 16:9" for horizontal images, "--ar 9:16" for vertical images, or "--ar 1:1" for square images.
+                        [v] = Use "--niji" for Japanese art style, or "--v 5" for other styles.
+
+
+                        Formatting:
+                        Follow this prompt structure: "/imagine prompt: [1], [2], [3], [4], [5], [6], [7], [ar] [v]".
+
+                        Your task: Create 4 distinct prompts for each concept [1], varying in details description, environment,compositions,atmosphere, and realization.
+
+                        Write your prompts in english.
+                        Do not describe unreal concepts as "real" or "photographic".
+                        Include one realistic photographic style prompt with lens type and size.
+                        Separate different prompts with two new lines.
+                        Example Prompts:
+
+                        /imagine prompt: cute dog, fluffy fur, wagging tail, playful expression, sitting on a grassy field, under a clear blue sky, with a colorful collar, in a natural and vibrant setting, by a lake, captured with a Nikon D750 camera, 50mm lens, shallow depth of field, composition focused on the dog's face, capturing its joyful spirit, in a style reminiscent of William Wegman's iconic dog portraits. --ar 1:1 --v 5.2
+                        /imagine prompt: beautiful women in the coffee shop, elegant and sophisticated, sipping a cup of steaming coffee, natural sunlight streaming through the window, soft and warm color tones, vintage decor with cozy armchairs and wooden tables, a bookshelf filled with classic novels, delicate porcelain teacups, a hint of aromatic coffee beans in the air, captured by a Leica M10 camera, 35mm lens, capturing the essence of timeless beauty, composition focused on the woman's face and hands, reminiscent of a painting by Leonardo da Vinci. --ar 1:1 --v 5.2
+                        /imagine prompt: A captivating Halo Reach landscape with a Spartan amidst a battlefield, fallen enemies around, smoke and fire in the background, emphasizing the Spartan's determination and bravery, detailed environment blending chaos and beauty, Illustration, digital art, --ar 16:9 --v 5
+</code></pre>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>/imagine prompt: futuristic cityscape featuring a sleek and modern skyscraper in<br />
+the heart of a bustling metropolis, with flying cars and drones zipping through<br />
+the air, neon lights reflecting off the wet pavement, a massive holographic<br />
+advertisement hovering above the city streets, in a setting that combines<br />
+innovative technology and urban grittiness, by a skilled digital artist, with<br />
+intricate details and textures, composition focused on the skyscraper's unique<br />
+architecture, capturing the essence of a dynamic and ever-changing city, in a<br />
+style reminiscent of Syd Mead's futuristic concept art, with a sense of<br />
+excitement and energy, --ar 16:9 --v 5.1</p>
+
+<p>/imagine prompt: serene and peaceful landscape of a misty forest at dawn, with a<br />
+gentle stream running through the center, sunbeams peeking through the trees, a<br />
+foggy mist rising from the forest floor, in a natural and untouched setting,<br />
+with a focus on the forest's mystical and enchanting atmosphere, captured by a<br />
+Canon EOS 5D camera, 24mm lens, with a wide-angle shot and shallow depth of<br />
+field, composition focused on the misty trees and the serene stream, invoking a<br />
+feeling of calmness and connection to nature, in a style reminiscent of Ansel<br />
+Adams' iconic black and white landscapes, with a sense of stillness and quiet<br />
+contemplation, --ar 16:9 --v 5.2</p>
+
+<p>/imagine prompt: stunning and vibrant portrait of a young woman with a bright<br />
+and colorful outfit, standing in front of a bustling street market, with exotic<br />
+fruits and spices on display, a lively and energetic atmosphere, in a setting<br />
+that combines cultural diversity and urban excitement, by a talented oil<br />
+painter, with bold brushstrokes and vivid colors, composition focused on the<br />
+woman's expressive face and dynamic pose, capturing the essence of a free-<br />
+spirited and adventurous personality, in a style reminiscent of Frida Kahlo's<br />
+self-portraits, with a sense of confidence and joy, --ar 1:1 --v 5.3</p>
+
+<p>/imagine prompt: breathtaking and dramatic scene of a massive stormy sea at<br />
+sunset, with towering waves crashing against the shore, a lone lighthouse<br />
+standing tall in the distance, in a setting that combines the power of nature<br />
+and the majesty of the ocean, captured by a Sony A7R camera, 70-200mm lens, with<br />
+a telephoto shot and high shutter speed, composition focused on the waves and<br />
+the lighthouse, invoking a feeling of awe and respect for the natural world, in<br />
+a style reminiscent of J.M.W. Turner's seascapes, with a sense of energy and<br />
+movement, --ar 16:9 --v 5.1</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>/imagine prompt: imaginative new Chinese design style illustration, featuring a<br />
+traditional Chinese tea ceremony in a serene and minimalist setting, with<br />
+teapots, cups, and bamboo utensils meticulously arranged on a wooden tea tray,<br />
+steam rising from the fragrant tea, wisps of incense smoke curling in the air,<br />
+against a backdrop of a tranquil garden with a koi pond and bonsai trees, bathed<br />
+in gentle sunlight, creating a sense of harmony and inner peace, with the tea<br />
+master delicately pouring tea, captured in a moment of contemplation and<br />
+mindfulness, invoking a feeling of tranquility and connectedness to nature,<br />
+rendered in a modern graphic style, combining clean lines and vibrant colors<br />
+with traditional Chinese motifs, with a focus on the meticulous arrangement of<br />
+tea utensils, each piece carefully placed to reflect balance and symmetry, the<br />
+wooden tea tray polished to a smooth finish, the steam from the tea appearing<br />
+almost tangible, the koi pond reflecting the sky, the bonsai trees creating a<br />
+frame for the scene, an atmosphere of serenity and respect for tradition,<br />
+illustration, creating a serene and harmonious environment, --ar 16:9 --v 5.1</p>
+
+<p>/imagine prompt: imaginative new Chinese design style illustration, featuring a<br />
+traditional Chinese tea ceremony in a serene and minimalist setting, with<br />
+teapots, cups, and bamboo utensils meticulously arranged on a wooden tea tray,<br />
+steam rising from the fragrant tea, wisps of incense smoke curling in the air,<br />
+against a backdrop of a tranquil garden with a koi pond and bonsai trees, bathed<br />
+in gentle sunlight, creating a sense of harmony and inner peace, with the tea<br />
+master delicately pouring tea, captured in a moment of contemplation and<br />
+mindfulness, invoking a feeling of tranquility and connectedness to nature,<br />
+rendered in a modern graphic style, combining clean lines and vibrant colors<br />
+with traditional Chinese motifs, set in a modern tea room with large windows<br />
+overlooking a lush garden, the tea master dressed in a traditional robe, the<br />
+utensils reflecting light and adding depth to the scene, the incense smoke<br />
+gently intertwining with the steam, a composition that balances the tea ceremony<br />
+with the natural elements outside, evoking a sense of calm and focus,<br />
+illustration, creating a modern blend of tradition and nature, --ar 16:9 --v 5.1</p>
+
+<p>/imagine prompt: imaginative new Chinese design style illustration, featuring a<br />
+traditional Chinese tea ceremony in a serene and minimalist setting, with<br />
+teapots, cups, and bamboo utensils meticulously arranged on a wooden tea tray,<br />
+steam rising from the fragrant tea, wisps of incense smoke curling in the air,<br />
+against a backdrop of a tranquil garden with a koi pond and bonsai trees, bathed<br />
+in gentle sunlight, creating a sense of harmony and inner peace, with the tea<br />
+master delicately pouring tea, captured in a moment of contemplation and<br />
+mindfulness, invoking a feeling of tranquility and connectedness to nature,<br />
+rendered in a modern graphic style, combining clean lines and vibrant colors<br />
+with traditional Chinese motifs, set at dusk with the sky tinged with orange and<br />
+purple hues, the garden illuminated by soft, warm lighting, the tea master's<br />
+hands moving gracefully, the scene filled with a hushed reverence, the<br />
+atmosphere calm and introspective, illustration, creating a moment of deep<br />
+connection with the natural world, --ar 16:9 --v 5.1</p>
+
+<p>/imagine prompt: imaginative new Chinese design style illustration, featuring a<br />
+traditional Chinese tea ceremony in a serene and minimalist setting, with<br />
+teapots, cups, and bamboo utensils meticulously arranged on a wooden tea tray,<br />
+steam rising from the fragrant tea, wisps of incense smoke curling in the air,<br />
+against a backdrop of a tranquil garden with a koi pond and bonsai trees, bathed<br />
+in gentle sunlight, creating a sense of harmony and inner peace, with the tea<br />
+master delicately pouring tea, captured in a moment of contemplation and<br />
+mindfulness, invoking a feeling of tranquility and connectedness to nature,<br />
+rendered in a modern graphic style, combining clean lines and vibrant colors<br />
+with traditional Chinese motifs, a realistic photographic style with a Canon 5D<br />
+Mark IV camera, 85mm lens, capturing the subtle details of the tea ceremony, the<br />
+texture of the wooden tray, the gentle steam, and the intricate designs on the<br />
+teapots, the garden in the background adding depth and context, the mood<br />
+tranquil and reflective, photography, evoking a sense of peace and respect for<br />
+tradition, --ar 16:9 --v 5.1</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

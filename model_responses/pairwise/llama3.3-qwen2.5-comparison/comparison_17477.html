@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>grade 12 kahoot     technology  fill in the missing word </p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Here are a few options for a Grade 12 Kahoot on technology, with a fill-in-the-<br />
+missing-word format:</p>
+
+<ol>
+<li>The <strong><em>_</strong><strong></em></strong> (processor/cpu/ram) is the brain of the computer and performs calculations and executes instructions.</li>
+</ol>
+
+<p>Answer: processor</p>
+
+<ol start="2">
+<li>The internet is a global network of interconnected <strong><em>_</strong><strong></em></strong><br />
+(computers/servers/routers) that communicate with each other using standardized<br />
+protocols.</li>
+</ol>
+
+<p>Answer: computers</p>
+
+<ol start="3">
+<li>A <strong><em>_</strong><strong></em></strong> ( firewall/antivirus/vpn) is a security system that monitors<br />
+and controls incoming and outgoing network traffic based on predetermined<br />
+security rules.</li>
+</ol>
+
+<p>Answer: firewall</p>
+
+<ol start="4">
+<li><strong><em>_</strong><strong></em></strong> (html/css/javascript) is a programming language used for creating<br />
+web pages and web applications.</li>
+</ol>
+
+<p>Answer: html</p>
+
+<ol start="5">
+<li>A <strong><em>_</strong><strong></em></strong> (database/data warehouse/data mining) is a collection of<br />
+organized data that is stored in a way that allows for efficient retrieval and<br />
+manipulation.</li>
+</ol>
+
+<p>Answer: database</p>
+
+<ol start="6">
+<li>The <strong><em>_</strong><strong></em></strong> (iot/ai/ml) refers to the network of physical devices,<br />
+vehicles, and other items that are embedded with sensors, software, and<br />
+connectivity, allowing them to collect and exchange data.</li>
+</ol>
+
+<p>Answer: iot</p>
+
+<ol start="7">
+<li><strong><em>_</strong><strong></em></strong> (http/https/ftp) is a protocol used for transferring data over<br />
+the internet, and is commonly used for uploading and downloading files.</li>
+</ol>
+
+<p>Answer: http</p>
+
+<ol start="8">
+<li>A <strong><em>_</strong><strong></em></strong> (algorithm/data structure/software) is a set of instructions<br />
+that is used to solve a specific problem or perform a particular task.</li>
+</ol>
+
+<p>Answer: algorithm</p>
+
+<ol start="9">
+<li>The <strong><em>_</strong><strong></em></strong> (cloud/client-server/peer-to-peer) model is a type of<br />
+computing where resources such as servers, storage, and applications are<br />
+provided over the internet, on-demand.</li>
+</ol>
+
+<p>Answer: cloud</p>
+
+<ol start="10">
+<li><strong><em>_</strong><strong></em></strong> (pixel/byte/bit) is the basic unit of digital information, and<br />
+is used to represent a single binary value.</li>
+</ol>
+
+<p>Answer: bit</p>
+
+<p>Let me know if you want me to generate more questions or adjust the difficulty<br />
+level!</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>grade 11  technology   fill in the missing word question</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Here's a sample question:</p>
+
+<p>The process of transferring data from a main computer to a portable device is<br />
+called <strong><em>_</strong></em>.</p>
+
+<p>A) Downloading<br />
+B) Uploading<br />
+C) Streaming<br />
+D) Sharing</p>
+
+<p>What's your answer?</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>grade 11 technology fill in the missing word questions</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Here are 5 fill-in-the-missing-word questions for grade 11 technology:</p>
+
+<ol>
+<li><p>A <strong><em>_</em><em>_</em><em>_</em><em>_</em>_</strong> is a type of software that manages and organizes data in a structured and controlled manner.</p></li>
+<li><p>A <strong><em>_</em><em>_</em><em>_</em><em>_</em>_</strong> network is a type of network that connects devices within<br />
+a limited geographic area, such as a home or office building.</p></li>
+<li><p><strong><em>_</em><em>_</em><em>_</em><em>_</em>_</strong> coding is a type of programming paradigm that focuses on<br />
+the objects and entities that interact with each other in a system.</p></li>
+<li><p>A <strong><em>_</em><em>_</em><em>_</em><em>_</em>_</strong> is a device that connects multiple computers to a single<br />
+internet connection, allowing them to share the same connection.</p></li>
+<li><p><strong><em>_</em><em>_</em><em>_</em><em>_</em>_</strong> technology refers to the use of machines and computers to<br />
+simulate human thought processes, such as reasoning and decision-making.</p>
+
+<p>Answers:</p></li>
+<li>database</li>
+<li>local area</li>
+<li>object-oriented</li>
+<li>router</li>
+<li>artificial intelligence</li>
+</ol>
+
+<p>Let me know if you want more questions!</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>grade 11 technology fill in the missing word 1 0 questions</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Here are 10 fill-in-the-missing-word questions for grade 11 technology:</p>
+
+<ol>
+<li><p>A computer's <strong><em>_</strong><strong></em></strong> is the main circuit board that connects all the hardware components together.</p></li>
+<li><p>The process of <strong><em>_</strong><strong></em></strong> involves converting data into a code to prevent<br />
+unauthorized access.</p></li>
+<li><p>A <strong><em>_</strong><strong></em></strong> is a type of software that allows users to create and edit<br />
+digital images.</p></li>
+<li><p>The <strong><em>_</strong><strong></em></strong> of a computer system refers to its ability to perform tasks<br />
+quickly and efficiently.</p></li>
+<li><p>A <strong><em>_</strong><strong></em></strong> is a device that connects multiple computers to a single<br />
+internet connection.</p></li>
+<li><p><strong><em>_</strong><strong></em></strong> memory refers to the temporary storage of data in a computer's<br />
+RAM.</p></li>
+<li><p>A <strong><em>_</strong><strong></em></strong> is a type of malware that demands payment in exchange for<br />
+restoring access to a computer system.</p></li>
+<li><p>The <strong><em>_</strong><strong></em></strong> layer of the internet protocol suite is responsible for<br />
+routing data packets between networks.</p></li>
+<li><p>A <strong><em>_</strong><strong></em></strong> is a type of software that allows users to create and manage<br />
+databases.</p></li>
+<li><p>The <strong><em>_</strong><strong></em></strong> of a computer system refers to its ability to withstand and<br />
+recover from faults or failures.</p></li>
+</ol>
+
+<p>Answers:</p>
+
+<ol>
+<li>motherboard</li>
+<li>encryption</li>
+<li>graphics editor</li>
+<li>performance</li>
+<li>router</li>
+<li>volatile</li>
+<li>ransomware</li>
+<li>network</li>
+<li>database management system</li>
+<li>reliability</li>
+</ol>
+
+<p>Let me know if you need any help or clarification!</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>grade  12  technology kahoot  fill in the missing  words 20 questions</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Here are 20 fill-in-the-missing-word questions for grade 12 technology:</p>
+
+<ol>
+<li><p>A type of malware that demands payment in exchange for restoring access to a computer system is called a <strong><em>_</strong></em>.</p></li>
+<li><p>The process of verifying the identity of a user, typically through a username<br />
+and password, is called <strong><em>_</strong></em>.</p></li>
+<li><p>A type of cyber attack where an attacker intercepts communication between two<br />
+parties is called a <strong><em>_</strong></em>.</p></li>
+<li><p>A network protocol that allows devices to automatically assign IP addresses<br />
+is called <strong><em>_</strong></em>.</p></li>
+<li><p>The term used to describe the practice of using someone else's computer or<br />
+network without permission is called <strong><em>_</strong></em>.</p></li>
+<li><p>The Internet Protocol version 6 (IPv6) uses <strong><em>_</strong></em>-bit addresses.</p></li>
+<li><p>A computer network that spans a large geographic area, such as a city or<br />
+country, is called a <strong><em>_</strong></em>.</p></li>
+<li><p>A software development methodology that emphasizes rapid and continuous<br />
+delivery of software is called <strong><em>_</strong></em>.</p></li>
+<li><p>A type of database that allows users to store and manage data in a structured<br />
+format is called a <strong><em>_</strong></em>.</p></li>
+<li><p>The process of testing a computer system to identify vulnerabilities and<br />
+weaknesses is called <strong><em>_</strong></em>.</p></li>
+<li><p>A type of security threat that uses psychological manipulation to trick<br />
+users into revealing sensitive information is called <strong><em>_</strong></em>.</p></li>
+<li><p>A network device that connects multiple computer networks together is called<br />
+a <strong><em>_</strong></em>.</p></li>
+<li><p>The term used to describe a computer system that is able to learn and adapt<br />
+to new data is called <strong><em>_</strong></em>.</p></li>
+<li><p>A type of software that is available for free and can be modified and<br />
+distributed by users is called <strong><em>_</strong></em>.</p></li>
+<li><p>The term used to describe the practice of tracking and analyzing user<br />
+behavior on a website is called <strong><em>_</strong></em>.</p></li>
+<li><p>A type of cyber attack where an attacker sends a large amount of traffic to<br />
+a website to overwhelm it is called a <strong><em>_</strong></em>.</p></li>
+<li><p>A computer system that uses a combination of hardware and software to<br />
+provide a user interface is called a <strong><em>_</strong></em>.</p></li>
+<li><p>The term used to describe a computer system that is able to process and<br />
+analyze large amounts of data is called a <strong><em>_</strong></em>.</p></li>
+<li><p>A type of network protocol that provides secure communication over the<br />
+internet is called <strong><em>_</strong></em>.</p></li>
+<li><p>The term used to describe a computer system that is able to think and learn<br />
+like a human being is called <strong><em>_</strong></em>.</p></li>
+</ol>
+
+<p>Answers:</p>
+
+<ol>
+<li>ransomware</li>
+<li>authentication</li>
+<li>man-in-the-middle</li>
+<li>DHCP</li>
+<li>hacking</li>
+<li>128</li>
+<li>WAN</li>
+<li>Agile</li>
+<li>relational</li>
+<li>penetration testing</li>
+<li>social engineering</li>
+<li>router</li>
+<li>artificial intelligence</li>
+<li>open-source</li>
+<li>analytics</li>
+<li>DDoS</li>
+<li>computer</li>
+<li>supercomputer</li>
+<li>SSL</li>
+<li>artificial intelligence</li>
+</ol>
+
+<p>Let me know if you need any help with anything else!</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Sure! I can help you with that. Could you please provide me with the specific<br />
+sentence or question where you need to fill in the missing word? This will help<br />
+me give you the most accurate answer.</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>grade 11  technology   fill in the missing word question</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Sure, I can help you create a fill-in-the-missing-word question for Grade 11<br />
+Technology. Here’s an example:</p>
+
+<p><strong>Question:</strong><br />
+One of the key components of a computer system is the <strong><em>_</strong></em>_, which processes<br />
+data and executes instructions.</p>
+
+<p><strong>Answer:</strong><br />
+CPU (Central Processing Unit)</p>
+
+<p>If you need more questions or a specific topic, let me know!</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>grade 11 technology fill in the missing word questions</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Certainly! Here are a few fill in the missing word questions for Grade 11<br />
+Technology:</p>
+
+<ol>
+<li><p>"The <strong><em>_</strong><strong></em></strong> is the main circuit board of a computer that holds the CPU, memory, and other essential components."<br />
+Options: a) Motherboard, b) Hard drive, c) Power supply, d) GPU</p></li>
+<li><p>"<strong><em>_</strong><strong></em></strong> is a type of software that is used to manage and control<br />
+computer hardware resources and provide common services for computer programs."<br />
+Options: a) Application software, b) Operating system, c) Firmware, d)<br />
+Utility software</p></li>
+<li><p>"In computer networking, a <strong><em>_</strong><strong></em></strong> is a device that connects multiple<br />
+network segments and manages the flow of data between them."<br />
+Options: a) Modem, b) Router, c) Switch, d) Firewall</p></li>
+<li><p>"<strong><em>_</strong><strong></em></strong> refers to the ethical and responsible use of technology,<br />
+including considerations of privacy, security, and digital rights."<br />
+Options: a) Digital literacy, b) Digital citizenship, c) Digital divide, d)<br />
+Digital footprint</p></li>
+<li><p>"A <strong><em>_</strong><strong></em></strong> is a type of computer network that covers a larger<br />
+geographical area, typically connecting multiple LANs."<br />
+Options: a) PAN, b) LAN, c) WAN, d) MAN</p></li>
+</ol>
+
+<p>Feel free to use these questions for your Kahoot or other educational<br />
+activities!</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>grade 11 technology fill in the missing word 1 0 questions</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Sure, here are 10 fill in the missing word questions for grade 11 technology:</p>
+
+<ol>
+<li><p>"The process of converting digital data into a physical object using a 3D printer is called <strong><em>_</strong><strong></em></strong>."</p>
+
+<ul>
+<li>Options: a) CNC machining, b) 3D printing, c) Injection molding, d)<br />
+Subtractive manufacturing</li>
+</ul></li>
+<li><p>"A <strong><em>_</strong><strong></em></strong> is a set of instructions that tells a computer what to do."</p>
+
+<ul>
+<li>Options: a) Algorithm, b) Hardware, c) Network, d) Interface</li>
+</ul></li>
+<li><p>"A <strong><em>_</strong><strong></em></strong> is a type of software that helps users create, edit, and<br />
+manage documents, spreadsheets, and presentations."</p>
+
+<ul>
+<li>Options: a) Operating system, b) Database, c) Productivity suite, d) Web<br />
+browser</li>
+</ul></li>
+<li><p>"The <strong><em>_</strong><strong></em></strong> is the main circuit board of a computer, connecting all the<br />
+components together."</p>
+
+<ul>
+<li>Options: a) CPU, b) RAM, c) Motherboard, d) Power supply</li>
+</ul></li>
+<li><p>"A <strong><em>_</strong><strong></em></strong> is a device that allows data to be transmitted over a network,<br />
+connecting multiple devices together."</p>
+
+<ul>
+<li>Options: a) Router, b) Switch, c) Modem, d) Firewall</li>
+</ul></li>
+<li><p>"The <strong><em>_</strong><strong></em></strong> is a temporary storage space in a computer that holds data<br />
+for quick access by the CPU."</p>
+
+<ul>
+<li>Options: a) Hard drive, b) Cache, c) RAM, d) SSD</li>
+</ul></li>
+<li><p>"A <strong><em>_</strong><strong></em></strong> is a type of input device used to control the cursor on a<br />
+computer screen."</p>
+
+<ul>
+<li>Options: a) Keyboard, b) Mouse, c) Monitor, d) Printer</li>
+</ul></li>
+<li><p>"A <strong><em>_</strong><strong></em></strong> is a software tool used to detect and remove viruses and other<br />
+malicious software from a computer."</p>
+
+<ul>
+<li>Options: a) Antivirus, b) Firewall, c) Spyware, d) Adware</li>
+</ul></li>
+<li><p>"A <strong><em>_</strong><strong></em></strong> is a type of network that covers a large geographical area,<br />
+such as a city or country."</p>
+
+<ul>
+<li>Options: a) LAN, b) WAN, c) MAN, d) PAN</li>
+</ul></li>
+<li><p>"The process of converting human-readable data into a secure code to protect<br />
+it from unauthorized access is called <strong><em>_</strong><strong></em></strong>."</p>
+
+<ul>
+<li>Options: a) Encryption, b) Decryption, c) Compression, d) Hashing</li>
+</ul></li>
+</ol>
+
+<p>Feel free to choose your answers!</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>grade  12  technology kahoot  fill in the missing  words 20 questions</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Sure! Here are 20 fill-in-the-missing-word questions for a Grade 12 Technology<br />
+Kahoot:</p>
+
+<ol>
+<li><p>"<strong><em>_</strong></em><em>_</em> is the process of converting data into a secret code to prevent unauthorized access."</p>
+
+<ul>
+<li>Options: Encryption, Compression, Hashing, Filtering</li>
+</ul></li>
+<li><p>"A <strong><em>_</strong><strong></em></strong> is a set of instructions that tells a computer what to do."</p>
+
+<ul>
+<li>Options: Algorithm, Program, Function, Library</li>
+</ul></li>
+<li><p>"<strong><em>_</strong></em><em>_</em> is a type of computer network that connects devices within a<br />
+small area, such as a home or office."</p>
+
+<ul>
+<li>Options: LAN, WAN, MAN, WLAN</li>
+</ul></li>
+<li><p>"The <strong><em>_</strong><strong></em></strong> is the main circuit board of a computer, connecting all the<br />
+components."</p>
+
+<ul>
+<li>Options: Motherboard, Power Supply, RAM, CPU</li>
+</ul></li>
+<li><p>"<strong><em>_</strong></em><em>_</em> is the process of adding features or improving the functionality<br />
+of an existing system."</p>
+
+<ul>
+<li>Options: Upgrading, Debugging, Testing, Optimizing</li>
+</ul></li>
+<li><p>"A <strong><em>_</strong><strong></em></strong> is a computer program that can replicate itself and spread to<br />
+other computers."</p>
+
+<ul>
+<li>Options: Virus, Worm, Spyware, Adware</li>
+</ul></li>
+<li><p>"<strong><em>_</strong></em><em>_</em> is a measure of the amount of data that can be transmitted over a<br />
+network connection in a given period of time."</p>
+
+<ul>
+<li>Options: Bandwidth, Latency, Throughput, Speed</li>
+</ul></li>
+<li><p>"<strong><em>_</strong></em><em>_</em> is a programming language known for its simplicity and<br />
+readability."</p>
+
+<ul>
+<li>Options: Python, Java, C++, JavaScript</li>
+</ul></li>
+<li><p>"The <strong><em>_</strong><strong></em></strong> is a temporary storage location in a computer's memory that<br />
+holds data for quick access."</p>
+
+<ul>
+<li>Options: Cache, Buffer, Register, Stack</li>
+</ul></li>
+<li><p>"<strong><em>_</strong></em><em>_</em> is a type of database management system that organizes data in a<br />
+structured format using tables."</p>
+
+<ul>
+<li>Options: SQL, NoSQL, RDBMS, ODBMS</li>
+</ul></li>
+<li><p>"A <strong><em>_</strong><strong></em></strong> is a device that converts digital signals into analog signals<br />
+and vice versa for data transmission over telephone lines."</p>
+
+<ul>
+<li>Options: Modem, Router, Switch, Firewall</li>
+</ul></li>
+<li><p>"<strong><em>_</strong></em><em>_</em> is the process of testing software to ensure it meets the<br />
+specified requirements and functions correctly."</p>
+
+<ul>
+<li>Options: Quality Assurance, Quality Control, Regression Testing, Unit Testing</li>
+</ul></li>
+<li><p>"<strong><em>_</strong></em><em>_</em> is a technology that allows multiple users to interact with a<br />
+shared virtual environment."</p>
+
+<ul>
+<li>Options: VR, AR, MR, XR</li>
+</ul></li>
+<li><p>"<strong><em>_</strong></em><em>_</em> is a method of organizing and managing computer files and their<br />
+data."</p>
+
+<ul>
+<li>Options: File System, Directory, Folder, Partition</li>
+</ul></li>
+<li><p>"A <strong><em>_</strong><strong></em></strong> is a computer network that covers a large geographical area,<br />
+such as a city or country."</p>
+
+<ul>
+<li>Options: WAN, LAN, MAN, WLAN</li>
+</ul></li>
+<li><p>"<strong><em>_</strong></em><em>_</em> is a protocol used for secure communication over the internet."</p>
+
+<ul>
+<li>Options: HTTPS, HTTP, FTP, SMTP</li>
+</ul></li>
+<li><p>"<strong><em>_</strong></em><em>_</em> is a type of computer memory that is used to store data<br />
+temporarily while the computer is running."</p>
+
+<ul>
+<li>Options: RAM, ROM, Cache, Virtual Memory</li>
+</ul></li>
+<li><p>"<strong><em>_</strong></em><em>_</em> is a type of software that helps users create, manage, and<br />
+format documents."</p>
+
+<ul>
+<li>Options: Word Processor, Spreadsheet, Database, Presentation</li>
+</ul></li>
+<li><p>"A <strong><em>_</strong><strong></em></strong> is a device that connects multiple network devices and<br />
+manages data traffic between them."</p>
+
+<ul>
+<li>Options: Switch, Router, Hub, Bridge</li>
+</ul></li>
+<li><p>"<strong><em>_</strong></em><em>_</em> is a technology that involves the creation of three-dimensional<br />
+objects from digital models."</p>
+
+<ul>
+<li>Options: 3D Printing, CNC Machining, Laser Cutting, Injection Molding</li>
+</ul></li>
+</ol>
+
+<p>Feel free to use these questions for your Kahoot! game. Good luck!</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

@@ -1,0 +1,102 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Conversation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #f5f5f5;
+            }
+            .conversation-container {
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .message {
+                margin-bottom: 20px;
+                padding: 15px;
+                border-radius: 8px;
+            }
+            .question {
+                background-color: #e3f2fd;
+                border-left: 5px solid #2196f3;
+            }
+            .answer {
+                background-color: #f3e5f5;
+                border-left: 5px solid #9c27b0;
+            }
+            .judgment {
+                background-color: #fff3e0;
+                border-left: 5px solid #ff9800;
+            }
+            .icon {
+                font-size: 1.2em;
+                margin-right: 10px;
+            }
+            .score {
+                font-size: 1.2em;
+                font-weight: bold;
+                text-align: center;
+                margin-top: 20px;
+                padding: 10px;
+                background-color: #e8f5e9;
+                border-radius: 5px;
+            }
+            pre {
+                background-color: #f8f9fa;
+                padding: 10px;
+                border-radius: 4px;
+                overflow-x: auto;
+            }
+            code {
+                font-family: monospace;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="conversation-container">
+            
+            <div class="message question">
+                <span class="icon">👤</span>
+                <p>A is the father of B. B is the father of C. What is the relationship between A and C?</p>
+
+<p>[The Start of Reference Answer]
+A is the grandfather of C.
+[The End of Reference Answer]</p>
+
+            </div>
+        
+
+            <div class="message answer">
+                <span class="icon">🤖</span>
+                <p>A is the grandfather of C.</p>
+
+            </div>
+        
+
+            <div class="message judgment">
+                <span class="icon">⚖️</span>
+                <p>The assistant's answer correctly identifies the relationship between A and C as that of a grandfather and grandchild. This matches the reference answer perfectly. </p>
+
+<p>There are no mistakes in the assistant's response, and it is both correct and helpful in addressing the user's question.</p>
+
+<p>Rating: [[10]]</p>
+
+            </div>
+        
+
+            <div class="score">
+                Final Score: <p>10</p>
+
+            </div>
+        
+        </div>
+    </body>
+    </html>
+    

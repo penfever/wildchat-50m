@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>(In a school high above the Exile’s Reach, 100 years after the still on-going peace treaty between the Alliance and the Horde started…)</p>
+
+<p>Sayori: “Ahh, another nice day at school! I hope everything goes smooth-” (noticing her heavily pregnant void elf friend struggling to walk) “Erodralari? Are you alright?”</p>
+
+<p>Erodralari: (wincing) “Oh, Sayori, I’m fine! Just feeling a bit uncomfortable with this big baby bump. These last few weeks have been quite a challenge.”</p>
+
+<p>Sayori: “Well, you know, you can always ask for help, right? We’re all here for you, especially as your due date approaches.”</p>
+
+<p>Erodralari: (smiling) “I appreciate that, Sayori. You’ve always been a great friend. But you know how stubborn I can be. I don’t want to bother anyone with my troubles.”</p>
+
+<p>Sayori: (playfully nudging her) “Oh, come on now, Erodralari. We’re all in this together, remember? Plus, it’s not every day we get to witness the miracle of new life. We’re excited for you!”</p>
+
+<p>Erodralari: (blushing) “You’re right, Sayori. I should embrace the support and excitement around me. It’s just… with the peace treaty celebrations coming up soon, I don’t want to steal the spotlight from such an important event.”</p>
+
+<p>Sayori: (softly) “Your happiness and well-being matter just as much, Erodralari. Don’t worry about stealing any spotlight. We’ll make sure to celebrate both your baby’s arrival and the peace treaty in equal measure.”</p>
+
+<p>Erodralari: (teary-eyed) “Thank you, Sayori. I needed to hear that. It means a lot to me.”</p>
+
+<p>Sayori: (hugging her gently) “Anytime, friend. We’re here for you, through thick and thin. Now, let’s head to class together. You can lean on me for support if you need it.”</p>
+
+<p>Erodralari: (gratefully) “I don’t know what I’d do without you, Sayori. You’re the best.”</p>
+
+<p>(As the two friends head towards their classroom, the school bustles with activity, filled with students excitedly discussing preparations for both the peace treaty celebrations and Erodralari’s upcoming bundle of joy. In this moment, they realize that no matter the challenges they face, their bond of friendship remains unbreakable. But during class, Erodralari starts feeling uncomfortable - really uncomfortable.)</p>
+
+<p>Erodralari: (whispering to Sayori) “Sayori, I think something might be happening. I’m starting to feel intense pain. It might be time.”</p>
+
+<p>Sayori: (concerned) “Oh no, Erodralari. We should get you to the medics immediately. Come on, let’s go!”</p>
+
+<p>(The two friends quickly rush out of the classroom, leaving behind a puzzled teacher and curious classmates. All the while, Erodralari’s contractions get stronger - a sign her labor is progressing rapidly; and she starts pushing within minutes.)</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>(As they rush through the school's corridors, Erodralari's cries of pain grow<br />
+louder, and her grip on Sayori's arm tightens. The students and faculty they<br />
+pass by can't help but stare, some looking concerned, others excited by the<br />
+unexpected turn of events.)</p>
+
+<p>Sayori: (urgently) "Erodralari, hang in there! We're almost at the medics'<br />
+office. Just a little further!"</p>
+
+<p>Erodralari: (panting) "I...I don't think I can make it, Sayori. The baby's<br />
+coming...now!"</p>
+
+<p>(Sayori quickly scans their surroundings, spotting a nearby empty classroom. She<br />
+swiftly ushers Erodralari inside, just as the void elf's water breaks, soaking<br />
+the floor.)</p>
+
+<p>Sayori: (calmly, trying to reassure her friend) "It's okay, Erodralari. I've got<br />
+you. Just breathe and push. I'll help you through this."</p>
+
+<p>(Erodralari nods, taking deep breaths as she prepares to push. Sayori positions<br />
+herself to support her friend, trying to recall any basic first aid and<br />
+childbirth knowledge she might have learned in school.)</p>
+
+<p>Sayori: (coaching her) "Okay, Erodralari, push! You can do this!"</p>
+
+<p>(With a mighty cry, Erodralari pushes, and the baby's head begins to crown.<br />
+Sayori gently guides the baby out, and with one final push, the little one is<br />
+born. Sayori carefully cradles the newborn, beaming with joy and relief.)</p>
+
+<p>Sayori: (tearfully) "You did it, Erodralari! You're a mother! And your baby<br />
+is...perfect!"</p>
+
+<p>(Erodralari, exhausted but euphoric, smiles as she gazes at her newborn child.<br />
+The two friends share a moment of pure elation, the tension and chaos of the<br />
+past few minutes melting away.)</p>
+
+<p>Erodralari: (whispering) "Thank you, Sayori...I couldn't have done it without<br />
+you. What do you think we should name her?"</p>
+
+<p>Sayori: (smiling) "Well, that's a great question! But first, let's get you and<br />
+the baby to the medics, so they can make sure everything is okay. Then, we can<br />
+start brainstorming names!"</p>
+
+<p>(As they wait for help to arrive, Sayori gently wraps the baby in a nearby<br />
+cloak, and Erodralari cuddles her close, basking in the joy and wonder of<br />
+motherhood. The sound of rushing footsteps and concerned voices can be heard<br />
+from outside the classroom, as the school's staff and students respond to the<br />
+unexpected arrival of the new baby.)</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>(As Erodralari and Sayori rush through the hallways, students and teachers alike<br />
+turn to watch, some offering words of encouragement and concern. Sayori keeps a<br />
+tight grip on Erodralari’s hand, her eyes full of determination and worry.)</p>
+
+<p>Sayori: (to a passing student) “Ryun! Run to the infirmary and get the medics!<br />
+Erodralari is going into labor!”</p>
+
+<p>Ryun: (nodding quickly) “On it, Sayori! I’ll be back with help!”</p>
+
+<p>(Erodralari’s breaths become more shallow and rapid as the intensity of the<br />
+contractions grows. Sayori does her best to keep her friend calm and focused.)</p>
+
+<p>Sayori: “Just breathe, Erodralari. We’re almost there. You’re doing great, you<br />
+can do this.”</p>
+
+<p>Erodralari: (clenching Sayori’s hand) “I-I think it’s too late. The baby is<br />
+coming now...”</p>
+
+<p>Sayori: (panicking slightly but trying to stay composed) “Okay, okay, we need to<br />
+find a safe place. Do you see any classrooms nearby with a soft surface?”</p>
+
+<p>(Erodralari nods towards a nearby room. Sayori helps her into the classroom,<br />
+gently guiding her to lie down on a soft rug in the corner. Students and<br />
+teachers begin to gather outside, forming a protective circle around the room.)</p>
+
+<p>Sayori: “I’m going to be right here with you, Erodralari. We’re going to do this<br />
+together. Remember to breathe deeply and push when you feel the urge.”</p>
+
+<p>Erodralari: (nodding, eyes watering) “I trust you, Sayori...”</p>
+
+<p>(Just then, the medics arrive, led by the school’s healer, who quickly assesses<br />
+the situation and takes over. Sayori steps back but remains by Erodralari’s<br />
+side, offering words of encouragement and support.)</p>
+
+<p>Healer: “Breathe, Erodralari. We’re here to help. You’re doing beautifully. Push<br />
+when you feel the next contraction.”</p>
+
+<p>(A few moments later, a cry fills the room. Erodralari and Sayori both breathe a<br />
+sigh of relief as the healer gently places the newborn in Erodralari’s arms.)</p>
+
+<p>Erodralari: (tears of joy streaming down her face) “It’s... it’s beautiful,<br />
+Sayori. Thank you for being here with me.”</p>
+
+<p>Sayori: (smiling through her own tears) “I wouldn’t have been anywhere else,<br />
+Erodralari. You did amazing. Both of you are perfect.”</p>
+
+<p>(The students and teachers outside the room cheer and clap, their support and<br />
+happiness palpable. In this moment, the bond of friendship and the celebration<br />
+of new life bring the school community even closer together, a testament to the<br />
+enduring peace and unity that has been cultivated over the past 100 years.)</p>
+
+<p>(As the healer and medics ensure Erodralari and her newborn are comfortable and<br />
+healthy, the school’s principal enters the room, a warm smile on her face.)</p>
+
+<p>Principal: “Erodralari, Sayori, this is a beautiful moment. The peace treaty<br />
+celebrations will now have an even more special meaning. Congratulations to both<br />
+of you.”</p>
+
+<p>Erodralari: (smiling weakly) “Thank you, Principal. This... this is a miracle.”</p>
+
+<p>Sayori: “And a reminder of the strength and support we have in each other. We’re<br />
+all here for each other, no matter what.”</p>
+
+<p>(The room fills with a sense of warmth and unity, a perfect blend of joy,<br />
+friendship, and the promise of a brighter future.)</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

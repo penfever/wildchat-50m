@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>Describe gas giant with gothic colors. Including chemistry composition.</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>The somber, mystical realm of the gas giant. Shrouded in an eerie, dark ombré,<br />
+like the mourning veil of a bereaved widow. The hue of the sky is a deep,<br />
+foreboding indigo, gradating into a sickly, yellowish-green towards the horizon,<br />
+as if tainted by the faint glow of luminescent decay.</p>
+
+<p>The atmosphere itself is a noxious brew of hydrogen (H2) and helium (He), with<br />
+wispy tendrils of methane (CH4) and ammonia (NH3) wafting through the upper<br />
+strata, like the ghostly whispers of forgotten souls. These gases writhe and<br />
+twist in torment, forming swirling storm systems that churn with a maddening<br />
+fury, as if fueled by the very essence of despair.</p>
+
+<p>As we delve deeper into the heart of the gas giant, the pressure and temperature<br />
+escalate, forging an environment that is at once both beautiful and terrifying.<br />
+The chemistry composition shifts, with hydrogen and helium succumbing to the<br />
+crushing force, and heavier elements such as carbon, nitrogen, and oxygen<br />
+beginning to assert their dominance. Water, ammonia, and methane ices form, like<br />
+the frozen tears of the damned, suspended in a sea of liquid hydrogen and<br />
+helium.</p>
+
+<p>The planet's core, a glowing, hellish ember, pulsates with an otherworldly<br />
+energy, as if fueled by the very essence of darkness itself. The magnetic field<br />
+that surrounds it is a twisted, nightmarish latticework, crackling with<br />
+electrical energy, and weaving a spell of eerie, gothic power.</p>
+
+<p>In this forsaken realm, the winds howl like a chorus of the doomed, while the<br />
+lightning flashes with an eldritch, greenish-blue glow, casting an eerie,<br />
+macabre light upon the churning clouds. The gas giant is a world of twisted,<br />
+gothic horror, a place where the very fabric of reality seems to be warped and<br />
+distorted, and where the darkness reigns supreme.</p>
+
+<p>Chemical Composition:<br />
+- Hydrogen (H2): 75-80%<br />
+- Helium (He): 20-25%<br />
+- Methane (CH4): 1-5%<br />
+- Ammonia (NH3): 0.1-1%<br />
+- Water (H2O): 0.1-1%<br />
+- Carbon, nitrogen, and oxygen compounds: 0.01-0.1%</p>
+
+<p>Colors:<br />
+- Deep indigo (#3B3F54) to sickly yellowish-green (#8B9467)<br />
+- Faint, glowing blue-green (#34A8FF) of luminescent decay<br />
+- Hellish, ember-like glow of the core (#FF9900)<br />
+- Eerie, greenish-blue lightning flashes (#33CCFF)</p>
+
+<p>This gas giant is a place of dark, gothic beauty, where the boundaries between<br />
+reality and nightmare are blurred, and the very essence of the universe seems to<br />
+be twisted and distorted.</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Certainly! Imagine a gas giant that embodies the essence of gothic aesthetics, a<br />
+celestial body that is both majestic and foreboding, shrouded in deep, dark hues<br />
+and enveloped in a mysterious, almost sinister atmosphere.</p>
+
+<h3>Appearance</h3>
+
+<p>The gas giant's atmosphere is a hauntingly beautiful tapestry of gothic colors.<br />
+The sky is dominated by deep purples, rich blacks, and dark blues, with<br />
+occasional streaks of blood-red and silver. The clouds, thick and swirling, are<br />
+tinged with a murky, almost metallic sheen. Lightning storms, rare but intense,<br />
+illuminate the atmosphere with flashes of electric blue and green, casting eerie<br />
+shadows across the gas giant's surface.</p>
+
+<h3>Chemistry Composition</h3>
+
+<ol>
+<li><p><strong>Hydrogen (H₂)</strong>: The primary component of the gas giant's atmosphere, hydrogen makes up approximately 90% of the atmosphere by volume. It appears as a deep, almost black hue due to the presence of various compounds and the thick, absorbing nature of the upper atmosphere.</p></li>
+<li><p><strong>Helium (He)</strong>: The second most abundant element, helium comprises about 9%<br />
+of the atmosphere. It contributes to the overall density and opacity of the<br />
+atmosphere, enhancing the gothic, shadowy appearance.</p></li>
+<li><p><strong>Methane (CH₄)</strong>: Methane, present in lesser amounts, gives the planet its<br />
+deep blue and purple hues. The methane molecules absorb red light, leaving the<br />
+atmosphere with a predominantly blue and purple coloration. In the upper layers,<br />
+methane condenses into clouds, contributing to the gothic, stormy appearance.</p></li>
+<li><p><strong>Ammonia (NH₃)</strong>: Ammonia is present in the form of ice particles and<br />
+clouds, adding to the planet's dark, stormy appearance. These clouds are often<br />
+tinged with dark red and black, creating a moody and dramatic effect.</p></li>
+<li><p><strong>Water (H₂O)</strong>: Water vapor is also present, contributing to the planet's<br />
+atmospheric complexity. Water ice and vapor form high-altitude clouds that can<br />
+appear as ghostly, translucent layers, enhancing the gothic aesthetic.</p></li>
+<li><p><strong>Sulfur Compounds</strong>: Sulfur dioxide (SO₂) and hydrogen sulfide (H₂S) are<br />
+minor but significant components. These compounds contribute to the planet's<br />
+reddish and brownish hues, creating a contrast that adds depth and forebroadness<br />
+to the atmosphere.</p></li>
+<li><p><strong>Phosphine (PH₃)</strong>: Phosphine is a trace gas that can create spectacular,<br />
+bioluminescent clouds and lightning storms. During these storms, the phosphine<br />
+reacts with other chemicals, producing flashes of electric blue and green,<br />
+adding to the eerie, gothic ambiance.</p></li>
+<li><p><strong>Metallic Hydrogen</strong>: Deep within the planet, under immense pressure and<br />
+temperature, hydrogen exists in a metallic state. This metallic hydrogen is<br />
+responsible for the planet's strong magnetic field and contributes to its<br />
+overall energy and dynamism.</p></li>
+</ol>
+
+<h3>Additional Features</h3>
+
+<ul>
+<li><strong>Rings</strong>: The gas giant is encircled by dark, narrow rings composed of small, rocky debris and ice particles. These rings reflect the deep, moody colors of the planet, adding to the gothic atmosphere.</li>
+<li><strong>Moons</strong>: The planet has several moons, each with its own gothic charm. Some moons are shrouded in dark, icy surfaces, while others have volcanic activity that produces plumes of sulfur and other volatiles, creating a stark, surreal landscape.</li>
+</ul>
+
+<p>This gas giant, with its gothic colors and complex chemistry, is a mesmerizing<br />
+and haunting sight, a true marvel of the universe.</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

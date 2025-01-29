@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>Generate a description with keywords and SEOs for Elegant Coffee Cup with Vibrant Flowers | High-Resolution Social Media Stock Photo | Perfect for Bloggers and Instagram Posts. Include social medias on which this stock photographic can be applied to for social media at the end. Include details on dimensions: 1080x1080 and has 3 image variations. Include buyer has full rights to resale and commercial usage. Don't include HTML or '<br/>' for formatting only newline '<br />
+'</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Elegant Coffee Cup with Vibrant Flowers is a stunning high-resolution stock<br />
+photo perfect for bloggers and social media enthusiasts. This beautiful image<br />
+features a delicate coffee cup adorned with vibrant flowers, creating a visually<br />
+appealing and Instagram-worthy scene. The photo is ideal for posting on social<br />
+media platforms, blogs, and websites, conveying a sense of warmth, comfort, and<br />
+elegance.</p>
+
+<p>With its high-resolution quality, this stock photo is perfect for commercial and<br />
+personal use, allowing buyers to resize and edit the image to fit their specific<br />
+needs. The photo is available in three different variations, providing users<br />
+with a range of options to choose from.</p>
+
+<p>The dimensions of this stock photo are 1080x1080 pixels, making it perfect for<br />
+posting on social media platforms that require high-quality images. Buyers will<br />
+have full rights to resale and commercial usage, allowing them to use the image<br />
+in various marketing materials, advertisements, and promotional campaigns.</p>
+
+<p>This Elegant Coffee Cup with Vibrant Flowers stock photo is a must-have for<br />
+anyone looking to elevate their social media presence and create engaging<br />
+content. It can be applied to various social media platforms, including<br />
+Facebook, Instagram, Twitter, Pinterest, TikTok, and LinkedIn, making it a<br />
+versatile and valuable addition to any content creator's library.</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Discover the captivating charm of our Elegant Coffee Cup with Vibrant Flowers, a<br />
+high-resolution social media stock photo ideal for bloggers, content creators,<br />
+and Instagram enthusiasts. This stunning image captivates with its rich colors<br />
+and sophisticated design, perfect for enhancing your online presence and<br />
+engaging your audience.</p>
+
+<p>Features:<br />
+- High-resolution image, 1080x1080 pixels, ensuring crisp and clear visuals on all devices.<br />
+- 3 image variations to choose from, providing versatility for different posts and themes.<br />
+- Full rights for resale and commercial usage, allowing you to use the images in your projects, marketing campaigns, or to offer them to your clients without any restrictions.</p>
+
+<p>This elegant coffee cup surrounded by vibrant flowers is a versatile choice for<br />
+various content needs:<br />
+- Bloggers can use it to add a touch of elegance to their lifestyle, food, or travel posts.<br />
+- Instagrammers can enhance their feed with this aesthetically pleasing image, perfect for morning coffee inspiration or floral-themed content.<br />
+- Marketers and businesses can utilize it for social media campaigns, website graphics, and promotional materials.</p>
+
+<p>This stock photo is designed to be used across multiple social media platforms,<br />
+including:<br />
+- Instagram<br />
+- Facebook<br />
+- Twitter<br />
+- Pinterest<br />
+- Tumblr</p>
+
+<p>Elevate your content with this high-quality, visually appealing stock photo and<br />
+attract more attention to your social media presence.</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

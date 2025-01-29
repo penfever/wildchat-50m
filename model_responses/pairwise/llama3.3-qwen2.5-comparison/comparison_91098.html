@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <p>Write a detailed and comedic Cobra Kai story about Robby, Hawk and Demetri deciding to relax in a pond. They find a pond and toss away all their clothes. give a description of their physiques. they enter the pond and relax. Describe how one of them looks as they force out some farts in the water while relaxing, then describe how the other looks as they decide to fart too, then the third. a few fish go belly-up from how horrible the farts smell. They then happily collect the fish for their dinner. After wading back to the shore, they make a campfire and cook the fish over it. Add dialogue from Hawk, Robby and Demetri throughout the whole story</p>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>It was a sweltering summer day in the Valley, and Robby, Hawk, and Demetri were<br />
+looking for a way to unwind. As they walked through the woods, they stumbled<br />
+upon a serene pond, its calm waters beckoning them to come and relax.</p>
+
+<p>"Dudes, this is the spot," Robby said, already shedding his clothes. "Let's get<br />
+in and cool off."</p>
+
+<p>Hawk and Demetri quickly followed suit, tossing their clothes aside without a<br />
+care. As they stood at the water's edge, their physiques were on full display.<br />
+Robby, the former Cobra Kai student, had a lean, athletic build, with broad<br />
+shoulders and a chiseled chest. Hawk, on the other hand, had a more rugged,<br />
+tattooed look, with a thick, muscular build that spoke to his love of heavy<br />
+metal and intense karate training. Demetri, the lovable nerd, was a bit softer<br />
+around the edges, with a slight paunch and a smattering of acne on his back, but<br />
+he was still proud to show off his collection of fantasy novel-inspired tattoos.</p>
+
+<p>As they waded into the pond, the cool water enveloped them, and they let out a<br />
+collective sigh of relief. They floated on their backs, soaking up the sun and<br />
+feeling the stress melt away.</p>
+
+<p>"Ah, this is the life," Hawk said, closing his eyes and letting out a contented<br />
+sigh.</p>
+
+<p>Robby, who was floating nearby, suddenly let out a series of impressive farts,<br />
+the sound waves rippling through the water. As he did, his face scrunched up in<br />
+concentration, his eyes squeezed shut, and his tongue poked out of the corner of<br />
+his mouth.</p>
+
+<p>"Whoa, Robby, you're like a toxic waste dump!" Demetri exclaimed, laughing.</p>
+
+<p>Hawk, who had been watching Robby with a mixture of amusement and horror,<br />
+couldn't resist joining in. He let out a series of smaller, but no less potent,<br />
+farts, his face reddening with effort. As he did, his eyebrows shot up, and his<br />
+mouth dropped open, as if he was surprised by the sheer force of his own<br />
+flatulence.</p>
+
+<p>Demetri, not to be outdone, decided to contribute to the symphony of farts. He<br />
+let out a low, rumbling fart, his face contorting in a mixture of pleasure and<br />
+pain. As he did, his eyes went wide, and his hair stood on end, as if he was<br />
+channeling some kind of ancient, flatulent deity.</p>
+
+<p>The combined force of their farts was too much for the pond's ecosystem to<br />
+handle. A few fish, who had been swimming peacefully just moments before,<br />
+suddenly went belly-up, their scales shimmering in the sunlight as they floated<br />
+to the surface.</p>
+
+<p>"Yes! Free dinner!" Hawk exclaimed, paddling over to collect the fish.</p>
+
+<p>Robby and Demetri followed suit, laughing and joking as they gathered up the<br />
+fish. As they waded back to the shore, they were all grinning from ear to ear.</p>
+
+<p>"Best. Day. Ever," Demetri said, holding up a particularly large fish.</p>
+
+<p>After building a campfire, they cooked their catch over the flames, the smell of<br />
+sizzling fish filling the air. As they sat down to eat, Hawk turned to the<br />
+others and said, "You know, I never thought I'd say this, but I think our farts<br />
+might be the key to our survival."</p>
+
+<p>Robby chuckled, his mouth full of fish. "Hey, when life gives you lemons, make<br />
+lemonade. When life gives you toxic farts, make dinner."</p>
+
+<p>Demetri nodded in agreement, his eyes shining with mirth. "We should start a<br />
+fart-based cooking show. We could call it 'Toxic Cuisine'!"</p>
+
+<p>The three friends erupted into laughter, their bellies full and their spirits<br />
+high. As they sat around the campfire, watching the stars twinkle to life above,<br />
+they knew that this was a day they would never forget – a day of relaxation,<br />
+camaraderie, and the unforgettable power of their own toxic farts.</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <h3><strong>Cobra Kai: Pond of Peril</strong></h3>
+
+<h4>A Late Afternoon at the Forgotten Pond</h4>
+
+<p>Robby, Hawk, and Demetri were wandering through the forest, tired and sweaty<br />
+after a long day of training. They had been challenged by a new dojo, and the<br />
+stress was starting to get to them. Hawk, always the voice of reason, suggested<br />
+they needed a break.</p>
+
+<p>"Guys, we need to chill. I heard there's a pond up ahead that's perfect for a<br />
+little R&amp;R," Hawk said, pointing in the direction they were heading.</p>
+
+<p>Robby, the tech-savvy one, pulled out his phone and fired up a map app. "Looks<br />
+legit. Let's go for it."</p>
+
+<p>Demetri, the jokester, smirked. "I'm in. As long as we don't have to wear those<br />
+stinky dojo gi again, I'm all for it."</p>
+
+<h4>The Pond arrives</h4>
+
+<p>As they approached the pond, they were greeted by a serene and secluded spot<br />
+surrounded by tall trees. The water was crystal clear, and the sun was just<br />
+starting to set, casting a golden hue over the landscape.</p>
+
+<p>"Guys, this is perfect!" Hawk exclaimed, already stripping off his shirt and<br />
+dropping his pants.</p>
+
+<p>Robby, a bit more reserved, hesitated but eventually joined in. "Alright, but no<br />
+funny business."</p>
+
+<p>Demetri, always the extrovert, was already down to his boxer briefs. "Come on,<br />
+you two, let's get this party started!"</p>
+
+<h4>Physique Descriptions</h4>
+
+<p>Hawk’s physique was lean and muscular, evidence of years of disciplined<br />
+training. His toned abs and broad shoulders looked like they had been carved<br />
+from marble. Robby, on the other hand, was more built for speed and agility,<br />
+with a slender frame and quick, jerky movements. Demetri, the jokester, had a<br />
+more relaxed build, with a slight beer belly that jiggled as he moved.</p>
+
+<h4>The Relaxation Begins</h4>
+
+<p>They waded into the pond, the cool water a refreshing contrast to the heat of<br />
+the day. They sank down to their waists, letting out a collective sigh of<br />
+relief.</p>
+
+<p>"Gah, this is heaven," Hawk said, laying back and floating on his back.</p>
+
+<p>Robby, still a bit nervous, kept his feet on the ground. "I don't know, this<br />
+seems a bit sketchy."</p>
+
+<p>Demetri, already fully relaxed, started to giggle. "Sketchy? This is the best<br />
+idea we've had all week!"</p>
+
+<h4>The Fart-Clearing of the Pond</h4>
+
+<p>After a few minutes of quiet relaxation, Hawk felt a familiar rumble in his<br />
+stomach. He glanced around to make sure no one was watching and, with a<br />
+mischievous smile, let out a long, bubbling fart.</p>
+
+<p>The water rippled, and a foul odor began to permeate the air. "Oops," Hawk said,<br />
+trying to keep a straight face. "Sorry, guys."</p>
+
+<p>Robby, who had been trying to enjoy the moment, wrinkled his nose. "Dude, that's<br />
+rank. I think I'm gonna go—"</p>
+
+<p>But before he could finish, Demetri, unable to resist, released his own<br />
+contribution. The water bubbled even more violently, and the smell intensified.</p>
+
+<p>"Hey, you started it!" Demetri laughed, his belly jiggling with the effort.</p>
+
+<p>Robby, now realizing he was outmatched, decided to join in. He took a deep<br />
+breath, closed his eyes, and let out a series of rapid, high-pitched farts. The<br />
+water around him churned, and the smell was almost unbearable.</p>
+
+<p>"Alright, that's it!" Robby declared, wiping a tear from his eye. "This is war!"</p>
+
+<h4>The Fish Go Belly-Up</h4>
+
+<p>As the boys continued their underwater competition, the fish in the pond began<br />
+to show signs of distress. One by one, they floated to the surface, belly-up,<br />
+succumbing to the toxic atmosphere.</p>
+
+<p>Hawk, the first to notice, pointed at the floating fish. "Hey, look! I think we<br />
+just caught dinner!"</p>
+
+<p>Demetri, still laughing, swam over to the floating fish. "Score! Who knew we<br />
+were such talented fishers?"</p>
+
+<p>Robby, who had been trying to hold his breath, finally let out a sigh. "This is<br />
+officially the weirdest fishing trip ever."</p>
+
+<h4>The Campfire and the Cookout</h4>
+
+<p>After a few more minutes of collecting their "catch," the boys waded back to the<br />
+shore. They gathered some dry wood and started a campfire. Robby, ever the<br />
+practical one, found some sticks to skewer the fish.</p>
+
+<p>"Let's get this cookin'!" Hawk said, placing the fish over the flames.</p>
+
+<p>Demetri, still in high spirits, added, "I bet these are the best-tasting fish<br />
+we'll ever have."</p>
+
+<p>Robby, skeptical but hopeful, said, "I hope so. I don't want to end up with food<br />
+poisoning from our own farts."</p>
+
+<p>As the fish cooked, the boys sat around the fire, laughing and telling jokes.<br />
+The smell of the cooking fish, combined with the lingering aroma of their<br />
+earlier activities, created a unique and unforgettable ambiance.</p>
+
+<p>Hawk, taking a deep breath of the air, said, "You know, this is what it's all<br />
+about. Just us, some fish, and a little pond. No dojo, no pressure, just<br />
+friends."</p>
+
+<p>Demetri, grinning, added, "And farts. Can't forget the farts."</p>
+
+<p>Robby, finally smiling, said, "You got that right. Here's to the best impromptu<br />
+fishing trip ever."</p>
+
+<p>They clinked their sticks together in a makeshift toast, and as the sun set<br />
+behind the trees, they enjoyed their peculiar but delicious meal, laughing and<br />
+bonding over the absurdity of the day.</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

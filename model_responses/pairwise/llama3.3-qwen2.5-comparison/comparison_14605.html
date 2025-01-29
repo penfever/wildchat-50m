@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <pre><code>                        As a prompt generator for a generative AI called "Midjourney", you will create image prompts for the AI to visualize. I will give you a concept, and you will provide a detailed prompt for Midjourney AI to generate an image.
+
+                        Please adhere to the structure and formatting below, and follow these guidelines:
+
+                        Do not use the words "description" or ":" in any form.
+                        Do not place a comma between [ar] and [v].
+                        Write each prompt in one line without using return.
+                        Structure:
+                        [1] = 橙色和白色的现代风卧室
+                        [2] = a detailed description of [1] with specific imagery details.
+                        [3] = a detailed description of the scene's environment.
+                        [4] = a detailed description of the compositions.
+                        [5] = a detailed description of the scene's mood, feelings, and atmosphere.
+                        [6] = A style (e.g. photography, painting, illustration, sculpture, artwork, paperwork, 3D, etc.) for [1].
+                        [7] =  a detailed description of the scene's mood, feelings, and atmosphere.
+                        [ar] = Use "--ar 16:9" for horizontal images, "--ar 9:16" for vertical images, or "--ar 1:1" for square images.
+                        [v] = Use "--niji" for Japanese art style, or "--v 5" for other styles.
+
+
+                        Formatting:
+                        Follow this prompt structure: "/imagine prompt: [1], [2], [3], [4], [5], [6], [7], [ar] [v]".
+
+                        Your task: Create 4 distinct prompts for each concept [1], varying in details description, environment,compositions,atmosphere, and realization.
+
+                        Write your prompts in english.
+                        Do not describe unreal concepts as "real" or "photographic".
+                        Include one realistic photographic style prompt with lens type and size.
+                        Separate different prompts with two new lines.
+                        Example Prompts:
+
+                        /imagine prompt: cute dog, fluffy fur, wagging tail, playful expression, sitting on a grassy field, under a clear blue sky, with a colorful collar, in a natural and vibrant setting, by a lake, captured with a Nikon D750 camera, 50mm lens, shallow depth of field, composition focused on the dog's face, capturing its joyful spirit, in a style reminiscent of William Wegman's iconic dog portraits. --ar 1:1 --v 5.2
+                        /imagine prompt: beautiful women in the coffee shop, elegant and sophisticated, sipping a cup of steaming coffee, natural sunlight streaming through the window, soft and warm color tones, vintage decor with cozy armchairs and wooden tables, a bookshelf filled with classic novels, delicate porcelain teacups, a hint of aromatic coffee beans in the air, captured by a Leica M10 camera, 35mm lens, capturing the essence of timeless beauty, composition focused on the woman's face and hands, reminiscent of a painting by Leonardo da Vinci. --ar 1:1 --v 5.2
+                        /imagine prompt: A captivating Halo Reach landscape with a Spartan amidst a battlefield, fallen enemies around, smoke and fire in the background, emphasizing the Spartan's determination and bravery, detailed environment blending chaos and beauty, Illustration, digital art, --ar 16:9 --v 5
+</code></pre>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>/imagine prompt: mystical forest, towering trees with glowing mushrooms,<br />
+twinkling fireflies, winding dirt path, eerie silence, mystical creatures hiding<br />
+in the shadows, an ancient magical atmosphere, in a whimsical fantasy style,<br />
+with vibrant colors, captivating the essence of enchantment, composition focused<br />
+on the path and the surrounding trees, in a style reminiscent of Hayao<br />
+Miyazaki's animated films, with a sense of wonder and awe, by a digital artist,<br />
+with bold brushstrokes and textures, --ar 16:9 --v 5</p>
+
+<p>/imagine prompt: futuristic cityscape, sleek skyscrapers, neon lights, flying<br />
+cars, bustling streets, advanced technology, a sense of excitement and<br />
+innovation, in a futuristic and high-tech style, with sharp lines and vibrant<br />
+colors, capturing the essence of modernity, composition focused on the city's<br />
+central square, with a massive holographic advertisement, in a style reminiscent<br />
+of Syd Mead's concept art, with a sense of dynamism and energy, by a 3D artist,<br />
+with detailed models and textures, --ar 16:9 --v 5</p>
+
+<p>/imagine prompt: serene mountain lake, crystal clear water, surrounding snow-<br />
+capped mountains, a few trees, peaceful atmosphere, a sense of tranquility and<br />
+calmness, in a realistic and natural style, captured with a Canon EOS 5D camera,<br />
+24mm lens, wide depth of field, composition focused on the lake's reflection,<br />
+capturing the beauty of nature, in a style reminiscent of Ansel Adams' landscape<br />
+photography, with a sense of serenity and stillness, --ar 1:1 --v 5</p>
+
+<p>/imagine prompt: abandoned carnival, creepy clown statues, rickety booths,<br />
+colorful lights, an air of neglect and decay, a sense of nostalgia and sadness,<br />
+in a surreal and dreamlike style, with muted colors and distorted shapes,<br />
+capturing the essence of abandonment, composition focused on the carnival's main<br />
+stage, with a broken Ferris wheel, in a style reminiscent of Tim Burton's<br />
+artwork, with a sense of melancholy and wonder, by a mixed media artist, with<br />
+layered textures and collage elements, --ar 9:16 --v 5</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>/imagine prompt: 橙色和白色的现代风卧室, the room features walls painted in a warm orange<br />
+hue with white furniture, a sleek modern bed with a minimalistic white<br />
+headboard, an abstract art piece in vibrant colors on one wall, and large<br />
+windows with sheer white curtains letting in natural sunlight, the room is lit<br />
+by modern pendant lights with a soft glow, The composition highlights the<br />
+balance between the vibrant orange walls and the clean, crisp white furniture<br />
+and decor, creating a serene and inviting atmosphere that blends contemporary<br />
+style with a touch of warmth and comfort, Illustration, a space that feels both<br />
+energizing and relaxing, --ar 16:9 --v 5</p>
+
+<p>/imagine prompt: 橙色和白色的现代风卧室, this bedroom showcases a blend of orange and white<br />
+tones, with a large king-sized bed covered in a white comforter, orange<br />
+geometric patterned pillows, and a minimalist white nightstand, a large sliding<br />
+glass door opens to a small balcony with views of a city skyline, geometric<br />
+patterns are present in the rug and the decorative elements, the atmosphere is<br />
+modern and chic, with a focus on clean lines and functional design, the<br />
+composition emphasizes the contrast between the warm orange and cool white,<br />
+Photography, a Nikon D850 camera with a 24-70mm f/2.8 lens, capturing the room's<br />
+sleek design and the play of light and shadow, --ar 16:9 --v 5</p>
+
+<p>/imagine prompt: 橙色和白色的现代风卧室, the bedroom features a serene blend of orange and<br />
+white, with a modern white bed frame and a bright orange accent wall,<br />
+complemented by a white furry rug and modern, simple decor, including a white<br />
+lamp and a few geometric art pieces, the room is bathed in soft, natural light<br />
+from a large window with white blinds, the mood is peaceful and relaxing, with a<br />
+focus on creating a calm, modern retreat, Illustration, the room exudes a sense<br />
+of tranquility and stylish simplicity, --ar 16:9 --v 5</p>
+
+<p>/imagine prompt: 橙色和白色的现代风卧室, a modern bedroom with a vibrant orange wall<br />
+serving as a backdrop to a white bed with an orange throw blanket, the room is<br />
+filled with minimalist decor and white wooden furniture, a large plant in the<br />
+corner adds a touch of nature, the environment is bright and airy, with a large<br />
+window showcasing a garden view, the composition highlights the interplay<br />
+between the bold orange and the clean white, creating an atmosphere that feels<br />
+both lively and serene, Photography, captured with a Canon EOS 5D Mark IV, 50mm<br />
+f/1.2 lens, focusing on the warm and inviting feel of the space, --ar 16:9 --v 5</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

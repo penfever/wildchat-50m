@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+                <div class="shared-prompt">
+                    <strong>Shared Prompt:</strong>
+                    <div class="turn-content">
+                        <pre><code>                        As a prompt generator for a generative AI called "Midjourney", you will create image prompts for the AI to visualize. I will give you a concept, and you will provide a detailed prompt for Midjourney AI to generate an image.
+
+                        Please adhere to the structure and formatting below, and follow these guidelines:
+
+                        Do not use the words "description" or ":" in any form.
+                        Do not place a comma between [ar] and [v].
+                        Write each prompt in one line without using return.
+                        Structure:
+                        [1] = 失业，事业无成
+                        [2] = a detailed description of [1] with specific imagery details.
+                        [3] = a detailed description of the scene's environment.
+                        [4] = a detailed description of the compositions.
+                        [5] = a detailed description of the scene's mood, feelings, and atmosphere.
+                        [6] = A style (e.g. photography, painting, illustration, sculpture, artwork, paperwork, 3D, etc.) for [1].
+                        [7] =  a detailed description of the scene's mood, feelings, and atmosphere.
+                        [ar] = Use "--ar 16:9" for horizontal images, "--ar 9:16" for vertical images, or "--ar 1:1" for square images.
+                        [v] = Use "--niji" for Japanese art style, or "--v 5" for other styles.
+
+
+                        Formatting:
+                        Follow this prompt structure: "/imagine prompt: [1], [2], [3], [4], [5], [6], [7], [ar] [v]".
+
+                        Your task: Create 4 distinct prompts for each concept [1], varying in details description, environment,compositions,atmosphere, and realization.
+
+                        Write your prompts in english.
+                        Do not describe unreal concepts as "real" or "photographic".
+                        Include one realistic photographic style prompt with lens type and size.
+                        Separate different prompts with two new lines.
+                        Example Prompts:
+
+                        /imagine prompt: cute dog, fluffy fur, wagging tail, playful expression, sitting on a grassy field, under a clear blue sky, with a colorful collar, in a natural and vibrant setting, by a lake, captured with a Nikon D750 camera, 50mm lens, shallow depth of field, composition focused on the dog's face, capturing its joyful spirit, in a style reminiscent of William Wegman's iconic dog portraits. --ar 1:1 --v 5.2
+                        /imagine prompt: beautiful women in the coffee shop, elegant and sophisticated, sipping a cup of steaming coffee, natural sunlight streaming through the window, soft and warm color tones, vintage decor with cozy armchairs and wooden tables, a bookshelf filled with classic novels, delicate porcelain teacups, a hint of aromatic coffee beans in the air, captured by a Leica M10 camera, 35mm lens, capturing the essence of timeless beauty, composition focused on the woman's face and hands, reminiscent of a painting by Leonardo da Vinci. --ar 1:1 --v 5.2
+                        /imagine prompt: A captivating Halo Reach landscape with a Spartan amidst a battlefield, fallen enemies around, smoke and fire in the background, emphasizing the Spartan's determination and bravery, detailed environment blending chaos and beauty, Illustration, digital art, --ar 16:9 --v 5
+</code></pre>
+
+                    </div>
+                </div>
+                
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>/imagine prompt: devastating asteroid impact, massive asteroid crashing into<br />
+Earth's atmosphere, flames and smoke engulfing the surroundings, intense<br />
+shockwave shattering the landscape, debris flying everywhere, dark and ominous<br />
+clouds looming over, a sense of catastrophic destruction, in a style reminiscent<br />
+of a sci-fi disaster movie, with a focus on dynamic composition, emphasizing the<br />
+asteroid's chaotic entry, apocalyptic atmosphere, and feeling of utter<br />
+devastation, by a digital artwork, 3D rendering, composition focused on the<br />
+asteroid's impact, capturing the moment of destruction, in a dramatic and<br />
+intense setting, with a sense of hopelessness --ar 16:9 --v 5</p>
+
+<p>/imagine prompt: serene mystical forest, ancient trees with glowing mushrooms,<br />
+soft misty atmosphere, fireflies dancing around, gentle stream flowing through,<br />
+vibrant colors and intricate details, a sense of enchantment and wonder, in a<br />
+style reminiscent of a fantasy novel, with a focus on whimsical composition,<br />
+emphasizing the forest's magical essence, dreamy atmosphere, and feeling of<br />
+being in a mythical world, by a watercolor painting, delicate brushstrokes,<br />
+composition focused on the forest's heart, capturing the sense of mystery, in a<br />
+peaceful and ethereal setting, with a sense of discovery --ar 1:1 --v 5</p>
+
+<p>/imagine prompt: abandoned futuristic city, sleek skyscrapers and neon lights,<br />
+desolate streets and empty buildings, a sense of nostalgia and decay, in a style<br />
+reminiscent of a cyberpunk movie, with a focus on moody composition, emphasizing<br />
+the city's dark and gritty atmosphere, feeling of loneliness, by a digital<br />
+illustration, bold lines and vibrant colors, composition focused on the city's<br />
+skyline, capturing the essence of a forgotten metropolis, in a dramatic and<br />
+melancholic setting, with a sense of longing --ar 16:9 --v 5</p>
+
+<p>/imagine prompt: breathtaking sunset over a tranquil ocean, warm golden light,<br />
+gentle waves and serene atmosphere, a lone seagull flying in the distance, a<br />
+sense of peace and tranquility, captured with a Nikon D850 camera, 24mm lens,<br />
+narrow depth of field, composition focused on the horizon, capturing the moment<br />
+of sunset, in a realistic and natural setting, with a sense of calmness,<br />
+reminiscent of a photograph by Ansel Adams --ar 16:9 --niji</p>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>/imagine prompt: unemployment, a man sitting dejectedly on a worn-out sofa, head<br />
+in hands, surrounded by scattered job applications and rejection letters, a<br />
+dimly lit room with a single window allowing a sliver of sunlight to peek in,<br />
+composition focuses on the man's body language and the scattered papers, the<br />
+mood is heavy with a sense of despair and uncertainty, a realistic photographic<br />
+style, captured with a Canon EOS 5D Mark IV, 85mm lens, the scene evokes a<br />
+feeling of isolation and quiet frustration --ar 16:9 --v 5</p>
+
+<p>/imagine prompt: unemployment, a young woman staring blankly out a window of a<br />
+cluttered apartment, reflection of her face in the glass, a half-empty coffee<br />
+cup on the windowsill, piled books and paperwork on the desk, an urban cityscape<br />
+visible outside, the room is filled with a mix of clutter and emptiness, the<br />
+composition contrasts the neatly kept desk and the messy living area, the mood<br />
+is introspective and melancholic, illustration, the atmosphere is tinged with a<br />
+touch of hopelessness and reflection --ar 9:16 --v 5</p>
+
+<p>/imagine prompt: unemployment, a man in a living room, slumped on an armchair,<br />
+unkempt appearance, dark circles under his eyes, a pile of bills and empty<br />
+takeaway containers on the coffee table, the living room is simple and somewhat<br />
+bare, only a few pieces of furniture and a TV, the composition shows the man in<br />
+the foreground with a blurred TV screen in the background, the mood is stark and<br />
+somber, reflecting the struggle and stress of financial insecurity, painting,<br />
+the atmosphere is gritty and realistic, capturing the emotional toll of<br />
+joblessness --ar 1:1 --v 5</p>
+
+<p>/imagine prompt: unemployment, a woman sitting in a minimalist modern apartment,<br />
+sunlight streaming through large windows, casting long shadows, a sleek but<br />
+empty dining table, a wall adorned with motivational posters, the woman is<br />
+dressed neatly, but her shoulders are slumped, a laptop open with a job search<br />
+page visible on the screen, the composition focuses on the contrast between the<br />
+clean, hopeful surroundings and the woman's defeated posture, the mood is<br />
+bittersweet, a mix of hope and disappointment, digital art, the atmosphere is<br />
+clean and modern, with a subtle undertone of sadness --ar 16:9 --niji</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>

@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversation Comparison</title>
+        </head>
+        <body>
+        
+        
+        <style>
+            .comparison-container {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                width: 100%;
+            }
+            .conversation-column {
+                flex: 1;
+                min-width: 0;  /* Allows proper flex shrinking */
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .column-header {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 5px;
+                border-radius: 4px;
+            }
+            .conversation-turn {
+                margin: 20px 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .turn-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+            .turn-content {
+                margin-left: 20px;
+            }
+            .metadata {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .toxic-warning {
+                color: #E74C3C;
+            }
+            .turn-content pre {
+                background-color: #f5f5f5;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .turn-content code {
+                background-color: #f5f5f5;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            }
+            .turn-content blockquote {
+                border-left: 4px solid #ccc;
+                margin: 10px 0;
+                padding-left: 10px;
+                color: #666;
+            }
+            .turn-content ul, .turn-content ol {
+                margin: 10px 0;
+                padding-left: 30px;
+            }
+            .turn-content p {
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            .turn-content h1, .turn-content h2, .turn-content h3,
+            .turn-content h4, .turn-content h5, .turn-content h6 {
+                margin: 15px 0 10px 0;
+                font-weight: bold;
+            }
+            .turn-content table {
+                border-collapse: collapse;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .turn-content th, .turn-content td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .turn-content th {
+                background-color: #f5f5f5;
+            }
+            .shared-prompt {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            /* LaTeX math styling */
+            .math-inline {
+                display: inline-block;
+                margin: 0 0.25em;
+            }
+            .math-display {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+            }
+        </style>
+        
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                options: {
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        
+        <div class="comparison-container">
+            <div class="conversation-column" style="background-color: #e6f3ff">
+                <div class="column-header" style="background-color: #e6f3ff">
+                    allenai_WildChat-1M-Full-meta-llama_Llama-3.3-70B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    <span class="metadata">(Lang: English)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>I’m asking for curriculum planning. List things needed to know that encapsulate<br />
+the content of each of the Topic Titles, Learning Objectives, Enduring<br />
+Understandings, and Essential Knowledge statements. Some content may be missing<br />
+due to me copy pasted from a website. Enduring understandings are the long-term<br />
+takeaways related to the big ideas that leave a lasting impression on students.<br />
+Learning objectives define what a student needs to be able to do with content<br />
+knowledge in order to progress toward the enduring understandings. Essential<br />
+knowledge statements describe the knowledge required to perform the learning<br />
+objective.<br />
+Actual Content:<br />
+TOPIC 1.1<br />
+Moles and<br />
+Molar Mass<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SPQ-1<br />
+The mole allows different units to be compared.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SPQ-1.A<br />
+Calculate quantities of a<br />
+substance or its relative<br />
+number of particles using<br />
+dimensional analysis and the<br />
+mole concept.<br />
+SPQ-1.A.1<br />
+One cannot count particles directly while<br />
+performing laboratory work. Thus, there must<br />
+be a connection between the masses of<br />
+substances reacting and the actual number of<br />
+particles undergoing chemical changes.<br />
+SPQ-1.A.2<br />
+Avogadro’s number (N = 6.022 × 1023 mol−1<br />
+A )<br />
+provides the connection between the number<br />
+of moles in a pure sample of a substance and<br />
+the number of constituent particles (or formula<br />
+units) of that substance.<br />
+SPQ-1.A.3<br />
+Expressing the mass of an individual atom<br />
+or molecule in atomic mass units (amu) is<br />
+useful because the average mass in amu of<br />
+one particle (atom or molecule) or formula<br />
+unit of a substance will always be numerically<br />
+equal to the molar mass of that substance<br />
+in grams. Thus, there is a quantitative<br />
+connection between the mass of a substance<br />
+and the number of particles that the<br />
+substance contains.<br />
+EQN: n = m/M<br />
+TOPIC 1.2<br />
+Mass Spectroscopy<br />
+of Elements<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SPQ-1<br />
+The mole allows different units to be compared.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SPQ-1.B<br />
+Explain the quantitative<br />
+relationship between the<br />
+mass spectrum of an element<br />
+and the masses of the<br />
+element’s isotopes.<br />
+SPQ-1.B.1<br />
+The mass spectrum of a sample containing a<br />
+single element can be used to determine the<br />
+identity of the isotopes of that element and the<br />
+relative abundance of each isotope in nature.<br />
+SPQ-1.B.2<br />
+The average atomic mass of an element can<br />
+be estimated from the weighted average of<br />
+the isotopic masses using the mass of each<br />
+isotope and its relative abundance.<br />
+X INTERPRETING MASS SPECTRA<br />
+Interpreting mass spectra of samples<br />
+containing multiple elements or peaks arising<br />
+from species other than singly charged<br />
+monatomic ions will not be assessed on<br />
+the AP Exam.<br />
+TOPIC 1.3<br />
+Elemental<br />
+Composition of<br />
+Pure Substances<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SPQ-2<br />
+Chemical formulas identify substances by their unique combination of atoms.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SPQ-2.A<br />
+Explain the quantitative<br />
+relationship between the<br />
+elemental composition by<br />
+mass and the empirical<br />
+formula of a pure substance.<br />
+SPQ-2.A.1<br />
+Some pure substances are composed of<br />
+individual molecules, while others consist<br />
+of atoms or ions held together in fixed<br />
+proportions as described by a formula unit.<br />
+SPQ-2.A.2<br />
+According to the law of definite proportions,<br />
+the ratio of the masses of the constituent<br />
+elements in any pure sample of that compound<br />
+is always the same.<br />
+SPQ-2.A.3<br />
+The chemical formula that lists the lowest<br />
+whole number ratio of atoms of the elements in<br />
+a compound is the empirical formula.<br />
+TOPIC 1.4<br />
+Composition<br />
+of Mixtures<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SPQ-2<br />
+Chemical formulas identify substances by their unique combination of atoms.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SPQ-2.B<br />
+Explain the quantitative<br />
+relationship between the<br />
+elemental composition by<br />
+mass and the composition of<br />
+substances in a mixture.<br />
+SPQ-2.B.1<br />
+While pure substances contain molecules or<br />
+formula units of a single type, mixtures contain<br />
+molecules or formula units of two or more<br />
+types, whose relative proportions can vary.<br />
+SPQ-2.B.2<br />
+Elemental analysis can be used to determine<br />
+the relative numbers of atoms in a substance<br />
+and to determine its purity.<br />
+TOPIC 1.5<br />
+Atomic Structure and<br />
+Electron Configuration<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-1<br />
+Atoms and molecules can be identified by their electron distribution and energy.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-1.A<br />
+Represent the electron<br />
+configuration of an element<br />
+or ions of an element using<br />
+the Aufbau principle.<br />
+SAP-1.A.1<br />
+The atom is composed of negatively charged<br />
+electrons and a positively charged nucleus that<br />
+is made of protons and neutrons.<br />
+SAP-1.A.2<br />
+Coulomb’s law is used to calculate the force<br />
+between two charged particles.<br />
+EQN: Fcoulombic ∝ q1<br />
+q2<br />
+r2<br />
+SAP-1.A.3<br />
+In atoms and ions, the electrons can be thought<br />
+of as being in “shells (energy levels)” and<br />
+“subshells (sublevels),” as described by the<br />
+electron configuration. Inner electrons are called<br />
+core electrons, and outer electrons are called<br />
+valence electrons. The electron configuration is<br />
+explained by quantum mechanics, as delineated<br />
+in the Aufbau principle and exemplified in the<br />
+periodic table of the elements.<br />
+X THE ASSIGNMENT OF QUANTUM NUMBERS<br />
+TO ELECTRONS IN SUBSHELLS OF AN<br />
+ATOM WILL NOT BE ASSESSED ON THE<br />
+AP EXAM.<br />
+Rationale: Assignment of quantum numbers<br />
+to electrons in specific subshells does not<br />
+increase students’ understanding of the<br />
+structure of the atom.<br />
+SAP-1.A.4<br />
+The relative energy required to remove an<br />
+electron from different subshells of an atom or<br />
+ion or from the same subshell in different atoms<br />
+or ions (ionization energy) can be estimated<br />
+through a qualitative application of Coulomb’s<br />
+law. This energy is related to the distance from<br />
+the nucleus and the effective (shield) charge of<br />
+the nucleus.<br />
+TOPIC 1.6<br />
+Photoelectron<br />
+Spectroscopy<br />
+ENDURING UNDERSTANDING<br />
+SAP-1<br />
+Atoms and molecules can be identified by their electron distribution and energy.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-1.B<br />
+Explain the relationship<br />
+between the photoelectron<br />
+spectrum of an atom or<br />
+ion and:<br />
+a. The electron configuration<br />
+of the species.<br />
+b. The interactions<br />
+between the electrons<br />
+and the nucleus.<br />
+SAP-1.B.1<br />
+The energies of the electrons in a given<br />
+shell can be measured experimentally with<br />
+photoelectron spectroscopy (PES). The<br />
+position of each peak in the PES spectrum is<br />
+related to the energy required to remove an<br />
+electron from the corresponding subshell, and<br />
+the height of each peak is (ideally) proportional<br />
+to the number of electrons in that subshell.<br />
+TOPIC 1.7<br />
+Periodic Trends<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-2<br />
+The periodic table shows patterns in electronic structure and trends in<br />
+atomic properties.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-2.A<br />
+Explain the relationship<br />
+between trends in atomic<br />
+properties of elements and<br />
+electronic structure<br />
+and periodicity.<br />
+SAP-2.A.1<br />
+The organization of the periodic table is based<br />
+on the recurring properties of the elements and<br />
+explained by the pattern of electron configurations<br />
+and the presence of completely or partially filled<br />
+shells (and subshells) of electrons in atoms.<br />
+X WRITING THE ELECTRON CONFIGURATION<br />
+OF ELEMENTS THAT ARE EXCEPTIONS<br />
+TO THE AUFBAU PRINCIPLE WILL NOT BE<br />
+ASSESSED ON THE AP EXAM.<br />
+Rationale: The mere rote recall of the<br />
+exceptions does not match the goals of the<br />
+curriculum revision.<br />
+SAP-2.A.2<br />
+Trends in atomic properties within the<br />
+periodic table (periodicity) can be qualitatively<br />
+understood through the position of the element<br />
+in the periodic table, Coulomb’s law, the shell<br />
+model, and the concept of shielding/effective<br />
+nuclear charge. These properties include:<br />
+a. Ionization energy<br />
+b. Atomic and ionic radii<br />
+c. Electron affinity<br />
+d. Electronegativity.<br />
+SAP-2.A.3<br />
+The periodicity (in SAP-2.A.2) is useful to<br />
+predict /estimate values of properties in the<br />
+absence of data.<br />
+TOPIC 1.8<br />
+Valence Electrons and<br />
+Ionic Compounds<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-2<br />
+The periodic table shows patterns in electronic structure and trends in<br />
+atomic properties.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-2.B<br />
+Explain the relationship<br />
+between trends in the<br />
+reactivity of elements<br />
+and periodicity.<br />
+SAP-2.B.1<br />
+The likelihood that two elements will form<br />
+a chemical bond is determined by the<br />
+interactions between the valence electrons<br />
+and nuclei of elements.<br />
+SAP-2.B.2<br />
+Elements in the same column of the periodic<br />
+table tend to form analogous compounds.<br />
+SAP-2.B.3<br />
+Typical charges of atoms in ionic compounds<br />
+are governed by their location on the periodic<br />
+table and the number of valence electrons.<br />
+TOPIC 2.1<br />
+Types of<br />
+Chemical Bonds<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-3<br />
+Atoms or ions bond due to interactions between them, forming molecules.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-3.A<br />
+Explain the relationship<br />
+between the type of bonding<br />
+and the properties of the<br />
+elements participating in<br />
+the bond.<br />
+SAP-3.A.1<br />
+Electronegativity values for the representative<br />
+elements increase going from left to right<br />
+across a period and decrease going down<br />
+a group. These trends can be understood<br />
+qualitatively through the electronic structure of<br />
+the atoms, the shell model, and Coulomb’s law.<br />
+SAP-3.A.2<br />
+Valence electrons shared between atoms<br />
+of similar electronegativity constitute a<br />
+nonpolar covalent bond. For example, bonds<br />
+between carbon and hydrogen are effectively<br />
+nonpolar even though carbon is slightly more<br />
+electronegative than hydrogen.<br />
+SAP-3.A.3<br />
+Valence electrons shared between atoms of<br />
+unequal electronegativity constitute a polar<br />
+covalent bond.<br />
+a. The atom with a higher electronegativity will<br />
+develop a partial negative charge relative to<br />
+the other atom in the bond.<br />
+b. In single bonds, greater differences in<br />
+electronegativity lead to greater bond dipoles.<br />
+c. All polar bonds have some ionic character,<br />
+and the difference between ionic and<br />
+covalent bonding is not distinct but rather<br />
+a continuum.<br />
+SAP-3.A.4<br />
+The difference in electronegativity is not the<br />
+only factor in determining if a bond should<br />
+be designated as ionic or covalent. Generally,<br />
+bonds between a metal and nonmetal are<br />
+ionic, and bonds between two nonmetals are<br />
+covalent. Examination of the properties of a<br />
+compound is the best way to characterize the<br />
+type of bonding.<br />
+SAP-3.A.5<br />
+In a metallic solid, the valence electrons<br />
+from the metal atoms are considered to be<br />
+delocalized and not associated with any<br />
+individual atom.<br />
+TOPIC 2.2<br />
+Intramolecular Force<br />
+and Potential Energy<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-3<br />
+Atoms or ions bond due to interactions between them, forming molecules.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-3.B<br />
+Represent the relationship<br />
+between potential energy<br />
+and distance between<br />
+atoms, based on factors that<br />
+influence the interaction<br />
+strength.<br />
+SAP-3.B.1<br />
+A graph of potential energy versus the distance<br />
+between atoms is a useful representation for<br />
+describing the interactions between atoms.<br />
+Such graphs illustrate both the equilibrium<br />
+bond length (the separation between atoms at<br />
+which the potential energy is lowest) and the<br />
+bond energy (the energy required to separate<br />
+the atoms).<br />
+SAP-3.B.2<br />
+In a covalent bond, the bond length is<br />
+influenced by both the size of the atom’s core<br />
+and the bond order (i.e., single, double, triple).<br />
+Bonds with a higher order are shorter and have<br />
+larger bond energies.<br />
+SAP-3.B.3<br />
+Coulomb’s law can be used to understand the<br />
+strength of interactions between cations<br />
+and anions.<br />
+a. Because the interaction strength is<br />
+proportional to the charge on each ion, larger<br />
+charges lead to stronger interactions.<br />
+b. Because the interaction strength increases<br />
+as the distance between the centers of the<br />
+ions (nuclei) decreases,&lt;|eot_id|&gt;</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #1a5f7a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Lang: English | Finish: stop)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Based on the provided content, I'll summarize the key points for each topic,<br />
+including the Enduring Understandings, Learning Objectives, and Essential<br />
+Knowledge statements.</p>
+
+<h3>Topic 1.1: Moles and Molar Mass</h3>
+
+<ul>
+<li><strong>Enduring Understanding</strong>: The mole allows different units to be compared.</li>
+<li><strong>Learning Objective</strong>: Calculate quantities of a substance or its relative number of particles using dimensional analysis and the mole concept.</li>
+<li><strong>Essential Knowledge</strong>:
+<ul>
+<li>The connection between masses of substances reacting and the actual number<br /><br />
+of particles.</li>
+<li>Avogadro’s number provides the connection between moles and particles.</li>
+<li>The relationship between atomic mass units (amu), molar mass, and the number<br /><br />
+of particles.</li>
+</ul></li>
+</ul>
+
+<h3>Topic 1.2: Mass Spectroscopy of Elements</h3>
+
+<ul>
+<li><strong>Enduring Understanding</strong>: The mole allows different units to be compared.</li>
+<li><strong>Learning Objective</strong>: Explain the quantitative relationship between the mass spectrum of an element and the masses of the element’s isotopes.</li>
+<li><strong>Essential Knowledge</strong>:
+<ul>
+<li>Mass spectra can determine isotopes and their relative abundance.</li>
+<li>Average atomic mass can be estimated from isotopic masses and abundance.</li>
+</ul></li>
+</ul>
+
+<h3>Topic 1.3: Elemental Composition of Pure Substances</h3>
+
+<ul>
+<li><strong>Enduring Understanding</strong>: Chemical formulas identify substances by their unique combination of atoms.</li>
+<li><strong>Learning Objective</strong>: Explain the quantitative relationship between the elemental composition by mass and the empirical formula of a pure substance.</li>
+<li><strong>Essential Knowledge</strong>:
+<ul>
+<li>Pure substances are composed of individual molecules or atoms/ions in fixed<br /><br />
+proportions.</li>
+<li>The law of definite proportions states that the ratio of masses of<br /><br />
+constituent elements in a compound is always the same.</li>
+<li>The empirical formula lists the lowest whole number ratio of atoms of<br /><br />
+elements in a compound.</li>
+</ul></li>
+</ul>
+
+<h3>Topic 1.4: Composition of Mixtures</h3>
+
+<ul>
+<li><strong>Enduring Understanding</strong>: Chemical formulas identify substances by their unique combination of atoms.</li>
+<li><strong>Learning Objective</strong>: Explain the quantitative relationship between the elemental composition by mass and the composition of substances in a mixture.</li>
+<li><strong>Essential Knowledge</strong>:
+<ul>
+<li>Mixtures contain molecules or formula units of two or more types in variable<br /><br />
+proportions.</li>
+<li>Elemental analysis can determine relative numbers of atoms and purity.</li>
+</ul></li>
+</ul>
+
+<h3>Topic 1.5: Atomic Structure and Electron Configuration</h3>
+
+<ul>
+<li><strong>Enduring Understanding</strong>: Atoms and molecules can be identified by their electron distribution and energy.</li>
+<li><strong>Learning Objective</strong>: Represent the electron configuration of an element or ions of an element using the Aufbau principle.</li>
+<li><strong>Essential Knowledge</strong>:
+<ul>
+<li>Atoms are composed of electrons and a nucleus with protons and neutrons.</li>
+<li>Coulomb’s law calculates the force between charged particles.</li>
+<li>Electron configuration describes electrons in shells and subshells, with<br /><br />
+inner (core) and outer (valence) electrons.</li>
+</ul></li>
+</ul>
+
+<h3>Topic 1.6: Photoelectron Spectroscopy</h3>
+
+<ul>
+<li><strong>Enduring Understanding</strong>: Atoms and molecules can be identified by their electron distribution and energy.</li>
+<li><strong>Learning Objective</strong>: Explain the relationship between the photoelectron spectrum of an atom or ion and its electron configuration and interactions between electrons and the nucleus.</li>
+<li><strong>Essential Knowledge</strong>:
+<ul>
+<li>Photoelectron spectroscopy measures electron energies, related to the energy<br /><br />
+required to remove an electron from a subshell.</li>
+</ul></li>
+</ul>
+
+<h3>Topic 1.7: Periodic Trends</h3>
+
+<ul>
+<li><strong>Enduring Understanding</strong>: The periodic table shows patterns in electronic structure and trends in atomic properties.</li>
+<li><strong>Learning Objective</strong>: Explain the relationship between trends in atomic properties and electronic structure and periodicity.</li>
+<li><strong>Essential Knowledge</strong>:
+<ul>
+<li>The periodic table’s organization is based on recurring properties explained<br /><br />
+by electron configurations.</li>
+<li>Trends in atomic properties (ionization energy, atomic and ionic radii,<br /><br />
+electron affinity, electronegativity) can be qualitatively understood through<br /><br />
+the periodic table and Coulomb’s law.</li>
+</ul></li>
+</ul>
+
+<h3>Topic 1.8: Valence Electrons and Ionic Compounds</h3>
+
+<ul>
+<li><strong>Enduring Understanding</strong>: The periodic table shows patterns in electronic structure and trends in atomic properties.</li>
+<li><strong>Learning Objective</strong>: Explain the relationship between trends in the reactivity of elements and periodicity.</li>
+<li><strong>Essential Knowledge</strong>:
+<ul>
+<li>The likelihood of chemical bonding is determined by interactions between<br /><br />
+valence electrons and nuclei.</li>
+<li>Elements in the same column tend to form analogous compounds.</li>
+<li>Typical charges in ionic compounds are governed by location on the periodic<br /><br />
+table and the number of valence electrons.</li>
+</ul></li>
+</ul>
+
+<h3>Topic 2.1: Types of Chemical Bonds</h3>
+
+<ul>
+<li><strong>Enduring Understanding</strong>: Atoms or ions bond due to interactions between them, forming molecules.</li>
+<li><strong>Learning Objective</strong>: Explain the relationship between the type of bonding and the properties of the elements participating in the bond.</li>
+<li><strong>Essential Knowledge</strong>:
+<ul>
+<li>Electronegativity trends and their relationship to the type of bond<br /><br />
+(nonpolar covalent, polar covalent, ionic).</li>
+<li>Valence electrons shared between atoms of similar or unequal<br /><br />
+electronegativity form nonpolar or polar covalent bonds, respectively.</li>
+<li>The distinction between ionic and covalent bonding is not always clear-cut<br /><br />
+and can be considered a continuum.</li>
+</ul></li>
+</ul>
+
+<h3>Topic 2.2: Intramolecular Force and Potential Energy</h3>
+
+<ul>
+<li><strong>Enduring Understanding</strong>: Atoms or ions bond due to interactions between them, forming molecules.</li>
+<li><strong>Learning Objective</strong>: Represent the relationship between potential energy and distance between atoms based on factors influencing interaction strength.</li>
+<li><strong>Essential Knowledge</strong>:
+<ul>
+<li>Graphs of potential energy vs. distance between atoms describe interactions,<br /><br />
+including equilibrium bond length and bond energy.</li>
+<li>Bond length and energy are influenced by atomic core size and bond order.</li>
+<li>Coulomb’s law explains the strength of interactions between cations and<br /><br />
+anions, influenced by charge and distance.</li>
+</ul></li>
+</ul>
+
+                </div>
+            </div>
+                
+            </div>
+            <div class="conversation-column" style="background-color: #ffe6e6">
+                <div class="column-header" style="background-color: #ffe6e6">
+                    allenai_WildChat-1M-Full-Qwen_Qwen2.5-72B-Instruct
+                </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #2ECC71">
+                    👤 USER
+                    
+                </div>
+            
+                <div class="turn-content">
+                    <p>I’m asking for curriculum planning. List things needed to know that encapsulate<br />
+the content of each of the Topic Titles, Learning Objectives, Enduring<br />
+Understandings, and Essential Knowledge statements. Some content may be missing<br />
+due to me copy pasted from a website. Enduring understandings are the long-term<br />
+takeaways related to the big ideas that leave a lasting impression on students.<br />
+Learning objectives define what a student needs to be able to do with content<br />
+knowledge in order to progress toward the enduring understandings. Essential<br />
+knowledge statements describe the knowledge required to perform the learning<br />
+objective.<br />
+Actual Content:<br />
+TOPIC 1.1<br />
+Moles and<br />
+Molar Mass<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SPQ-1<br />
+The mole allows different units to be compared.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SPQ-1.A<br />
+Calculate quantities of a<br />
+substance or its relative<br />
+number of particles using<br />
+dimensional analysis and the<br />
+mole concept.<br />
+SPQ-1.A.1<br />
+One cannot count particles directly while<br />
+performing laboratory work. Thus, there must<br />
+be a connection between the masses of<br />
+substances reacting and the actual number of<br />
+particles undergoing chemical changes.<br />
+SPQ-1.A.2<br />
+Avogadro’s number (N = 6.022 × 1023 mol−1<br />
+A )<br />
+provides the connection between the number<br />
+of moles in a pure sample of a substance and<br />
+the number of constituent particles (or formula<br />
+units) of that substance.<br />
+SPQ-1.A.3<br />
+Expressing the mass of an individual atom<br />
+or molecule in atomic mass units (amu) is<br />
+useful because the average mass in amu of<br />
+one particle (atom or molecule) or formula<br />
+unit of a substance will always be numerically<br />
+equal to the molar mass of that substance<br />
+in grams. Thus, there is a quantitative<br />
+connection between the mass of a substance<br />
+and the number of particles that the<br />
+substance contains.<br />
+EQN: n = m/M<br />
+TOPIC 1.2<br />
+Mass Spectroscopy<br />
+of Elements<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SPQ-1<br />
+The mole allows different units to be compared.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SPQ-1.B<br />
+Explain the quantitative<br />
+relationship between the<br />
+mass spectrum of an element<br />
+and the masses of the<br />
+element’s isotopes.<br />
+SPQ-1.B.1<br />
+The mass spectrum of a sample containing a<br />
+single element can be used to determine the<br />
+identity of the isotopes of that element and the<br />
+relative abundance of each isotope in nature.<br />
+SPQ-1.B.2<br />
+The average atomic mass of an element can<br />
+be estimated from the weighted average of<br />
+the isotopic masses using the mass of each<br />
+isotope and its relative abundance.<br />
+X INTERPRETING MASS SPECTRA<br />
+Interpreting mass spectra of samples<br />
+containing multiple elements or peaks arising<br />
+from species other than singly charged<br />
+monatomic ions will not be assessed on<br />
+the AP Exam.<br />
+TOPIC 1.3<br />
+Elemental<br />
+Composition of<br />
+Pure Substances<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SPQ-2<br />
+Chemical formulas identify substances by their unique combination of atoms.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SPQ-2.A<br />
+Explain the quantitative<br />
+relationship between the<br />
+elemental composition by<br />
+mass and the empirical<br />
+formula of a pure substance.<br />
+SPQ-2.A.1<br />
+Some pure substances are composed of<br />
+individual molecules, while others consist<br />
+of atoms or ions held together in fixed<br />
+proportions as described by a formula unit.<br />
+SPQ-2.A.2<br />
+According to the law of definite proportions,<br />
+the ratio of the masses of the constituent<br />
+elements in any pure sample of that compound<br />
+is always the same.<br />
+SPQ-2.A.3<br />
+The chemical formula that lists the lowest<br />
+whole number ratio of atoms of the elements in<br />
+a compound is the empirical formula.<br />
+TOPIC 1.4<br />
+Composition<br />
+of Mixtures<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SPQ-2<br />
+Chemical formulas identify substances by their unique combination of atoms.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SPQ-2.B<br />
+Explain the quantitative<br />
+relationship between the<br />
+elemental composition by<br />
+mass and the composition of<br />
+substances in a mixture.<br />
+SPQ-2.B.1<br />
+While pure substances contain molecules or<br />
+formula units of a single type, mixtures contain<br />
+molecules or formula units of two or more<br />
+types, whose relative proportions can vary.<br />
+SPQ-2.B.2<br />
+Elemental analysis can be used to determine<br />
+the relative numbers of atoms in a substance<br />
+and to determine its purity.<br />
+TOPIC 1.5<br />
+Atomic Structure and<br />
+Electron Configuration<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-1<br />
+Atoms and molecules can be identified by their electron distribution and energy.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-1.A<br />
+Represent the electron<br />
+configuration of an element<br />
+or ions of an element using<br />
+the Aufbau principle.<br />
+SAP-1.A.1<br />
+The atom is composed of negatively charged<br />
+electrons and a positively charged nucleus that<br />
+is made of protons and neutrons.<br />
+SAP-1.A.2<br />
+Coulomb’s law is used to calculate the force<br />
+between two charged particles.<br />
+EQN: Fcoulombic ∝ q1<br />
+q2<br />
+r2<br />
+SAP-1.A.3<br />
+In atoms and ions, the electrons can be thought<br />
+of as being in “shells (energy levels)” and<br />
+“subshells (sublevels),” as described by the<br />
+electron configuration. Inner electrons are called<br />
+core electrons, and outer electrons are called<br />
+valence electrons. The electron configuration is<br />
+explained by quantum mechanics, as delineated<br />
+in the Aufbau principle and exemplified in the<br />
+periodic table of the elements.<br />
+X THE ASSIGNMENT OF QUANTUM NUMBERS<br />
+TO ELECTRONS IN SUBSHELLS OF AN<br />
+ATOM WILL NOT BE ASSESSED ON THE<br />
+AP EXAM.<br />
+Rationale: Assignment of quantum numbers<br />
+to electrons in specific subshells does not<br />
+increase students’ understanding of the<br />
+structure of the atom.<br />
+SAP-1.A.4<br />
+The relative energy required to remove an<br />
+electron from different subshells of an atom or<br />
+ion or from the same subshell in different atoms<br />
+or ions (ionization energy) can be estimated<br />
+through a qualitative application of Coulomb’s<br />
+law. This energy is related to the distance from<br />
+the nucleus and the effective (shield) charge of<br />
+the nucleus.<br />
+TOPIC 1.6<br />
+Photoelectron<br />
+Spectroscopy<br />
+ENDURING UNDERSTANDING<br />
+SAP-1<br />
+Atoms and molecules can be identified by their electron distribution and energy.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-1.B<br />
+Explain the relationship<br />
+between the photoelectron<br />
+spectrum of an atom or<br />
+ion and:<br />
+a. The electron configuration<br />
+of the species.<br />
+b. The interactions<br />
+between the electrons<br />
+and the nucleus.<br />
+SAP-1.B.1<br />
+The energies of the electrons in a given<br />
+shell can be measured experimentally with<br />
+photoelectron spectroscopy (PES). The<br />
+position of each peak in the PES spectrum is<br />
+related to the energy required to remove an<br />
+electron from the corresponding subshell, and<br />
+the height of each peak is (ideally) proportional<br />
+to the number of electrons in that subshell.<br />
+TOPIC 1.7<br />
+Periodic Trends<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-2<br />
+The periodic table shows patterns in electronic structure and trends in<br />
+atomic properties.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-2.A<br />
+Explain the relationship<br />
+between trends in atomic<br />
+properties of elements and<br />
+electronic structure<br />
+and periodicity.<br />
+SAP-2.A.1<br />
+The organization of the periodic table is based<br />
+on the recurring properties of the elements and<br />
+explained by the pattern of electron configurations<br />
+and the presence of completely or partially filled<br />
+shells (and subshells) of electrons in atoms.<br />
+X WRITING THE ELECTRON CONFIGURATION<br />
+OF ELEMENTS THAT ARE EXCEPTIONS<br />
+TO THE AUFBAU PRINCIPLE WILL NOT BE<br />
+ASSESSED ON THE AP EXAM.<br />
+Rationale: The mere rote recall of the<br />
+exceptions does not match the goals of the<br />
+curriculum revision.<br />
+SAP-2.A.2<br />
+Trends in atomic properties within the<br />
+periodic table (periodicity) can be qualitatively<br />
+understood through the position of the element<br />
+in the periodic table, Coulomb’s law, the shell<br />
+model, and the concept of shielding/effective<br />
+nuclear charge. These properties include:<br />
+a. Ionization energy<br />
+b. Atomic and ionic radii<br />
+c. Electron affinity<br />
+d. Electronegativity.<br />
+SAP-2.A.3<br />
+The periodicity (in SAP-2.A.2) is useful to<br />
+predict /estimate values of properties in the<br />
+absence of data.<br />
+TOPIC 1.8<br />
+Valence Electrons and<br />
+Ionic Compounds<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-2<br />
+The periodic table shows patterns in electronic structure and trends in<br />
+atomic properties.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-2.B<br />
+Explain the relationship<br />
+between trends in the<br />
+reactivity of elements<br />
+and periodicity.<br />
+SAP-2.B.1<br />
+The likelihood that two elements will form<br />
+a chemical bond is determined by the<br />
+interactions between the valence electrons<br />
+and nuclei of elements.<br />
+SAP-2.B.2<br />
+Elements in the same column of the periodic<br />
+table tend to form analogous compounds.<br />
+SAP-2.B.3<br />
+Typical charges of atoms in ionic compounds<br />
+are governed by their location on the periodic<br />
+table and the number of valence electrons.<br />
+TOPIC 2.1<br />
+Types of<br />
+Chemical Bonds<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-3<br />
+Atoms or ions bond due to interactions between them, forming molecules.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-3.A<br />
+Explain the relationship<br />
+between the type of bonding<br />
+and the properties of the<br />
+elements participating in<br />
+the bond.<br />
+SAP-3.A.1<br />
+Electronegativity values for the representative<br />
+elements increase going from left to right<br />
+across a period and decrease going down<br />
+a group. These trends can be understood<br />
+qualitatively through the electronic structure of<br />
+the atoms, the shell model, and Coulomb’s law.<br />
+SAP-3.A.2<br />
+Valence electrons shared between atoms<br />
+of similar electronegativity constitute a<br />
+nonpolar covalent bond. For example, bonds<br />
+between carbon and hydrogen are effectively<br />
+nonpolar even though carbon is slightly more<br />
+electronegative than hydrogen.<br />
+SAP-3.A.3<br />
+Valence electrons shared between atoms of<br />
+unequal electronegativity constitute a polar<br />
+covalent bond.<br />
+a. The atom with a higher electronegativity will<br />
+develop a partial negative charge relative to<br />
+the other atom in the bond.<br />
+b. In single bonds, greater differences in<br />
+electronegativity lead to greater bond dipoles.<br />
+c. All polar bonds have some ionic character,<br />
+and the difference between ionic and<br />
+covalent bonding is not distinct but rather<br />
+a continuum.<br />
+SAP-3.A.4<br />
+The difference in electronegativity is not the<br />
+only factor in determining if a bond should<br />
+be designated as ionic or covalent. Generally,<br />
+bonds between a metal and nonmetal are<br />
+ionic, and bonds between two nonmetals are<br />
+covalent. Examination of the properties of a<br />
+compound is the best way to characterize the<br />
+type of bonding.<br />
+SAP-3.A.5<br />
+In a metallic solid, the valence electrons<br />
+from the metal atoms are considered to be<br />
+delocalized and not associated with any<br />
+individual atom.<br />
+TOPIC 2.2<br />
+Intramolecular Force<br />
+and Potential Energy<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-3<br />
+Atoms or ions bond due to interactions between them, forming molecules.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-3.B<br />
+Represent the relationship<br />
+between potential energy<br />
+and distance between<br />
+atoms, based on factors that<br />
+influence the interaction<br />
+strength.<br />
+SAP-3.B.1<br />
+A graph of potential energy versus the distance<br />
+between atoms is a useful representation for<br />
+describing the interactions between atoms.<br />
+Such graphs illustrate both the equilibrium<br />
+bond length (the separation between atoms at<br />
+which the potential energy is lowest) and the<br />
+bond energy (the energy required to separate<br />
+the atoms).<br />
+SAP-3.B.2<br />
+In a covalent bond, the bond length is<br />
+influenced by both the size of the atom’s core<br />
+and the bond order (i.e., single, double, triple).<br />
+Bonds with a higher order are shorter and have<br />
+larger bond energies.<br />
+SAP-3.B.3<br />
+Coulomb’s law can be used to understand the<br />
+strength of interactions between cations<br />
+and anions.<br />
+a. Because the interaction strength is<br />
+proportional to the charge on each ion, larger<br />
+charges lead to stronger interactions.<br />
+b. Because the interaction strength increases<br />
+as the distance between the centers of the<br />
+ions (nuclei) decreases, smaller ions lead to<br />
+stronger interactions.<br />
+TOPIC 2.3<br />
+Structure of<br />
+Ionic Solids<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-3<br />
+Atoms or ions bond due to interactions between them, forming molecules.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-3.C<br />
+Represent an ionic solid with<br />
+a particulate model that is<br />
+consistent with Coulomb’s<br />
+law and the properties of the<br />
+constituent ions.<br />
+SAP-3.C.1<br />
+The cations and anions in an ionic crystal are<br />
+arranged in a systematic, periodic 3-D array<br />
+that maximizes the attractive forces among<br />
+cations and anions while minimizing the<br />
+repulsive forces.<br />
+X KNOWLEDGE OF SPECIFIC TYPES OF<br />
+CRYSTAL STRUCTURES WILL NOT BE<br />
+ASSESSED ON THE AP EXAM.<br />
+Rationale: Study of specific crystal structures is<br />
+not essential to an understanding of the big ideas.<br />
+TOPIC 2.4<br />
+Structure of Metals<br />
+and Alloys<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-3<br />
+Atoms or ions bond due to interactions between them, forming molecules.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-3.D<br />
+Represent a metallic<br />
+solid and/or alloy using a<br />
+model to show essential<br />
+characteristics of the<br />
+structure and interactions<br />
+present in the substance.<br />
+SAP-3.D.1<br />
+Metallic bonding can be represented as an<br />
+array of positive metal ions surrounded by<br />
+delocalized valence electrons (i.e., a “sea<br />
+of electrons”).<br />
+SAP-3.D.2<br />
+Interstitial alloys form between atoms of<br />
+different radii, where the smaller atoms fill the<br />
+interstitial spaces between the larger atoms<br />
+(e.g., with steel in which carbon occupies the<br />
+interstices in iron).<br />
+SAP-3.D.3<br />
+Substitutional alloys form between atoms<br />
+of comparable radius, where one atom<br />
+substitutes for the other in the lattice. (In<br />
+certain brass alloys, other elements, usually<br />
+zinc, substitute for copper.)<br />
+TOPIC 2.5<br />
+Lewis Diagrams<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-4<br />
+Molecular compounds are arranged based on Lewis diagrams and Valence Shell<br />
+Electron Pair Repulsion (VSEPR) theory.<br />
+LEARNING OBJECTIVE<br />
+SAP-4.A<br />
+Represent a molecule with a<br />
+Lewis diagram.<br />
+ESSENTIAL KNOWLEDGE<br />
+SAP-4.A.1<br />
+Lewis diagrams can be constructed according<br />
+to an established set of principles.<br />
+TOPIC 2.6<br />
+Resonance and<br />
+Formal Charge<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-4<br />
+Molecular compounds are arranged based on Lewis diagrams and Valence Shell<br />
+Electron Pair Repulsion (VSEPR) theory.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-4.B<br />
+Represent a molecule with a<br />
+Lewis diagram that accounts<br />
+for resonance between<br />
+equivalent structures or that<br />
+uses formal charge to select<br />
+between nonequivalent<br />
+structures.<br />
+SAP-4.B.1<br />
+In cases where more than one equivalent Lewis<br />
+structure can be constructed, resonance<br />
+must be included as a refinement to the Lewis<br />
+structure. In many such cases, this refinement<br />
+is needed to provide qualitatively accurate<br />
+predictions of molecular structure<br />
+and properties.<br />
+SAP-4.B.2<br />
+The octet rule and formal charge can be used<br />
+as criteria for determining which of several<br />
+possible valid Lewis diagrams provides the<br />
+best model for predicting molecular structure<br />
+and properties.<br />
+SAP-4.B.3<br />
+As with any model, there are limitations to<br />
+the use of the Lewis structure model,<br />
+particularly in cases with an odd number of<br />
+valence electrons.<br />
+TOPIC 2.7<br />
+VSEPR and Bond<br />
+Hybridization<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-4<br />
+Molecular compounds are arranged based on Lewis diagrams and Valence Shell<br />
+Electron Pair Repulsion (VSEPR) theory.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-4.C<br />
+Based on the relationship<br />
+between Lewis diagrams,<br />
+VSEPR theory, bond orders,<br />
+and bond polarities:<br />
+a. Explain structural<br />
+properties of molecules.<br />
+b. Explain electron properties<br />
+of molecules.<br />
+SAP-4.C.1<br />
+VSEPR theory uses the Coulombic repulsion<br />
+between electrons as a basis for predicting<br />
+the arrangement of electron pairs around a<br />
+central atom.<br />
+SAP-4.C.2<br />
+Both Lewis diagrams and VSEPR theory must<br />
+be used for predicting electronic and structural<br />
+properties of many covalently bonded<br />
+molecules and polyatomic ions, including<br />
+the following:<br />
+a. Molecular geometry<br />
+b. Bond angles<br />
+c. Relative bond energies based on bond order<br />
+d. Relative bond lengths (multiple bonds,<br />
+effects of atomic radius)<br />
+e. Presence of a dipole moment<br />
+f. Hybridization of valence orbitals of<br />
+the molecule<br />
+SAP-4.C.3<br />
+The terms “hybridization” and “hybrid atomic<br />
+orbital” are used to describe the arrangement<br />
+of electrons around a central atom. When the<br />
+central atom is sp hybridized, its ideal bond<br />
+angles are 180°; for sp2 hybridized atoms the<br />
+bond angles are 120°; and for sp3 hybridized<br />
+atoms the bond angles are 109.5°.<br />
+X AN UNDERSTANDING OF THE DERIVATION<br />
+AND DEPICTION OF HYBRID ORBITALS<br />
+WILL NOT BE ASSESSED ON THE AP EXAM.<br />
+Rationale: The course includes the distinction<br />
+between sigma and pi bonding, the use of VSEPR<br />
+to explain the shapes of molecules, and the sp,<br />
+sp2<br />
+, and sp3<br />
+ nomenclature. Additional aspects<br />
+related to hybridization are both controversial and<br />
+do not substantially enhance understanding of<br />
+molecular structure.<br />
+X HYBRIDIZATION INVOLVING D ORBITALS<br />
+WILL NOT BE ASSESSED ON THE AP EXAM.<br />
+WHEN AN ATOM HAS MORE THAN FOUR<br />
+PAIRS OF ELECTRONS SURROUNDING THE<br />
+CENTRAL ATOM, STUDENTS ARE ONLY<br />
+RESPONSIBLE FOR THE SHAPE OF THE<br />
+RESULTING MOLECULE.<br />
+Rationale: Current evidence suggests that<br />
+main-group hybridization involving d orbitals<br />
+does not exist, and there is controversy about the<br />
+need to teach any hybridization. Until agreement<br />
+is reached in the chemistry community, we<br />
+will continue to include only sp, sp2<br />
+, and sp3<br />
+hybridization on the AP Exam.<br />
+SAP-4.C.4<br />
+Bond formation is associated with overlap<br />
+between atomic orbitals. In multiple bonds, such<br />
+overlap leads to the formation of both sigma<br />
+and pi bonds. The overlap is stronger in sigma<br />
+than pi bonds, which is reflected in sigma bonds<br />
+having greater bond energy than pi bonds. The<br />
+presence of a pi bond also prevents the rotation<br />
+of the bond and leads to structural isomers.<br />
+X MOLECULAR ORBITAL THEORY IS<br />
+RECOMMENDED AS A WAY TO PROVIDE<br />
+DEEPER INSIGHT INTO BONDING.<br />
+HOWEVER, THE AP EXAM WILL NEITHER<br />
+EXPLICITLY ASSESS MOLECULAR ORBITAL<br />
+DIAGRAMS, FILLING OF MOLECULAR<br />
+ORBITALS, NOR THE DISTINCTION<br />
+BETWEEN BONDING, NONBONDING, AND<br />
+ANTIBONDING ORBITALS.<br />
+Rationale: As currently covered in general<br />
+chemistry college textbooks, molecular orbital<br />
+theory is limited to homonuclear molecules in the<br />
+second period.<br />
+TOPIC 3.1<br />
+Intermolecular<br />
+Forces<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-5<br />
+Intermolecular forces can explain the physical properties of a material.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-5.A<br />
+Explain the relationship<br />
+between the chemical<br />
+structures of molecules and<br />
+the relative strength of their<br />
+intermolecular forces when:<br />
+a. The molecules are of the<br />
+same chemical species.<br />
+b. The molecules are of two<br />
+different chemical species.<br />
+SAP-5.A.1<br />
+London dispersion forces are a result of the<br />
+Coulombic interactions between temporary,<br />
+fluctuating dipoles. London dispersion forces<br />
+are often the strongest net intermolecular<br />
+force between large molecules.<br />
+a. Dispersion forces increase with increasing<br />
+contact area between molecules and with<br />
+increasing polarizability of the molecules.<br />
+b. The polarizability of a molecule increases<br />
+with an increasing number of electrons in the<br />
+molecule; and the size of the electron cloud.<br />
+It is enhanced by the presence of pi bonding.<br />
+c. The term “London dispersion forces” should<br />
+not be used synonymously with the term<br />
+“van der Waals forces.”<br />
+SAP-5.A.2<br />
+The dipole moment of a polar molecule<br />
+leads to additional interactions with other<br />
+chemical species.<br />
+a. Dipole-induced dipole interactions are<br />
+present between a polar and nonpolar<br />
+molecule. These forces are always attractive.<br />
+The strength of these forces increases with<br />
+the magnitude of the dipole of the polar<br />
+molecule and with the polarizability of the<br />
+nonpolar molecule.<br />
+b. Dipole-dipole interactions are present<br />
+between polar molecules. The interaction<br />
+strength depends on the magnitudes of<br />
+the dipoles and their relative orientation.<br />
+Interactions between polar molecules<br />
+are typically greater than those between<br />
+nonpolar molecules of comparable size<br />
+because these interactions act in addition to<br />
+London dispersion forces.<br />
+c. Ion-dipole forces of attraction are present<br />
+between ions and polar molecules.<br />
+These tend to be stronger than dipoledipole forces.<br />
+SAP-5.A.3<br />
+The relative strength and orientation<br />
+dependence of dipole-dipole and ion-dipole<br />
+forces can be understood qualitatively by<br />
+considering the sign of the partial charges<br />
+responsible for the molecular dipole moment,<br />
+and how these partial charges interact with an<br />
+ion or with an adjacent dipole.<br />
+SAP-5.A.4<br />
+Hydrogen bonding is a strong type of<br />
+intermolecular interaction that exists when<br />
+hydrogen atoms covalently bonded to the<br />
+highly electronegative atoms (N, O, and F)<br />
+are attracted to the negative end of a dipole<br />
+formed by the electronegative atom (N, O,<br />
+and F) in a different molecule, or a different part<br />
+of the same molecule.<br />
+SAP-5.A.5<br />
+In large biomolecules, noncovalent interactions<br />
+may occur between different molecules<br />
+or between different regions of the same<br />
+large biomolecule.<br />
+TOPIC 3.2<br />
+Properties<br />
+of Solids<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-5<br />
+Intermolecular forces can explain the physical properties of a material.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-5.B<br />
+Explain the relationship<br />
+among the macroscopic<br />
+properties of a substance,<br />
+the particulate-level structure<br />
+of the substance, and the<br />
+interactions between these<br />
+particles.<br />
+SAP-5.B.1<br />
+Many properties of liquids and solids are<br />
+determined by the strengths and types of<br />
+intermolecular forces present. Because<br />
+intermolecular interactions are broken when a<br />
+substance vaporizes, the vapor pressure and<br />
+boiling point are directly related to the strength<br />
+of those interactions. Melting points also tend<br />
+to correlate with interaction strength, but<br />
+because the interactions are only rearranged,<br />
+in melting, the relations can be more subtle.<br />
+SAP-5.B.2<br />
+Particulate-level representations, showing<br />
+multiple interacting chemical species, are a<br />
+useful means to communicate or understand<br />
+how intermolecular interactions help to<br />
+establish macroscopic properties.<br />
+SAP-5.B.3<br />
+Due to strong interactions between ions,<br />
+ionic solids tend to have low vapor pressures,<br />
+high melting points, and high boiling points.<br />
+They tend to be brittle due to the repulsion<br />
+of like charges caused when one layer slides<br />
+across another layer. They conduct electricity<br />
+only when the ions are mobile, as when the<br />
+ionic solid is melted or dissolved in water or<br />
+another solvent.<br />
+SAP-5.B.4<br />
+In covalent network solids, the atoms are<br />
+covalently bonded together into a threedimensional network (e.g., diamond) or<br />
+layers<br />
+of two-dimensional networks (e.g., graphite).<br />
+These are only formed from nonmetals:<br />
+elemental (e.g., diamond, graphite) or binary<br />
+compounds of two nonmetals (e.g., silicon<br />
+dioxide and silicon carbide). Due to the strong<br />
+covalent interactions, covalent solids have high<br />
+melting points. Three-dimensional network<br />
+solids are also rigid and hard, because the<br />
+covalent bond angles are fixed. However,<br />
+graphite is soft because adjacent layers can<br />
+slide past each other relatively easily.<br />
+SAP-5.B.5<br />
+Molecular solids are composed of distinct,<br />
+individual units of covalently-bonded<br />
+molecules attracted to each other through<br />
+relatively weak intermolecular forces. Molecular<br />
+solids generally have a low melting point<br />
+because of the relatively weak intermolecular<br />
+forces present between the molecules. They<br />
+do not conduct electricity because their<br />
+valence electrons are tightly held within the<br />
+covalent bonds and the lone pairs of each<br />
+constituent molecule. Molecular solids are<br />
+sometimes composed of very large molecules<br />
+or polymers.<br />
+SAP-5.B.6<br />
+Metallic solids are good conductors of<br />
+electricity and heat, due to the presence of<br />
+free valence electrons. They also tend to be<br />
+malleable and ductile, due to the ease with<br />
+which the metal cores can rearrange their<br />
+structure. In an interstitial alloy, interstitial<br />
+atoms tend to make the lattice more rigid,<br />
+decreasing malleability and ductility. Alloys<br />
+typically retain a sea of mobile electrons and so<br />
+remain conducting.<br />
+SAP-5.B.7<br />
+In large biomolecules or polymers, noncovalent<br />
+interactions may occur between different<br />
+molecules or between different regions of the<br />
+same large biomolecule. The functionality and<br />
+properties of such molecules depend strongly<br />
+on the shape of the molecule, which is largely<br />
+dictated by noncovalent interactions.<br />
+TOPIC 3.3<br />
+Solids, Liquids,<br />
+and Gases<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-6<br />
+Matter exists in three states: solid, liquid, and gas, and their differences are<br />
+influenced by variances in spacing and motion of the molecules.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-6.A<br />
+Represent the differences<br />
+between solid, liquid, and gas<br />
+phases using a particulatelevel model.<br />
+SAP-6.A.1<br />
+Solids can be crystalline, where the particles<br />
+are arranged in a regular three-dimensional<br />
+structure, or they can be amorphous, where<br />
+the particles do not have a regular, orderly<br />
+arrangement. In both cases, the motion of the<br />
+individual particles is limited, and the particles<br />
+do not undergo overall translation with respect<br />
+to each other. The structure of the solid is<br />
+influenced by interparticle interactions and the<br />
+ability of the particles to pack together.<br />
+SAP-6.A.2<br />
+The constituent particles in liquids are in<br />
+close contact with each other, and they<br />
+are continually moving and colliding. The<br />
+arrangement and movement of particles are<br />
+influenced by the nature and strength of the<br />
+forces (e.g., polarity, hydrogen bonding, and<br />
+temperature) between the particles.<br />
+SAP-6.A.3<br />
+The solid and liquid phases for a particular<br />
+substance typically have similar molar volume<br />
+because, in both phases, the constituent<br />
+particles are in close contact at all times.<br />
+SAP-6.A.4<br />
+In the gas phase, the particles are in constant<br />
+motion. Their frequencies of collision and the<br />
+average spacing between them are dependent<br />
+on temperature, pressure, and volume. Because<br />
+of this constant motion, and minimal effects of<br />
+forces between particles, a gas has neither a<br />
+definite volume nor a definite shape.<br />
+X UNDERSTANDING/INTERPRETING PHASE<br />
+DIAGRAMS WILL NOT BE ASSESSED ON<br />
+THE AP EXAM.<br />
+Rationale: Phase diagrams of pure substances<br />
+are considered prior knowledge.<br />
+TOPIC 3.4<br />
+Ideal Gas Law<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-7<br />
+Gas properties are explained macroscopically—using the relationships among<br />
+pressure, volume, temperature, moles, gas constant—and molecularly by the motion<br />
+of the gas.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-7.A<br />
+Explain the relationship<br />
+between the macroscopic<br />
+properties of a sample of gas<br />
+or mixture of gases using the<br />
+ideal gas law.<br />
+SAP-7.A.1<br />
+The macroscopic properties of ideal gases are<br />
+related through the ideal gas law:<br />
+EQN: PV = nRT.<br />
+SAP-7.A.2<br />
+In a sample containing a mixture of ideal gases,<br />
+the pressure exerted by each component (the<br />
+partial pressure) is independent of the other<br />
+components. Therefore, the total pressure of<br />
+the sample is the sum of the partial pressures.<br />
+EQN: PA = Ptotal × XA,<br />
+where XA = moles A/total moles;<br />
+EQN: Ptotal = PA + PB + PC + …<br />
+SAP-7.A.3<br />
+Graphical representations of the relationships<br />
+between P, V, T, and n are useful to describe<br />
+gas behavior.<br />
+TOPIC 3.5<br />
+Kinetic Molecular<br />
+Theory<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-7<br />
+Gas properties are explained macroscopically—using the relationships among<br />
+pressure, volume, temperature, moles, gas constant—and molecularly by the motion<br />
+of the gas.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-7.B<br />
+Explain the relationship<br />
+between the motion<br />
+of particles and the<br />
+macroscopic properties of<br />
+gases with:<br />
+a. The kinetic molecular<br />
+theory (KMT).<br />
+b. A particulate model.<br />
+c. A graphical representation.<br />
+SAP-7.B.1<br />
+The kinetic molecular theory (KMT) relates<br />
+the macroscopic properties of gases to<br />
+motions of the particles in the gas. The<br />
+Maxwell-Boltzmann distribution describes the<br />
+distribution of the kinetic energies of particles<br />
+at a given temperature.<br />
+SAP-7.B.2<br />
+All the particles in a sample of matter are in<br />
+continuous, random motion. The average<br />
+kinetic energy of a particle is related to its<br />
+average velocity by the equation:<br />
+EQN: KE = ½ mv2<br />
+.<br />
+SAP-7.B.3<br />
+The Kelvin temperature of a sample of matter<br />
+is proportional to the average kinetic energy of<br />
+the particles in the sample.<br />
+SAP-7.B.4<br />
+The Maxwell-Boltzmann distribution provides<br />
+a graphical representation of the energies/<br />
+velocities of particles at a given temperature.<br />
+TOPIC 3.6<br />
+Deviation from<br />
+Ideal Gas Law<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SAP-7<br />
+Gas properties are explained macroscopically—using the relationships among<br />
+pressure, volume, temperature, moles, gas constant—and molecularly by the motion<br />
+of the gas.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLEDGE<br />
+SAP-7.C<br />
+Explain the relationship<br />
+among non-ideal behaviors<br />
+of gases, interparticle forces,<br />
+and/or volumes.<br />
+SAP-7.C.1<br />
+The ideal gas law does not explain the actual<br />
+behavior of real gases. Deviations from the<br />
+ideal gas law may result from interparticle<br />
+attractions among gas molecules, particularly<br />
+at conditions that are close to those resulting in<br />
+condensation. Deviations may also arise from<br />
+particle volumes, particularly at extremely<br />
+high pressures<br />
+TOPIC 3.7<br />
+Solutions and<br />
+Mixtures<br />
+Required Course Content<br />
+ENDURING UNDERSTANDING<br />
+SPQ-3<br />
+Interactions between intermolecular forces influence the solubility and<br />
+separation<br />
+of mixtures.<br />
+LEARNING OBJECTIVE ESSENTIAL KNOWLED&lt;|im_end|&gt;</p>
+
+                </div>
+            </div>
+                
+            <div class="conversation-turn">
+                <div class="turn-header" style="color: #7a1a1a">
+                    🤖 ASSISTANT
+                    <span class="metadata">(Finish: length)</span>
+                </div>
+            
+                <div class="turn-content">
+                    <p>Certainly! Below is a structured breakdown of the curriculum content for the<br />
+topics you've provided. This includes the Topic Titles, Enduring Understandings,<br />
+Learning Objectives, and Essential Knowledge statements.</p>
+
+<h3>Topic 1.1: Moles and Molar Mass</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SPQ-1:</strong> The mole allows different units to be compared.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SPQ-1.A:</strong> Calculate quantities of a substance or its relative number of particles using dimensional analysis and the mole concept.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SPQ-1.A.1:</strong> One cannot count particles directly while performing laboratory work. Thus, there must be a connection between the masses of substances reacting and the actual number of particles undergoing chemical changes.<br />
+- <strong>SPQ-1.A.2:</strong> Avogadro’s number (N = 6.022 × 10²³ mol⁻¹) provides the connection between the number of moles in a pure sample of a substance and the number of constituent particles (or formula units) of that substance.<br />
+- <strong>SPQ-1.A.3:</strong> Expressing the mass of an individual atom or molecule in atomic mass units (amu) is useful because the average mass in amu of one particle (atom or molecule) or formula unit of a substance will always be numerically equal to the molar mass of that substance in grams. Thus, there is a quantitative connection between the mass of a substance and the number of particles that the substance contains.<br />
+- <strong>EQN:</strong> n = m/M</p>
+
+<h3>Topic 1.2: Mass Spectroscopy of Elements</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SPQ-1:</strong> The mole allows different units to be compared.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SPQ-1.B:</strong> Explain the quantitative relationship between the mass spectrum of an element and the masses of the element’s isotopes.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SPQ-1.B.1:</strong> The mass spectrum of a sample containing a single element can be used to determine the identity of the isotopes of that element and the relative abundance of each isotope in nature.<br />
+- <strong>SPQ-1.B.2:</strong> The average atomic mass of an element can be estimated from the weighted average of the isotopic masses using the mass of each isotope and its relative abundance.<br />
+- <strong>X INTERPRETING MASS SPECTRA:</strong> Interpreting mass spectra of samples containing multiple elements or peaks arising from species other than singly charged monatomic ions will not be assessed on the AP Exam.</p>
+
+<h3>Topic 1.3: Elemental Composition of Pure Substances</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SPQ-2:</strong> Chemical formulas identify substances by their unique combination of atoms.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SPQ-2.A:</strong> Explain the quantitative relationship between the elemental composition by mass and the empirical formula of a pure substance.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SPQ-2.A.1:</strong> Some pure substances are composed of individual molecules, while others consist of atoms or ions held together in fixed proportions as described by a formula unit.<br />
+- <strong>SPQ-2.A.2:</strong> According to the law of definite proportions, the ratio of the masses of the constituent elements in any pure sample of that compound is always the same.<br />
+- <strong>SPQ-2.A.3:</strong> The chemical formula that lists the lowest whole number ratio of atoms of the elements in a compound is the empirical formula.</p>
+
+<h3>Topic 1.4: Composition of Mixtures</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SPQ-2:</strong> Chemical formulas identify substances by their unique combination of atoms.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SPQ-2.B:</strong> Explain the quantitative relationship between the elemental composition by mass and the composition of substances in a mixture.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SPQ-2.B.1:</strong> While pure substances contain molecules or formula units of a single type, mixtures contain molecules or formula units of two or more types, whose relative proportions can vary.<br />
+- <strong>SPQ-2.B.2:</strong> Elemental analysis can be used to determine the relative numbers of atoms in a substance and to determine its purity.</p>
+
+<h3>Topic 1.5: Atomic Structure and Electron Configuration</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SAP-1:</strong> Atoms and molecules can be identified by their electron distribution and energy.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SAP-1.A:</strong> Represent the electron configuration of an element or ions of an element using the Aufbau principle.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SAP-1.A.1:</strong> The atom is composed of negatively charged electrons and a positively charged nucleus that is made of protons and neutrons.<br />
+- <strong>SAP-1.A.2:</strong> Coulomb’s law is used to calculate the force between two charged particles.<br />
+- <strong>EQN:</strong> Fcoulombic ∝ q1 q2 / r²<br />
+- <strong>SAP-1.A.3:</strong> In atoms and ions, the electrons can be thought of as being in "shells (energy levels)" and "subshells (sublevels)," as described by the electron configuration. Inner electrons are called core electrons, and outer electrons are called valence electrons. The electron configuration is explained by quantum mechanics, as delineated in the Aufbau principle and exemplified in the periodic table of the elements.<br />
+- <strong>X THE ASSIGNMENT OF QUANTUM NUMBERS TO ELECTRONS IN SUBSHELLS OF AN ATOM WILL NOT BE ASSESSED ON THE AP EXAM.</strong><br />
+- <strong>SAP-1.A.4:</strong> The relative energy required to remove an electron from different subshells of an atom or ion or from the same subshell in different atoms or ions (ionization energy) can be estimated through a qualitative application of Coulomb’s law. This energy is related to the distance from the nucleus and the effective (shield) charge of the nucleus.</p>
+
+<h3>Topic 1.6: Photoelectron Spectroscopy</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SAP-1:</strong> Atoms and molecules can be identified by their electron distribution and energy.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SAP-1.B:</strong> Explain the relationship between the photoelectron spectrum of an atom or ion and:<br />
+  a. The electron configuration of the species.<br />
+  b. The interactions between the electrons and the nucleus.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SAP-1.B.1:</strong> The energies of the electrons in a given shell can be measured experimentally with photoelectron spectroscopy (PES). The position of each peak in the PES spectrum is related to the energy required to remove an electron from the corresponding subshell, and the height of each peak is (ideally) proportional to the number of electrons in that subshell.</p>
+
+<h3>Topic 1.7: Periodic Trends</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SAP-2:</strong> The periodic table shows patterns in electronic structure and trends in atomic properties.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SAP-2.A:</strong> Explain the relationship between trends in atomic properties of elements and electronic structure and periodicity.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SAP-2.A.1:</strong> The organization of the periodic table is based on the recurring properties of the elements and explained by the pattern of electron configurations and the presence of completely or partially filled shells (and subshells) of electrons in atoms.<br />
+- <strong>X WRITING THE ELECTRON CONFIGURATION OF ELEMENTS THAT ARE EXCEPTIONS TO THE AUFBAU PRINCIPLE WILL NOT BE ASSESSED ON THE AP EXAM.</strong><br />
+- <strong>SAP-2.A.2:</strong> Trends in atomic properties within the periodic table (periodicity) can be qualitatively understood through the position of the element in the periodic table, Coulomb’s law, the shell model, and the concept of shielding/effective nuclear charge. These properties include:<br />
+  a. Ionization energy<br />
+  b. Atomic and ionic radii<br />
+  c. Electron affinity<br />
+  d. Electronegativity.<br />
+- <strong>SAP-2.A.3:</strong> The periodicity (in SAP-2.A.2) is useful to predict/estimate values of properties in the absence of data.</p>
+
+<h3>Topic 1.8: Valence Electrons and Ionic Compounds</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SAP-2:</strong> The periodic table shows patterns in electronic structure and trends in atomic properties.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SAP-2.B:</strong> Explain the relationship between trends in the reactivity of elements and periodicity.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SAP-2.B.1:</strong> The likelihood that two elements will form a chemical bond is determined by the interactions between the valence electrons and nuclei of elements.<br />
+- <strong>SAP-2.B.2:</strong> Elements in the same column of the periodic table tend to form analogous compounds.<br />
+- <strong>SAP-2.B.3:</strong> Typical charges of atoms in ionic compounds are governed by their location on the periodic table and the number of valence electrons.</p>
+
+<h3>Topic 2.1: Types of Chemical Bonds</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SAP-3:</strong> Atoms or ions bond due to interactions between them, forming molecules.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SAP-3.A:</strong> Explain the relationship between the type of bonding and the properties of the elements participating in the bond.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SAP-3.A.1:</strong> Electronegativity values for the representative elements increase going from left to right across a period and decrease going down a group. These trends can be understood qualitatively through the electronic structure of the atoms, the shell model, and Coulomb’s law.<br />
+- <strong>SAP-3.A.2:</strong> Valence electrons shared between atoms of similar electronegativity constitute a nonpolar covalent bond. For example, bonds between carbon and hydrogen are effectively nonpolar even though carbon is slightly more electronegative than hydrogen.<br />
+- <strong>SAP-3.A.3:</strong> Valence electrons shared between atoms of unequal electronegativity constitute a polar covalent bond.<br />
+  a. The atom with a higher electronegativity will develop a partial negative<br />
+charge relative to the other atom in the bond.<br />
+  b. In single bonds, greater differences in electronegativity lead to greater<br />
+bond dipoles.<br />
+  c. All polar bonds have some ionic character, and the difference between ionic<br />
+and covalent bonding is not distinct but rather a continuum.<br />
+- <strong>SAP-3.A.4:</strong> The difference in electronegativity is not the only factor in determining if a bond should be designated as ionic or covalent. Generally, bonds between a metal and nonmetal are ionic, and bonds between two nonmetals are covalent. Examination of the properties of a compound is the best way to characterize the type of bonding.<br />
+- <strong>SAP-3.A.5:</strong> In a metallic solid, the valence electrons from the metal atoms are considered to be delocalized and not associated with any individual atom.</p>
+
+<h3>Topic 2.2: Intramolecular Force and Potential Energy</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SAP-3:</strong> Atoms or ions bond due to interactions between them, forming molecules.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SAP-3.B:</strong> Represent the relationship between potential energy and distance between atoms, based on factors that influence the interaction strength.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SAP-3.B.1:</strong> A graph of potential energy versus the distance between atoms is a useful representation for describing the interactions between atoms. Such graphs illustrate both the equilibrium bond length (the separation between atoms at which the potential energy is lowest) and the bond energy (the energy required to separate the atoms).<br />
+- <strong>SAP-3.B.2:</strong> In a covalent bond, the bond length is influenced by both the size of the atom’s core and the bond order (i.e., single, double, triple). Bonds with a higher order are shorter and have larger bond energies.<br />
+- <strong>SAP-3.B.3:</strong> Coulomb’s law can be used to understand the strength of interactions between cations and anions.<br />
+  a. Because the interaction strength is proportional to the charge on each ion,<br />
+larger charges lead to stronger interactions.<br />
+  b. Because the interaction strength increases as the distance between the<br />
+centers of the ions (nuclei) decreases, smaller ions lead to stronger<br />
+interactions.</p>
+
+<h3>Topic 2.3: Structure of Ionic Solids</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SAP-3:</strong> Atoms or ions bond due to interactions between them, forming molecules.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SAP-3.C:</strong> Represent an ionic solid with a particulate model that is consistent with Coulomb’s law and the properties of the constituent ions.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SAP-3.C.1:</strong> The cations and anions in an ionic crystal are arranged in a systematic, periodic 3-D array that maximizes the attractive forces among cations and anions while minimizing the repulsive forces.<br />
+- <strong>X KNOWLEDGE OF SPECIFIC TYPES OF CRYSTAL STRUCTURES WILL NOT BE ASSESSED ON THE AP EXAM.</strong></p>
+
+<h3>Topic 2.4: Structure of Metals and Alloys</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SAP-3:</strong> Atoms or ions bond due to interactions between them, forming molecules.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SAP-3.D:</strong> Represent a metallic solid and/or alloy using a model to show essential characteristics of the structure and interactions present in the substance.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SAP-3.D.1:</strong> Metallic bonding can be represented as an array of positive metal ions surrounded by delocalized valence electrons (i.e., a “sea of electrons”).<br />
+- <strong>SAP-3.D.2:</strong> Interstitial alloys form between atoms of different radii, where the smaller atoms fill the interstitial spaces between the larger atoms (e.g., with steel in which carbon occupies the interstices in iron).<br />
+- <strong>SAP-3.D.3:</strong> Substitutional alloys form between atoms of comparable radius, where one atom substitutes for the other in the lattice. (In certain brass alloys, other elements, usually zinc, substitute for copper.)</p>
+
+<h3>Topic 2.5: Lewis Diagrams</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SAP-4:</strong> Molecular compounds are arranged based on Lewis diagrams and Valence Shell Electron Pair Repulsion (VSEPR) theory.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SAP-4.A:</strong> Represent a molecule with a Lewis diagram.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SAP-4.A.1:</strong> Lewis diagrams can be constructed according to an established set of principles.</p>
+
+<h3>Topic 2.6: Resonance and Formal Charge</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SAP-4:</strong> Molecular compounds are arranged based on Lewis diagrams and Valence Shell Electron Pair Repulsion (VSEPR) theory.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SAP-4.B:</strong> Represent a molecule with a Lewis diagram that accounts for resonance between equivalent structures or that uses formal charge to select between nonequivalent structures.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SAP-4.B.1:</strong> In cases where more than one equivalent Lewis structure can be constructed, resonance must be included as a refinement to the Lewis structure. In many such cases, this refinement is needed to provide qualitatively accurate predictions of molecular structure and properties.<br />
+- <strong>SAP-4.B.2:</strong> The octet rule and formal charge can be used as criteria for determining which of several possible valid Lewis diagrams provides the best model for predicting molecular structure and properties.<br />
+- <strong>SAP-4.B.3:</strong> As with any model, there are limitations to the use of the Lewis structure model, particularly in cases with an odd number of valence electrons.</p>
+
+<h3>Topic 2.7: VSEPR and Bond Hybridization</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SAP-4:</strong> Molecular compounds are arranged based on Lewis diagrams and Valence Shell Electron Pair Repulsion (VSEPR) theory.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SAP-4.C:</strong> Based on the relationship between Lewis diagrams, VSEPR theory, bond orders, and bond polarities:<br />
+  a. Explain structural properties of molecules.<br />
+  b. Explain electron properties of molecules.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SAP-4.C.1:</strong> VSEPR theory uses the Coulombic repulsion between electrons as a basis for predicting the arrangement of electron pairs around a central atom.<br />
+- <strong>SAP-4.C.2:</strong> Both Lewis diagrams and VSEPR theory must be used for predicting electronic and structural properties of many covalently bonded molecules and polyatomic ions, including the following:<br />
+  a. Molecular geometry<br />
+  b. Bond angles<br />
+  c. Relative bond energies based on bond order<br />
+  d. Relative bond lengths (multiple bonds, effects of atomic radius)<br />
+  e. Presence of a dipole moment<br />
+  f. Hybridization of valence orbitals of the molecule<br />
+- <strong>SAP-4.C.3:</strong> The terms “hybridization” and “hybrid atomic orbital” are used to describe the arrangement of electrons around a central atom. When the central atom is sp hybridized, its ideal bond angles are 180°; for sp² hybridized atoms the bond angles are 120°; and for sp³ hybridized atoms the bond angles are 109.5°.<br />
+- <strong>X AN UNDERSTANDING OF THE DERIVATION AND DEPICTION OF HYBRID ORBITALS WILL NOT BE ASSESSED ON THE AP EXAM.</strong><br />
+- <strong>X HYBRIDIZATION INVOLVING D ORBITALS WILL NOT BE ASSESSED ON THE AP EXAM.</strong><br />
+- <strong>SAP-4.C.4:</strong> Bond formation is associated with overlap between atomic orbitals. In multiple bonds, such overlap leads to the formation of both sigma and pi bonds. The overlap is stronger in sigma than pi bonds, which is reflected in sigma bonds having greater bond energy than pi bonds. The presence of a pi bond also prevents the rotation of the bond and leads to structural isomers.<br />
+- <strong>X MOLECULAR ORBITAL THEORY IS RECOMMENDED AS A WAY TO PROVIDE DEEPER INSIGHT INTO BONDING. HOWEVER, THE AP EXAM WILL NEITHER EXPLICITLY ASSESS MOLECULAR ORBITAL DIAGRAMS, FILLING OF MOLECULAR ORBITALS, NOR THE DISTINCTION BETWEEN BONDING, NONBONDING, AND ANTIBONDING ORBITALS.</strong></p>
+
+<h3>Topic 3.1: Intermolecular Forces</h3>
+
+<p><strong>Enduring Understanding:</strong><br />
+- <strong>SAP-5:</strong> Intermolecular forces can explain the physical properties of a material.</p>
+
+<p><strong>Learning Objective:</strong><br />
+- <strong>SAP-5.A:</strong> Explain the relationship between the chemical structures of molecules and the relative strength of their intermolecular forces when:<br />
+  a. The molecules are of the same chemical species.<br />
+  b. The molecules are of two different chemical species.</p>
+
+<p><strong>Essential Knowledge:</strong><br />
+- <strong>SAP-5.A.1:</strong> London dispersion forces are a result of the</p>
+
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+        </body>
+        </html>
