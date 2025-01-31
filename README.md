@@ -35,3 +35,19 @@ Our `plotting` notebook reproduces the plots associated with this paper. The `co
 ## Licensing
 
 All code and data authored by us is released under the Apache 2.0 License. All data not authored by us is subject to its original license(s).
+
+## Citation
+
+If you find our work useful, please consider citing us!
+
+```
+@misc{feuer2025wildchat50mdeepdiverole,
+      title={WILDCHAT-50M: A Deep Dive Into the Role of Synthetic Data in Post-Training}, 
+      author={Benjamin Feuer and Chinmay Hegde},
+      year={2025},
+      eprint={2501.18511},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2501.18511}, 
+}
+```
